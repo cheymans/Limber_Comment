@@ -21,28 +21,28 @@ When a survey is sufficiently small, a flat-sky approximation can be made reduci
  \begin{table}[htb]
 \label{tab:Tl_nu}
 \begin{center}
-\begin{tabular}{ | l | c | c  | c |}
+\begin{tabular}{ | l | l | c | c  | c |}
 \hline
-Case & $T_\ell$ & $\nu$ & Used in \\ \hline
-\citet{kitching/etal:2016} `Standard' & $1$ & $\ell$ & pre-2014 CFHTLenS papers \\
-Baseline Limber Flat Sky &  $\ell^4 / (\ell + 0.5)^4$ & $\ell$ & \\
-Baseline Limber Spherical & equation~\ref{eqn:Tl} & $\ell$ & \\
-Extended Limber Flat Sky & $\ell^4 / (\ell + 0.5)^4$ & $\ell + 0.5$ & \\
-Extended Limber Spherical & equation~\ref{eqn:Tl}& $\ell + 0.5$  & \\
-Extended `Standard' & $1$ & $\ell + 0.5$ & \citet{joudaki/etal:2016} \&  \\
-  & & & \citet{hildebrandt/etal:2016}$^*$\\\hline
+Case & ID & $T_\ell$ & $\nu$ & Used in \\ \hline
+\citet{kitching/etal:2016} `Standard' & KSt & $1$ & $\ell$ & pre-2014 CFHTLenS papers \\
+Baseline Limber `Flat' Sky &  LF & $\ell^4 / (\ell + 0.5)^4$ & $\ell$ & \\
+Baseline Limber Spherical & LS & equation~\ref{eqn:Tl} & $\ell$ & \\
+Extended Limber `Flat' Sky & ELF & $\ell^4 / (\ell + 0.5)^4$ & $\ell + 0.5$ & \\
+Extended Limber Spherical & ELS & equation~\ref{eqn:Tl}& $\ell + 0.5$  & \\
+Extended Standard Flat Sky & ESt & $1$ & $\ell + 0.5$ & \citet{joudaki/etal:2016} \&  \\
+  &  & & & \citet{hildebrandt/etal:2016}$^*$\\\hline
  \end{tabular}
  \end{center}
- \caption{Variations on the different approximations that can be made when calculating the convergence power spectrum $P_\kappa(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.  $^*$We confirm that there is a typographical error in equation 4 of \citet{hildebrandt/etal:2016} which does not include the extra term of `$+0.5$' in $\nu$ that was incorporated in the cosmological analysis.}  
+ \caption{Variations on the different approximations that can be made when calculating the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.  $^*$We apologise for the typographical error in equation 4 of \citet{hildebrandt/etal:2016} which should include the extra term of `$+0.5$' in $\nu$ that was incorporated in the cosmological analysis.} 
  \end{table}
 
 {\bf TBD: add figures of $P_\kappa$ and $\xi_\pm$ for all these combinations showing that they make absolutely no difference.}
  
  \begin{figure}
  \begin{center}
- \includegraphics[width=0.5\textwidth]{figures/Cl_xi_comp.pdf}
+ \includegraphics[width=0.75\textwidth]{figures/Cl_xi_comp.pdf}
  \label{fig:Cl_xi}
- \caption{\emph{Top:} Theoretical models of the $\kappa$ power spectrum (\emph{left}) and shear correlation function $\xi_+$ (\emph{right})for the different approximations discussed in \citet{kitching/etal:2016}. \emph{Bottom:} Deviations with respect to the full treatment (LSH).\red{ Fig 3 in Kitching et al. is showing $C_\ell$ not $\ell(\ell+1)/2\pi C_\ell$. Would be better to show the same thing here ($C_\ell$ instead of $\ell C_\ell$ with the same axes range).} }
+ \caption{\emph{Upper Panels:} Theoretical models for the shear power spectrum (\emph{left}) and shear correlation function $\xi_+$ (\emph{right}) for the different approximations listed in Table~\ref{tab:Tl_nu}. \emph{Lower Panels:} Deviations with respect to the full treatment (ELS).}
  \end{center}
  \end{figure}
  
