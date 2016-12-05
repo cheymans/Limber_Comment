@@ -4,16 +4,17 @@ The baseline measurement for many cosmic shear studies has focused on the two-po
 \xi_\pm^{ij}(\theta) = \frac{1}{2\pi}\int \d\ell \,\ell \,P^{ij}_\kappa(\ell) \, J_{0,4}(\ell \theta) \, , 
 \label{eqn:xiGG}
 \ee
-where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\kappa(\ell)$ is the convergence power spectrum at angular wave number $\ell$ which can be related to the underlying matter power spectrum $P_\delta$, using a Limber approximation as,
+where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\kappa(\ell)$ is the convergence power spectrum (\shahab{should we perhaps rename this as the shear power spectrum as only equal to convergence power spectrum in the flat-sky limit, which we will not always use?}) at angular wave number $\ell$ which can be related to the underlying matter power spectrum $P_\delta$, using a Limber approximation as,
 \be 
 P^{ij}_\kappa(\ell) = T_l \int_0^{\chi_{\rm H}} \d \chi \, \frac{q_i(\chi)q_j(\chi)}{[f_K(\chi)]^2} \, P_\delta \left( \frac{\nu}{f_K(\chi)},\chi \right).
 \label{eqn:Pkappa} 
 \ee
-Here $f_K(\chi)$ is the comoving angular diameter distance out to comoving radial distance $\chi$ and $\chi_{\rm H}$ is the comoving horizon distance.  The lensing efficiency function $q(\chi)$ is given in equation (5) of \citet{hildebrandt/etal:2016}.   \citet{kitching/etal:2016} show that the pre-factor $T_\ell$ is given by
+Here $f_K(\chi)$ is the comoving angular diameter distance out to comoving radial distance $\chi$ and $\chi_{\rm H}$ is the comoving horizon distance.  The lensing efficiency function $q(\chi)$ is given in equation (5) of \citet{hildebrandt/etal:2016}.   \citet{kitching/etal:2016} show that the pre-factor $T_\ell$ \shahab{for the shear power spectrum} is given by
 \be
 T_\ell = \frac{(\ell+2)(\ell+1)\ell(\ell-1)}{(\ell + 0.5)^4} \, .
 \label{eqn:Tl}
 \ee
+\shahab{The corresponding pre-factor for the convergence power spectrum (along with the pre-factors for a range of other statistics such as the CMB lensing power spectrum and galaxy-galaxy lensing power spectrum) is given in \citet{jk12}.}
 When a survey is sufficiently small, a flat-sky approximation can be made reducing $T_\ell \approx 1$.  The value of $\nu$ depends on whether a baseline Limber approximation, or the more accurate extended Limber approximation of \citet{loverde/afshordi:2008} is used.  In the analysis of \citet{kitching/etal:2016} it is not fully clear which combinations of  $T_\ell$ and $\nu$ are considered, so we review them all as summarised in Table~\ref{tab:Tl_nu}, also highlighting which combinations were used in recent cosmic shear analyses.
 
  \begin{table}[htb]
@@ -33,6 +34,9 @@ Extended `Standard' & $1$ & $\ell + 0.5$ & \citet{joudaki/etal:2016} \&  \\
  \end{center}
  \caption{Variations on the different approximations that can be made when calculating the convergence power spectrum $P_\kappa(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.  $^*$We confirm that there is a typographical error in equation 4 of \citet{hildebrandt/etal:2016} which does not include the extra term of `$+0.5$' in $\nu$ that was incorporated in the cosmological analysis.}  
  \end{table}
+
+%perhaps include Joudaki & Kaplinghat (2012) reference here instead:
+%\shahab{We further note that \citet{kitching/etal:2016} were not the first to consider the pre-factor from the extended Limber approximation and all-sky formulation of the power spectrum. For example, the corresponding pre-factor for the convergence power spectrum, along with the pre-factors for a range of other statistics such as the CMB lensing power spectrum and galaxy-galaxy lensing power spectrum, were given in \citet{jk12}.}
 
 {\bf TBD: add figures of $P_\kappa$ and $\xi_\pm$ for all these combinations showing that they make absolutely no difference.}
  
