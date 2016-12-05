@@ -1,3 +1,18 @@
+\begin{figure}[htb]
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=0.31\textwidth]{figures/IntegKsip.pdf} &
+\includegraphics[width=0.31\textwidth]{figures/IntegCOSEBIs.pdf} &
+\includegraphics[width=0.31\textwidth]{figures/IntegMap.pdf}
+\end{tabular}
+\caption{ \label{fig:filters}. Integrand of $\xi_+$, $E_1$ (E-COSEBIs) and $M^2_{\rm ap}$, respectively.
+Two cases are shown for each statistic and listed in each caption.
+For the aperture mass statistic $\theta_{\rm max}=2\theta$ is shown. 
+Note that higher order COSEBIs modes generally probe larger $\ell$-modes, hence here we only show the lowest mode $E_1$. All the values are normalized with respect to their maximum value. 
+}
+\end{center}
+\end{figure}
+
 The Canada-France-Hawaii Telescope Lensing Survey (CFHTLenS) represented a major step forward for the field of weak gravitational lensing, in terms of improved accuracy in data reduction \citep{erben/etal:2013}, the implementation of Gaussianised matched multi-band photometry \citep{hildebrandt/etal:2012}, cross-correlation clustering analysis between photometric redshift slices to verify tomographic redshift distributions \citep{benjamin/etal:2013}, accurate calibrated shape measurements \citep{miller/etal:2013} and a full suite of informative systematic tests to select a clean data set \citep{heymans/etal:2012}.    Since the public release of this survey in 2013, the community has continued to scrutinise and advance our understanding of CFHTLenS by identifying a number of areas where analyses could improve:
 \begin{itemize}
 \item{\citet{choi/etal:2016} identified biases in the tomographic photometric redshift distributions using a more effective clustering analysis, in comparison to \citet{benjamin/etal:2013}, by incorporating newly overlapping spectroscopy from the Sloan Digital Sky Survey.  The CFHTLenS tomographic cosmological analysis was then revisited by \citet{joudaki/etal:2016} in order to include a full redshift error analysis based on the results from \citet{choi/etal:2016}, discussed further in section~\ref{sec:photoz}.}
@@ -24,18 +39,6 @@ the maximum $\theta$ is $350'$.} of $\xi_+$ for $\theta=100'$ and $\theta=350'$.
 From Figure~\ref{fig:filters} we can see that the two-point cosmic shear statistics tested by \citet{kilbinger/etal:2013} exhibit different dependences between the angular scales sampled and the $\ell$-range probed.   
 If a significant bias had been introduced at low-$\ell$ by using flat-sky and Limber approximations, we would then expect to see a systematic shift between the different two-point statistics with the COSEBIs statistic being essentially unaffected as it only includes modes with $\ell \gtrsim 80$.  This is found not to be the case with all three statistics finding $\sigma_8 (\Omega_m/0.27)^\alpha = 0.79$ with errors that range from $0.03$ to $0.06$ \citep[see Table 5 of][]{kilbinger/etal:2013}.  This comparison further supports our argument that the approximations highlighted by \citet{kitching/etal:2016} have negligible impact for current surveys.
 
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{figures/IntegKsip.pdf}\\
-\includegraphics[width=0.5\textwidth]{figures/IntegCOSEBIs.pdf}\\
-\includegraphics[width=0.5\textwidth]{figures/IntegMap.pdf}
-\caption{ \label{fig:filters}. Integrand of $\xi_+$, $E_1$ (E-COSEBIs) and $M^2_{\rm ap}$, respectively.
-All the values are normalized with respect to their maximum value. Two cases are shown for each statistic. 
-For COSEBIs this is an angular range indicated in the caption. For aperture mass statistic $\theta_{\rm max}=2\theta$ is shown.
-Note that higher order COSEBIs modes generally probe larger $\ell$-modes, hence here we only show the lowest mode $E_1$. 
-}
-\end{center}
-\end{figure}
 
 \subsection{On the Validation of Methods on Simulations}
 It is discussed in \citet{kitching/etal:2016} that the validation of cosmic shear estimators on mock catalogues could also be affected by the approximations they investigate.  We agree that a full sky mock should be compared to a full curved sky non-Limber prediction.  It is then suggested, however, that the discrepancies already reported between existing mocks and the predictions could be attributed to these approximations, as opposed to a finite box effect \citep{kiessling/etal:2011, harnois-deraps/etal:2012, harnois-deraps/vanwaerbeke:2015}.  Going beyond flat sky and Limber could improve the agreement, however this cannot explain the results of \citet{harnois-deraps/vanwaerbeke:2015} who demonstrate that the large scale under-estimation of power varies with the simulation box size. This volume effect was verified by comparing explicitly the $\xi_+$ statistic at large angular scales between simulation volumes with box sides = 147Mpc/h and 515Mpc/h \citep[see Fig. 5 in][]{harnois-deraps/vanwaerbeke:2015}. The increase of power loss with decreasing box size was shown to be fully-modelled by excluding the super-box $k$-modes in the Limber predictions, something that the approximations discussed in \citet{kitching/etal:2016} would be unable to explain.
