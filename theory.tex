@@ -6,17 +6,17 @@ The baseline measurement for many cosmic shear studies has focused on the two-po
 \ee
 where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\gamma(\ell)$ is the shear power spectrum at angular wave number $\ell$ which can be related to the underlying matter power spectrum $P_\delta$, using a Limber approximation as,
 \be 
-P^{ij}_\gamma(\ell) = T_l \int_0^{\chi_{\rm H}} \d \chi \, \frac{q_i(\chi)q_j(\chi)}{[f_K(\chi)]^2} \, P_\delta \left( \frac{\nu}{f_K(\chi)},\chi \right).
+P^{ij}_\gamma(\ell) = T_l \int_0^{\chi_{\rm H}} \d \chi \, \frac{q_i(\chi)q_j(\chi)}{[f_K(\chi)]^2} \, P_\delta \left( \frac{\nu(\ell)}{f_K(\chi)},\chi \right).
 \label{eqn:Pkappa} 
 \ee
-Here $f_K(\chi)$ is the comoving angular diameter distance out to comoving radial distance $\chi$ and $\chi_{\rm H}$ is the comoving horizon distance.  The lensing efficiency function $q(\chi)$ is given in equation (5) of \citet{hildebrandt/etal:2016}.   \citet{kitching/etal:2016} show that the pre-factor $T_\ell$ for the shear power spectrum is given by
+Here $f_K(\chi)$ is the comoving angular diameter distance out to comoving radial distance $\chi$ and $\chi_{\rm H}$ is the comoving horizon distance.   The lensing efficiency function $q(\chi)$ is given in equation (5) of \citet{hildebrandt/etal:2016}, and the value of $\nu(\ell)$ depends on whether a baseline Limber approximation ($\nu(\ell) = \ell$), or the more accurate extended Limber approximation ($\nu(\ell) = \ell + 0.5$) from \citet{loverde/afshordi:2008} is used.   \citet{kitching/etal:2016} show that the pre-factor $T_\ell$ for the shear power spectrum is given by
 \be
 T_\ell = \frac{(\ell+2)(\ell+1)\ell(\ell-1)}{(\ell + 0.5)^4} \, .
 \label{eqn:Tl}
 \ee
 The corresponding pre-factor for the convergence power spectrum, along with the pre-factors for a range of other statistics such as the CMB lensing power spectrum and galaxy-galaxy lensing power spectrum, is given in \citet{jk12}.
 
-When a survey is sufficiently small, a flat-sky approximation can be made reducing $T_\ell \approx 1$.  The value of $\nu$ depends on whether a baseline Limber approximation, or the more accurate extended Limber approximation of \citet{loverde/afshordi:2008} is used.  In the text of \citet{kitching/etal:2016} it is not fully clear which combinations of  $T_\ell$ and $\nu$ are considered, so we review them all as summarised in Table~\ref{tab:Tl_nu}, also highlighting which combinations were used in recent cosmic shear analyses.
+When a survey is sufficiently small, a flat-sky approximation can be made reducing $T_\ell \approx 1$.  In \citet{kitching/etal:2016} it is not fully clear which combinations of  $T_\ell$ and $\nu(\ell)$ are considered, so we review them all as summarised in Table~\ref{tab:Tl_nu}, also highlighting which combinations were used in recent cosmic shear analyses.
 
  \begin{table}[htb]
 \label{tab:Tl_nu}
@@ -33,7 +33,7 @@ Extended Standard Flat Sky & ESt & $1$ & $\ell + 0.5$ & \citet{joudaki/etal:2016
   &  & & & \citet{hildebrandt/etal:2016}$^*$\\\hline
  \end{tabular}
  \end{center}
- \caption{Variations on the different approximations that can be made when calculating the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.  $^*$We apologise for the typographical error in equation 4 of \citet{hildebrandt/etal:2016} which should include the extra term of `$+0.5$' in $\nu$ that was incorporated in the cosmological analysis.} 
+ \caption{Variations on the different approximations that can be made when calculating the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.  $^*$We confirm that there is a typographical error in equation 4 of \citet{hildebrandt/etal:2016} which should include the extra term of `$+0.5$' in $\nu$ that was incorporated in the cosmological analysis.} 
  \end{table}
 
 Figure~\ref{fig:Cl_xi} shows theoretical models for the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), and the shear correlation function (equation~\ref{eqn:xiGG}) for the different variations on the approximations listed in Table~\ref{tab:Tl_nu}.   The majority of the models agree.  The two outliers found, are the `Baseline' and `Extended' Limber cases where the \citet{kitching/etal:2016} `Flat' Sky approximation has been made with $T_\ell = \ell^4 / (\ell + 0.5)^4$.    We argue that applying the approximation, that $\ell \pm x \approx \ell$, where $x$ is small, only to the numerator of equation~\ref{eqn:Tl} is inconsistent.    To our knowledge, this form of the flat-sky approximation has not been used in cosmic shear studies to date.
@@ -44,7 +44,7 @@ As shown in the lower panels of Figure~\ref{fig:Cl_xi}, the `standard flat' sky 
  \begin{center}
  \includegraphics[width=0.85\textwidth]{figures/Cl_xi_comp.pdf}
  \label{fig:Cl_xi}
- \caption{\emph{Upper Panels:} Theoretical models for the shear power spectrum (\emph{left}) and shear correlation function $\xi_+$ (\emph{right}) for the different approximations listed in Table~\ref{tab:Tl_nu}, assuming a \citet{planck/cosmo:2015} cosmology and the 2D CFHTLenS redshift distribution. \emph{Lower Panels:} Deviations with respect to the extended Limber spherical sky model (ELS).    The dashed lines in the left panels show the largest angular scale used in the recent KIDS cosmic shear analysis where an Extended Standard (ESt) analysis was used.}
+ \caption{\emph{Upper Panels:} Theoretical models for the shear power spectrum (\emph{left}) and shear correlation function $\xi_+$ (\emph{right}) for the different approximations listed in Table~\ref{tab:Tl_nu}, assuming a \citet{planck/cosmo:2015} cosmology and the 2D CFHTLenS redshift distribution. \emph{Lower Panels:} Deviations with respect to the extended Limber spherical sky model (ELS).    The dashed lines in the right panels show the largest angular scale used in the recent KIDS cosmic shear analysis where an Extended Standard (ESt) analysis was used.}
  \end{center}
  \end{figure}
  
