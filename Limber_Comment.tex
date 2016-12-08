@@ -1,10 +1,18 @@
-\documentclass[preprint]{aastex}
+%\documentclass[a4paper,preprint, fleqn]{aastex}
+\documentclass[a4paper, preprint, fleqn, usenatbib]{aastex}
 \usepackage{graphicx}   % Including figure files
-\usepackage{amsmath}    % Advanced maths comm
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
 \usepackage{color,verbatim,url}
 \usepackage{tabularx}
-\usepackage[table,usenames,dvipsnames]{xcolor}\usepackage{pdflscape}
+\usepackage[table,usenames,dvipsnames]{xcolor}
+\usepackage{pdflscape}
 \usepackage{lastpage}
+\usepackage{newtxtext, newtxmath}
+
+\usepackage[T1]{fontenc}
+\usepackage{ae, aecompl}
+
 
 \definecolor{pink}{rgb}{0.858, 0.188, 0.478}
 \definecolor{purple}{RGB}{76, 0,153}
@@ -20,14 +28,16 @@
 \newcommand{\mb}[1]{\mbox{ #1 }}  
 \newcommand{\ba}{\begin{eqnarray}}\newcommand{\ea}{\end{eqnarray}}
 \newcommand{\bm}[1]{\mbox{\boldmath{$#1$}}}   %this is bold italic for MNRAS
-\newcommand{\mat}[1]{\mathbfss{#1}}
+%\newcommand{\mat}[1]{\mathbfss{#1}}
+\newcommand{\diff}{\mathrm{d}}
+
 
 \begin{document}
 
 \title{\huge{Comment on `The Limits of Cosmic Shear'}}
 
 \author{Members of the KiDS, CFHTLenS and RCSLenS collaborations; \\
-C. Heymans, M. Asgari, S. Joudaki, J. Harnois-D\'eraps, H. Hildebrandt, M. Kilbinger, F. K\"ohlinger, K. Kuijken, P. Schneider, P. Simon, L. Van Waerbeke, M. Viola}%\altaffilmark{1} ....}
+M. Asgari, J. Harnois-D\'eraps, C. Heymans, H. Hildebrandt, S. Joudaki,  M. Kilbinger, F. K\"ohlinger, K. Kuijken, P. Schneider, P. Simon, L. Van Waerbeke, M. Viola}%\altaffilmark{1} ....}
 %\email{tbd@tbd}
 
 %\altaffiltext{1}{}
