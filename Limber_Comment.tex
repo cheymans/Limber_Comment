@@ -1,5 +1,6 @@
 %\documentclass[a4paper,preprint, fleqn]{aastex}
-\documentclass[a4paper, preprint, fleqn, usenatbib]{aastex}
+%\documentclass[a4paper, preprint, fleqn, usenatbib]{aastex}
+\documentclass[fleqn, usenatbib]{mnras}
 \usepackage{graphicx}   % Including figure files
 \usepackage{amsmath}	% Advanced maths commands
 \usepackage{amssymb}	% Extra maths symbols
@@ -12,7 +13,6 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{ae, aecompl}
-
 
 \definecolor{pink}{rgb}{0.858, 0.188, 0.478}
 \definecolor{purple}{RGB}{76, 0,153}
@@ -31,22 +31,35 @@
 %\newcommand{\mat}[1]{\mathbfss{#1}}
 \newcommand{\diff}{\mathrm{d}}
 
+\title[Comment on `The Limits of Cosmic Shear']{Comment on `The Limits of Cosmic Shear'}
+
+\input{authors}
+
+\date{Released 16/12/2016}
+
+\pagerange{\pageref{firstpage}--\pageref{LastPage}} \pubyear{2016}
 
 \begin{document}
+\setlength{\voffset}{-12mm}
 
-\title{\huge{Comment on `The Limits of Cosmic Shear'}}
+\label{firstpage}
 
-\author{Members of the KiDS, CFHTLenS and RCSLenS collaborations; \\
-J. Harnois-D\'eraps, C. Heymans, H. Hildebrandt, S. Joudaki,  M. Kilbinger, F. K\"ohlinger, K. Kuijken, P. Schneider, P. Simon, L. Van Waerbeke, M. Viola}%\altaffilmark{1} ....}
-%\email{tbd@tbd}
-%M. Asgari, 
-
-%\altaffiltext{1}{}
+\maketitle
 
 \begin{abstract}
+
+%\author{Members of the KiDS, CFHTLenS and RCSLenS collaborations; \\
+%J. Harnois-D\'eraps, C. Heymans, H. Hildebrandt, S. Joudaki,  M. Kilbinger, F. K\"ohlinger, K. Kuijken, P. Schneider, P. Simon, L. Van Waerbeke, M. Viola}%
+
 Kitching et al. (2016) examine the impact of the flat-sky and Limber approximations that can be used when constraining cosmological parameters from the measurement of weak gravitational lensing by large-scale structures, also known as cosmic shear.  We support the core message of this paper that the use of such approximations should be considered in the future analyses of high precision surveys such as Euclid, LSST and WFIRST.  In this comment, we argue that these approximations have negligible impact for current surveys and are thus unable to significantly reduce the tension between the constraints from some current weak lensing surveys and the Planck CMB experiment.  Reducing uncertainty and characterising bias in photometric redshift estimation is a critical task for the success of current and future surveys.  We highlight that sophisticated treatments of these uncertainties have already been explored in the literature and have been shown not to resolve the tension with Planck, in contrast to the message that Kitching et al. (2016) convey.
 
 \end{abstract}
+
+\begin{keywords}
+cosmology: observations -- gravitational lensing: weak -- galaxies: photometry -- surveys
+\end{keywords}
+
+
 \section{Introduction}
 
 The measurement of weak gravitational lensing by large-scale structures provides a powerful cosmological probe of dark matter, dark energy, and modifications to gravity.  As such it is the primary science goal of several current (KiDS, HSC, DES) and future (Euclid, LSST, WFIRST) large-scale surveys. Interest in the results from these surveys is high as statistically significant deviations have been found between the cosmological parameter constraints from the CMB Planck experiment \citep{planck/cosmo:2015} in comparison to weak lensing constraints from both the Kilo-Degree Survey \citep[KiDS;][]{hildebrandt/etal:2016} and the Canada-France-Hawaii Telescope Lensing Survey \citep[CFHTLenS;][] {joudaki/etal:2016}.  If the source of this tension is not a result of so-far unconsidered sources of systematic errors in one or all experiments, extensions to the standard flat $\Lambda$CDM cosmological models need to be considered.  \citet{joudaki/etal:2017} have shown, for example, that the tension can be resolved with an evolving dark energy model.
