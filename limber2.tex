@@ -1,0 +1,1027 @@
+\documentclass[useAMS,usenatbib]{mn2e} %
+\pdfoutput=1
+
+%% Packages
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{bm,color}% bold math
+%\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{footnote}
+%\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+\bibpunct{(}{)}{;}{a}{}{,}
+
+\onecolumn
+
+\pagestyle{empty}
+\usepackage{psfrag, epsfig}
+
+
+\newcommand{\ellbar}{\hbox{\it \l}\,}
+\newcommand{\pref}{{\cal A}}
+\newcommand{\edth}{\,\eth\,}
+\renewcommand{\vec}{\bm}
+
+\newcommand{\mk}[1]{{\bf\textcolor{blue}{#1}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[]
+{Precision calculations of the cosmic shear power spectrum projection}
+
+\author[M.~Kilbinger et~al.]
+ {
+  \parbox[h]{\textwidth}
+  {
+      Martin Kilbinger$^{1,2}$\thanks{E-mail: martin.kilbinger@cea.fr},
+      Catherine Heymans,
+      Peter Schneider,
+      Shahab Joudaki,
+      Marika Asgari,
+      and other members of CFHTLenS and KiDS
+      $\ldots$,
+  }
+  % 
+  \vspace*{10pt} \\
+  \hspace{-.1cm}$^1$ CEA/Irfu/SAp Saclay, Laboratoire AIM, 91191 Gif-sur-Yvette, France\\
+  \hspace{-.1cm}$^2$ Institut d'Astrophysique de Paris, UMR7095 CNRS,
+           Universit\'e Pierre \& Marie Curie, 98 bis boulevard Arago, 75014 Paris,
+           France \\
+ }
+
+\voffset-0.50in
+
+
+\date{\today}
+
+\pagerange{\pageref{firstpage}--\pageref{lastpage}} \pubyear{2017}
+
+\maketitle
+
+\label{firstpage}
+
+
+\begin{abstract}
+
+We compute the spherical-sky weak-lensing power spectrum of the shear and
+convergence. We discuss various approximations, such as flat-sky, first- and
+second-order Limber equations for the projection. We show that the spherical
+second-order Limber approximation agrees with the full projection at the
+percent level for $\ell > 3$. for current surveys. The real-space shear
+correlation functions show excellent agreement between all cases. The
+consequence for parameter constraints are negligible for current surveys, which
+we demonstrate using CFHTLenS data. In particular, the reported tension with
+Planck CMB temperature anisotropy results cannot be alleviated. This is in
+contrast to the recent claim made by \citet{2016arXiv161104954K}. In the spirit
+of reproducible research, our numerical implementation of all approximations
+and the full projection are publically available within the package
+\texttt{nicaea} at \texttt{http://www.cosmostat.org/software/nicaea}.
+
+\end{abstract}
+
+\begin{keywords}
+cosmological parameters -- methods: statistical
+\end{keywords}
+
+\input abbr-journals
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The measurement of weak gravitational lensing by large-scale structures
+provides a powerful cosmological probe of dark matter, dark energy, and
+modifications to gravity.  As such it is the primary science goal of several
+current (KiDS, HSC, DES) and future (Euclid, LSST, WFIRST) large surveys.
+Interest in the results from these surveys is high as statistically significant
+deviations have been found between the cosmological parameter constraints from
+the CMB Planck experiment \citep{2015arXiv150201589P} in comparison to weak
+lensing constraints from both the Kilo-Degree Survey \citep[KiDS;][]{KiDS-450}
+and the Canada-France-Hawaii Telescope Lensing Survey
+\citep[CFHTLenS;][]{2016arXiv160105786J}.  If the source of this tension is not
+a result of so-far unconsidered sources of systematic errors in one or all
+experiments, extensions to the standard flat $\Lambda$CDM cosmological models
+need to be considered. \citet{joudaki/etal:2017} have shown, for example, that
+the tension can be resolved with an evolving dark energy model.
+
+In the era of the upcoming large surveys that will provide measurements of
+cosmic shear with unprecedented precision, one needs to revisit the theoretical
+model predictions of the observables to make sure that the accuracy of the
+models meet the upcoming data. In this paper, we examine the widely used Limber
+approximation for the projected weak-lensing power spectrum. We consider
+spherical coordinates and the flat-sky approximation, and compute the full
+projection as well as first- and second-order Limber approximation. We show
+that the latter is an excellent approximation of the full projection. Since it
+involves only 1D integrals over the matter power specrum, it is very fast to
+calculate numerically and can readily employed in Monte-Carlo sampling methods
+to obtain precision constraints on cosmological parameters.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Weak-lensing projections and power spectra}
+\label{sec:wl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section we review the basic weak-lensing projection expressions, and
+compute lensing power spectra for a spherical case, and in the flat-sky
+approximation. Derivations for those expressions can be found in the appendix.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The lensing potential}
+\label{sec:psi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+The lensing potential $\psi$ in the Born approximation is defined as the
+projected 3D metric potential $\Phi$ along the line of sight
+\citep{1998ApJ...498...26K,BS01},
+%
+% Hu00 (21,22) with minus sign
+%
+\begin{equation}
+  \psi(\theta, \varphi) = \frac 2 {{\rm c}^2} \int_0^{\chi_{\rm lim}} \frac{{\rm d}\chi}{\chi}
+    \Phi[\chi, f_K(\chi) \theta, f_K(\chi) \varphi; \chi] \, q(\chi),
+  \label{eq:psi}
+\end{equation}
+%
+where the lensing efficiency $q$ is given by
+%
+\begin{equation}
+  q(\chi) = \int\limits_\chi^{\chi_{\rm lim}} {\rm d} \chi^\prime \, n(\chi^\prime)
+    \frac{f_K(\chi^\prime - \chi)}{f_K(\chi^\prime)},
+  %
+  \label{eq:lens_efficiency}
+\end{equation}
+%
+corresponding to a population of lensed galaxies with source redshift
+distribution $n(z) {\rm d}z = n(\chi) {\rm d} \chi$. Here, ${\rm c}$ is the
+speed of light, the projection is carried out over comoving distances $\chi$ up
+to a limiting distance $\chi_{\rm lim}$, and $f_K$ is the the comoving angular
+distance, which depend on the spatial curvature of the Universe $K$.
+%
+This assumes a homogeneous galaxy distribution without clustering, so that the
+redshift distribution in this approximation does not depend on the position
+$(\theta, \varphi)$. Accounting for this position dependence leads to
+correction of weak-lensing quantities due to clustering of source galaxies with
+other sources \citep{2002A&A...389..729S}, and with galaxies associated with
+lens structures \citep{1998A&A...338..375B,H02}.
+
+The 3D potential is related to the density contrast $\delta$ via the Poisson
+equation. Assuming General Relativity, this relation is written in Fourier space as
+%
+\begin{align}
+  \hat \Phi(\vec k; \chi) = & - \frac 3 2 \Omega_{\rm m} H_0^2 k^{-2} a^{-1}(\chi) \hat \delta(\vec k; \chi),
+      \label{eq:poisson}
+\end{align}
+%
+where $\Omega_{\rm m}$ is the matter density parameter, $H_0$ the Hubble constant, $\vec k$ a 3D Fourier wave
+vector, and $a$ the scale factor with $a=1$ today.
+The Fourier transform of the potential and its inverse are defined as
+%
+\begin{align}
+  \hat \Phi(\vec k; \chi) = &  \int {\rm d}^3 r \, \Phi(\vec r; \chi) {\rm e}^{{\rm i} \vec k \vec r} .
+  \label{eq:hatPhi}
+  \\
+  \Phi(\vec r; \chi) = &  \int \frac{{\rm d}^3 k}{(2\pi)^3}
+      \hat \Phi(\vec k; \chi) {\rm e}^{-{\rm i} \vec r \vec k},
+  \label{eq:hatPhi_inv}
+\end{align}
+%
+where the integration range for both integrals is $\mathbb{R}^3$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lensing power spectra in the spherical case}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Lensing potential power spectrum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Following \cite{2000PhRvD..62d3007H} we decompose the lensing potential
+(\ref{eq:psi}) into a spherical harmonics expansion, in analogy of CMB
+temperature, both of which are scalar functions on the sphere. This
+decomposition and its inverse are
+%
+% Hu00 (23)
+%
+\begin{align}
+  \psi(\theta, \varphi) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \psi_{\ell m} {\rm Y}_{\ell m}(\theta, \varphi);
+    \label{eq:psi_harm_exp}
+    \\
+    %
+  \psi_{\ell m} = \int_{\mathbb{S}^2} {\rm d} \Omega \, \psi(\theta, \varphi) {\rm Y}^\ast_{\ell m}(\theta, \varphi).
+  \label{eq:psi_harm_exp_inv}
+\end{align}
+
+To specify tomographic redshift bins $i=0\ldots N_z-1$, we introduce a family
+of lensing efficiency functions $q_i$ defined by a corresponding family of
+redshift distributions $n_i$ via eq.~(\ref{eq:lens_efficiency}). The resulting
+lensing potential is denoted by $\psi_{\ell m, i}$. The tomographic power
+spectrum of the lensing potential between two redshift bins $i$ and $j$,
+$C_{ij}^\psi$ is then defined by
+%
+\begin{equation}
+  \left\langle \psi^{}_{\ell m, i} \, \psi^\ast_{\ell^\prime m^\prime, j} \right\rangle
+    = \delta_{\ell \ell^\prime} \delta_{m m^\prime} C^\psi_{ij}(\ell) .
+  \label{eq:C_ell_psi}
+\end{equation}
+%
+Using the properties of the spherical harmonics (see
+App.~\ref{sec:derivations_C} for details) the power spectrum can be written as
+%
+\begin{align}
+  C_{ij}^\psi(\ell) = & \frac 8 {c^4 \pi} 
+  \int_0^{\chi_{\rm lim}} \frac{{\rm d}\chi}{\chi} q_i(\chi)
+  \int_0^{\chi^\prime_{\rm lim}} \frac{{\rm d}\chi^\prime}{\chi^\prime} q_j(\chi^\prime)
+  \int {\rm d} k k^2 \, {\rm j}_\ell(k \chi) {\rm j}_\ell(k \chi^\prime) P_\Phi(k; \chi, \chi^\prime)
+  \label{eq:C_ell_phi_Pphi} \\
+  = & \frac 8 \pi \pref^2
+  \int_0^{\chi_{\rm lim}} \frac{{\rm d}\chi}{\chi} \frac{q_i(\chi)}{a(\chi)}
+  \int_0^{\chi^\prime_{\rm lim}} \frac{{\rm d}\chi^\prime}{\chi^\prime} \frac{q_j(\chi^\prime)}{a(\chi^\prime)}
+  \int \frac{{\rm d} k}{k^2} \, {\rm j}_\ell(k \chi) {\rm j}_\ell(k \chi^\prime) P_{\rm m}(k; \chi, \chi^\prime) ;
+  \label{eq:C_ell_phi_Pm}
+\end{align}
+%
+where for convenience we defined the normalisation constant $\pref$ as
+%
+\begin{equation}
+  \pref = \frac 3 2 \Omega_{\rm m} \left(\frac{H_0} c\right)^2.
+  \label{eq:pref}
+\end{equation}
+
+In the following section we will discuss the relations between of shear and
+convergence to the lensing potential on the sphere, and derive the power
+spectrum of the former two fields.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Shear power spectrum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The shear $\gamma = \gamma_1 + {\rm i} \gamma_2$ is related to the potential at
+linear order by the trace-free part of the Jacobi matrix. The involved
+differential operator on the sphere is called \emph{edth} derivative, $\edth$,
+see \cite{2005PhRvD..72b3516C} for a in-depth mathematical discussion of this
+concept. The edth operator $\edth$ ($\edth^\ast$) raises (lowers) the spin $s$
+of an object. Twice applying this operator to the scalar (spin-0) potential
+creates the spin-2 shear:
+%
+\begin{align}
+  \gamma(\theta, \varphi) = & \frac 1 2 \edth \edth \psi(\theta, \varphi).
+    \nonumber \\
+  \gamma^\ast(\theta, \varphi) = & \frac 1 2 \edth^\ast \edth^\ast \psi(\theta, \varphi).
+  \label{gamma_psi_spher}
+\end{align}
+%
+To write the shear on the sphere in terms of the lensing potential $\psi$, we
+insert the harmonics expansion of the potential (\ref{eq:psi_harm_exp}). This
+requires to compute second derivatives of the spherical harmonic functions.
+This opereration defines a new object, the \emph{spin-weighted spherical
+harmonic} $_s{\rm Y}_{\ell m}$. The shear can be written on the sphere in terms
+of these functions as a spherical harmonics multipole expansion with
+coefficients $_{\pm 2} \gamma_{\ell m}$. This expansion together with its inverse
+is
+%
+% Hu04 (A10), van de Rijt PhD (6.32)
+%
+\begin{align}
+  (\gamma_1 \pm {\rm i} \gamma_2)(\theta, \varphi) = & \sum_{\ell m} \,\, _{\pm 2}\gamma_{\ell m} \; _{\pm 2}\!{\rm Y}_{\ell m}(\theta, \varphi);
+  \label{eq:gamma_harm_exp}
+    \\
+  \, _2 \gamma_{\ell m} = & \int_{\mathbb{S}^2} {\rm d} \Omega \, \gamma(\theta, \varphi) \;  _2\!{\rm Y}^\ast_{\ell m}(\theta, \varphi);
+    \nonumber \\
+  \, _{-2} \gamma_{\ell m} = & \int_{\mathbb{S}^2} {\rm d} \Omega \, \gamma^\ast(\theta, \varphi) \,  _{-2}\!{\rm Y}^\ast_{\ell m}(\theta, \varphi).
+  \label{eq:gamma_harm_exp_inv}
+\end{align}
+%
+The spin-weighted spherical harmonics $_s\!{\rm Y}_{\ell m}$ that are the basis function
+in the expansion of the shear (\ref{eq:gamma_harm_exp}) can be calculated via the relations
+%
+% Rijt (6.16); BBRV12 (9)
+%
+\begin{align}
+  \ellbar(\ell, s) \; _s\!{\rm Y}_{\ell m}(\theta, \varphi) = & \edth^s {\rm Y}_{\ell m}(\theta, \varphi);
+    \nonumber \\
+  \ellbar(\ell, s) \; _{-s}\!{\rm Y}_{\ell m}(\theta, \varphi) = & (-1)^s \left(\edth^\ast\right)^s {\rm Y}_{\ell m}(\theta, \varphi),
+  \label{eq:sYlm_def} 
+\end{align}
+%
+with the spin prefactor \citep{2012PhRvD..86b3001B}
+%
+\begin{equation}
+  \ellbar(\ell, s) = \sqrt{\frac{(\ell + s)!}{(\ell - s)!}}.
+\end{equation} 
+%
+Inserting the lensing potential expansion (\ref{eq:psi_harm_exp}) into the
+expression for the shear (\ref{gamma_psi_spher}), and using (\ref{eq:sYlm_def})
+to compute the derivatives, we find for the shear expansion coefficients
+\citep{2000PhRvD..62d3007H,2001astro.ph.11605T}
+%
+% Rijt after (7.5); Taylor01 (18); Hu00 (A10)
+%
+\begin{equation}
+  _{\pm 2} \gamma_{\ell m} = \frac 1 2 \ellbar(\ell, 2) \psi_{\ell m}.
+  \label{eq:gamma_ellm_phi_ellm}
+\end{equation}
+%
+The two coefficients $_{+2} \gamma_{\ell m}$ and $_{-2} \gamma_{\ell m}$ are
+identical since the potential $\phi$ is a real function.
+
+The tomographic shear power spectrum, in analogy to (\ref{eq:C_ell_phi_Pm}), is defined by
+%
+\begin{equation}
+  \left\langle _2\gamma^{}_{\ell m, i} \; {}_2\gamma^\ast_{\ell^\prime m^\prime, j} \right\rangle
+    = \delta_{\ell \ell^\prime} \delta_{m m^\prime} C^\gamma_{ij}(\ell).
+  \label{eq:C_ell_gamma}
+\end{equation}
+%
+For a flat Universe, this is given by
+%
+\begin{align}
+  C^\gamma_{ij}(\ell) = \frac 1 4 \ellbar^2(\ell, 2) \, C^\psi_{ij}(\ell)
+                 = & \frac 2 \pi \, \ellbar^2(\ell, 2) \, \pref^2
+                 \int_{0}^{\chi_{\rm lim}} \frac{\rm d \chi}{\chi} \frac{q_i(\chi)}{a(\chi)}
+                \int_{0}^{\chi_{\rm lim}} \frac{\rm d \chi^\prime}{\chi^\prime}
+                \frac{q_j(\chi^\prime)}{a(\chi^\prime)}
+                %\nonumber \\
+                %& \times
+                \int_0^\infty \frac{{\rm d} k}{k^2} \, P_{\rm m}(k, \chi, \chi^\prime) \,
+                {\rm j}_\ell(k \chi) \, {\rm j}_\ell(k \chi^\prime) .
+  \label{eq:C_ell_full}
+\end{align}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Convergence power spectrum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The convergence is related to the lensing potential on the sphere via the
+product of spin-raising and spin-lowering edth operators, which are identical
+to the spherical Laplacian differential operator.
+
+%
+\begin{equation}
+  \kappa(\theta, \varphi) = \frac 1 2 \edth \edth^\ast \psi(\theta, \varphi) = \frac 1 2 \nabla^2 \psi(\theta, \varphi).
+  \label{eq:kappa_psi_spher}
+\end{equation}
+%
+The spherical harmonics are eigenfunctions of the Laplacian,
+%
+\begin{equation}
+  \nabla^2 {\rm Y}_{\ell m}(\theta, \varphi) = - \ell (\ell + 1) {\rm Y}_{\ell m}(\theta, \varphi)
+    = - \ellbar^2(\ell, 1) {\rm Y}_{\ell m}(\theta, \varphi),
+  \label{eq:nabla_Ylm}
+\end{equation}
+%
+The potential power spectrum is then similar to the shear power spectrum
+(\ref{eq:C_ell_gamma}) with a different spherical prefactor,
+%
+\begin{equation}
+  C^\kappa_{ij}(\ell) = \frac 1 4 \ellbar^4(\ell, 1) \, C^\psi_{ij}(\ell)
+    = \frac{\ell (\ell+1)}{(\ell-1)(\ell+2)} C^\gamma_{ij}(\ell) .
+  \label{eq:C_ell_kappa_full}
+\end{equation}
+%
+The convergence power spectrum is thus larger than the shear power spectrum, by
+10\% for $\ell=4$, 1\% for $\ell = 14$, and less than 0.1\% for $\ell>45$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Flat-sky approximation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Most previous work has used lensing quantities approximated on a flat sky,
+neglecting the sky curvature. This is a valid approach for past and current
+survey areas that have extents up to 10 degrees or less. The correlation
+functions from the observed shear have been calculated using spherical
+coordinates, and the effect on large scales is not negligible \cite{FSHK08}.
+Here we examine the effect of sky curvature on the theoretical models.
+
+For a flat sky, the spherical harmonics expansions are approximated by Fourier
+transforms. The flat-sky equivalent of eqs.~(\ref{eq:psi_harm_exp}) and
+(\ref{eq:psi_harm_exp_inv}) are
+%
+\begin{align}
+  \psi(\vec \vartheta) = & \int \frac{{\rm d}^2 \ell}{(2\pi)^2} \, {\rm e}^{-{\rm i} \vec \ell \vec \vartheta} \hat \psi(\vec \ell);
+  \label{eq:psi_fourier}
+  \\
+  %
+  \hat \psi(\vec \ell) = & \int {\rm d}^2 \vartheta \, {\rm e}^{{\rm i} \vec \ell \vec \vartheta} \psi(\vec \vartheta);
+  \label{eq:psi_fourier_inv}
+\end{align}
+%
+where $\vec \vartheta = (\theta, \varphi)$ is the vector describing a 2D angle on the sky.
+Instead of a harmonics coefficients $\psi_{\ell m}$, the Fourier representation of the potential
+$\hat \psi$ now depends on the vector $\vec \ell \in R^2$.
+
+The power spectrum, the flat-sky version of
+(\ref{eq:C_ell_psi}) is defined by
+%
+\begin{equation}
+  \left\langle \hat \psi_i^{}(\vec \ell) \hat \psi_j^\ast(\vec \ell^\prime) \right\rangle
+    = (2\pi)^2 \delta_{\rm D}(\vec \ell - \vec \ell^\prime) P^\psi_{ij}(\ell).
+  \label{eq:P_ell_psi}
+\end{equation}
+
+
+\mk{I can derive a flat-sky shear power spectrum by replacing $\ellbar^2(\ell, 2)$ with $\ell^4$
+in (\ref{eq:C_ell_full}), equivalent to replacing the edth operators with Euclidian derivatives.
+However, this results in a different expression compared to other references, e.g.~\cite{2008PhRvD..78d3002S},
+which is the following equation.}
+
+The flat-sky power spectrum is
+%
+\begin{align}
+  P_{ij}^\gamma(\ell) = & \frac 2 \pi \, \pref^2
+                 \int_{0}^{\chi_{\rm lim}} {\rm d} \chi \chi \, \frac{q_i(\chi)}{a(\chi)}
+                \int_{0}^{\chi_{\rm lim}} {\rm d} \chi^\prime\, \chi^\prime
+                \frac{q_j(\chi^\prime)}{a(\chi^\prime)}
+                \nonumber \\
+                & \times \int_0^\infty {\rm d} k \, k^2 \, P_{\rm m}(k, \chi, \chi^\prime) \,
+                {\rm j}_\ell(k \chi) \, {\rm j}_\ell(k \chi^\prime) .
+  \label{eq:P_ell_gamma}
+\end{align}
+%
+
+\mk{I can get this by placing the prefactor under the integral and
+setting $\ell^4 = k^4 \chi^2 {\chi^\prime}^2$. This does not seem to be the proper way.
+Other derivations of the shear power spectrum (e.g.\cite{BS01} also assume other approximations
+such as small-angle and Limber, but I do not know how to derive this without Limber.}
+
+
+\section{Second-order Limber approximation for weak lensing}
+\label{sec:L2}
+
+\subsection{Spherical case}
+
+We follow \cite{2008PhRvD..78l3506L} who derive the second-order Limber
+expansion for general projections from 3D to 2D scalar fields in the spherical,
+all-sky case. First, we use the identity of Bessel functions
+%
+\begin{equation}
+  {\rm j}_\ell(x) = \sqrt{\frac{\pi}{2x}} {\rm J}_{\ell + 1/2}(x)
+\end{equation}
+%
+in eq.~(\ref{eq:C_ell_full}). Next, \cite{2008PhRvD..78l3506L} solve
+integrals of the form
+%
+\begin{equation}
+  \int_0^\infty {\rm d} \chi f(\chi) {\rm J}_{\ell + 1/2}(k \chi)
+  = \int_0^\infty {\rm d} x k^{-1} f(x/k) {\rm J}_{\ell + 1/2}(x)
+  \label{eq:int_dchi}
+\end{equation}
+%
+by performing a Taylor expansion of the function $f$ around $x = k \chi = \nu$, where
+the Bessel function has its approximate maximum. To separate the $k$- and
+$\chi, \chi^\prime$-terms in (\ref{eq:C_ell_full}), we first approximate the
+matter power cross-spectrum between two distances as geometric mean of the two
+involved distances \cite{2016arXiv161200770K}, and divide out the growth factor
+to define a redshift-independent power spectrum $P_{\rm m}(k)$,
+%
+\begin{equation}
+ P_{\rm m}(k, \chi, \chi^\prime) = \sqrt{ P_{\rm m}(k, \chi) P_{\rm m}(k, \chi^\prime) },
+    = D_+(\chi) D_+(\chi^\prime) P_{\rm m}(k).
+  \label{eq:P_geom_mean}
+\end{equation}
+%
+This is not exact, since some non-linear prescriptions of the power spectrum
+depend on redshift other than the growth factor, for example when computing the
+non-linear scale $k_{\rm NL}(z)$ for \texttt{halofit}.
+
+With this, eq.~(\ref{eq:C_ell_full}) is written as
+%
+\begin{align}
+  C^\gamma_{ij}(\ell) \approx & \, \ellbar^2(\ell, 2) \, \pref^2
+                \int_0^\infty \frac{{\rm d} k}{k^3} \, P_{\rm m}(k) \,
+                \int_{0}^\infty \frac{{\rm d} \chi}{\chi^{3/2}} \frac{D_+(\chi)}{a(\chi)} q_i(\chi) {\rm J}_{\ell+1/2}(k \chi)
+                \nonumber \\
+                 & \times
+                \int_{0}^\infty \frac{{\rm d} \chi^\prime}{{\chi^\prime}^{3/2}}
+                \frac{D_+(\chi^\prime)}{a(\chi^\prime)} q_j(\chi^\prime) {\rm J}_{\ell+1/2}(k \chi^\prime)
+  \label{eq:C_ell_full_Pk}
+\end{align}
+%
+We replaced the upper limits of the distance integral with infinity. \mk{Comment on this.}
+Note that this equation has a preactor $\ellbar^2(\ell, 2)$ corresponding to a spin-2 field, in contrast
+to \cite{2008PhRvD..78l3506L} who show calculations for a scalar field.
+
+Following \cite{2008PhRvD..78l3506L} we expand to third order
+%
+\begin{equation}
+  \lim_{\varepsilon \rightarrow 0} \int_0^\infty {\rm d} x \, {\rm e}^{-\epsilon (x - \nu)} g(x) {\rm J}_\nu(x) \approx g(\nu) - \frac 1 2 g^{\prime\prime}(\nu)
+      - \frac \nu 6 g^{\prime\prime\prime}(\nu) 
+\end{equation}
+%
+with $g(x) = k^{-1} f(\chi)$, $\chi=x/k$, and its derivatives $g^{(n)}(x) =
+k^{-1-n} f^{(n)}(\chi)$. In our case the projection kernel is
+%
+\begin{equation}
+  f(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi).
+  \label{eq:f_LA08}
+\end{equation}
+%
+(Add indices $i, j$ to $f$ and $q$ for the tomographic case.)
+%
+Replacing both distance integrals in (\ref{eq:C_ell_full_Pk}) by their Taylor-expansions around $\nu = k \chi$ and $\nu = k \chi^\prime$,
+respectively, yields
+%
+\begin{align}
+  C^\gamma_{ij}(\ell) \approx & \, \ellbar^2(\ell, 2) \, \pref^2
+    \int_0^\infty \frac{{\rm d} k}{k^3} \, P_{\rm m}(k) k^{-2}
+    \left[ f_i(\chi) - \frac{1}{2 k^2} f_i^{\prime\prime}(\chi)
+      - \frac{\nu}{6 k^3} f_i^{\prime\prime\prime}(\nu) + \ldots \right]
+    %\nonumber \\
+    %& \times
+    \left[ f_j(\chi) - \frac{1}{2 k^2} f_j^{\prime\prime}(\chi)
+    - \frac{\nu}{6 k^3} f_j^{\prime\prime\prime}(\nu) + \ldots \right]
+  \label{eq:C_ell_limber2_dk}
+\end{align}
+%
+Changing the integration to $\chi = \nu/k$ and collecting terms according to their $\nu$-dependence:
+%
+\begin{align}
+  C^\gamma_{ij}(\ell) \approx & \, C^\gamma_{{\rm L1}, ij}(\ell) + C^\gamma_{{\rm L2}, ij}(\ell)
+      \nonumber \\
+    = & \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
+    \int_0^\infty {\rm d} \chi \, \chi^3 \, P_{\rm m}\left( k \right)
+    %\Bigg\{
+    \left\{
+    f_i(\chi) f_j(\chi)
+    %\right.
+      %\nonumber \\
+    %&
+    %\left.
+     - \frac 1 {\nu^2} \left[ \frac{\chi^2}{2} \left( f^{}_i f^{\prime\prime}_j + f_i^{\prime\prime} f^{}_j \right)(\chi)
+    + \frac{\chi^3}{6} \left( f^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i f^{}_j \right)(\chi)
+    \right]
+    \right\}
+    %\Bigg\}
+  \label{eq:C_ell_limber12_dr}
+\end{align}
+%
+The first term corresponds to the well-known first-order Limber approximation
+\cite{1953ApJ...117..134L,1992ApJ...388..272K}, which is very widely used in
+weak gravitational lensing. We retrieve the (spherical) standard expression by
+inserting back the projection kernel (\ref{eq:f_LA08}) and the time-dependent
+power spectrum,
+%
+\begin{align}
+  C^\gamma_{{\rm L1}, ij}(\ell) = & \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2 \int {\rm d} \chi \frac{ q_i(\chi) q_j(\chi) }{a^2(\chi)}
+  P\left(k = \frac{\nu}{\chi}; \chi\right).
+  \label{eq:C_ell_limber1}
+\end{align}
+%
+In the Limber approximation, modes between structures at different epochs do
+not contribute to the single line-of-sight integration.
+
+The second-order Limber term in (\ref{eq:C_ell_limber12_dr}) has an additional
+$\nu^{-2}$-dependence, and is therefore strongly suppressed for large $\ell$.
+%
+\begin{align}
+  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
+    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(k = \frac\nu\chi; \chi\right)
+    %\nonumber \\
+    %& \times
+    \frac 1 2 D^{-1}_+(\chi) a(\chi) \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j
+      + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i q^{}_j
+      \right)
+    \right](\chi)
+  \label{eq:C_ell_limber2_dr} 
+\end{align}
+%
+The derivatives of the filter functions have to be computed numerically in the general case.
+
+
+\subsection{Flat sky}
+
+The extended flat-sky Limber approximation is readily derived from the
+spherical case, by replacing the prefactor $\ellbar^2(\ell, 2)$ with $\ell^4$,
+%
+\begin{align}
+  P^\gamma_{{\rm L1}, ij}(\ell) = & \, \frac{\ell^4}{\nu^4} \, \pref^2 \int {\rm d} \chi \frac{ q_i(\chi) q_j(\chi) }{a^2(\chi)}
+  P_{\rm m}\left(k = \frac{\nu}{\chi}; \chi\right);
+  \label{eq:P_ell_limber1}
+  \\
+    P^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ell^4}{\nu^4} \, \pref^2
+    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(k = \frac\nu\chi; \chi\right)
+    %\nonumber \\
+    %& \times
+    \frac 1 2 D^{-1}_+(\chi) a(\chi) \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j  
+      + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i q^{}_j
+      \right)
+    \right](\chi)
+  \label{eq:P_ell_limber2}
+\end{align}
+%
+Different further approximations are commonly made for the prefactor $p(\ell) = \ell^4/\nu^4$ and $\nu(\ell)$.
+%
+\begin{enumerate}
+  \item $p(\ell) = 1$, this corresponds to setting $\nu(\ell) = \ell$, and is the standard Limber approximation.
+    Until recently, i.e.~for all pre-2014 CFHTlenS results, this was the approximation of choice.
+  \item $p(\ell) = \ell^4/\nu^4(\ell)$ with $\nu(\ell) = \ell + 1/2$. This corresponds to the extended Limber
+    approximation; however the following case is typically employed:
+  \item $p(\ell) = 1$, but as the argument of the 3D power spectrum $\nu = \ell + 1/2$. This is a hybrid between
+    standard and extended Limber approximation, and was used in \cite{KiDS-450,joudaki/etal:2016}. As is shown
+    later, this is a much better approximation than case 2.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comparison of the approximations}
+\label{sec:comp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In Fig.~\ref{fig:Cl_cases} we plot the full shear power spectrum and some of
+the approximations. For $\ell > 100$ all power spectra coincide to better than one percent.
+The extended first-order Limber approximation shows a better convergence to the true
+power spectrum, the error decreases with $\ell^{-2}$. Including the spherical prefactor
+decreases the difference by a factor of a few for $\ell < 5$.
+Going to second-order yields percent accuracy down to $\ell = 4$.
+
+\begin{figure}
+
+  \begin{center}
+    \resizebox{1.0\hsize}{!}{
+      \includegraphics{P_kappa_limber_comp}
+      \includegraphics{P_kappa_limber_delta}
+    }
+  \end{center}
+
+  \caption{Shear power spectrum for different approximation. Limber to first order: for flat-sky (L1Fl),
+        extended ($\ell + 1/2$) for flat sky (ExtL1Fl), and extended in the spherical expansion (ExtL1Sph);
+        Second-order extended Limber spherical expansion (ExtL2Sph); full (exact) spherical projection (FullSph).
+        The left (right) panels show the total (relative difference) power spectrum.
+        See Table \ref{tab:cases} for more details on the different approximations. \mk{Right panel needs to be updated!
+        ExtL1Fl curve is actually ExtL1FlHyb.}
+      }
+
+  \label{fig:Cl_cases}
+
+\end{figure}
+
+
+% nicaea            Kil+17      'Comment paper' Plot color    Kit+16                Plot color    my comment
+% limber            L1Fl        Kst             black         Limber+Tl=1+Flat-sky  blue
+% limber_la08       ExtL1Fl     ELF             blue
+% limber_la08_hyb   ExtL1FlHyb  ESt             magenta                                           prefactor~1 despite nu=ell+1/2
+% limber_la08_sph   ExtL1Sph    ELS             cyan
+% limber2_la08      ExtL2Fl
+% limber2_la08_hyb  ExtL2Fl
+% limber2_la08_sph  ExtL2Sph
+% full              Full
+
+\renewcommand{\baselinestretch}{1.3}
+\begin{table}[ht!]
+
+  \label{tab:cases}
+
+  \caption{Shear power spectrum approximations compared in this paper. \mk{The last column will be removed in the
+        final version.}}
+
+  \begin{tabular}{|l|l|c|c|c|c}
+  \hline
+  Case & ID & eq.~ & $p(\ell)$ & $\nu(\ell)$ & Label [Comment paper] \\ \hline
+  % 
+  $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
+    & $1$ & $\ell$ & Kst \\ \hline
+  %
+  $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
+    & $\ell^4/(\ell+1/2)^4$ & $\ell + 1/2$ & ELF \\ \hline
+  %
+  $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
+    & $1$ & $\ell + 1/2$ & ESt \\ \hline
+  %
+  $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
+    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & ELS \\ \hline
+  %
+  $2^{\rm st}$-order extended Limber, flat sky & Ext2FlHyb & (\ref{eq:P_ell_limber2}) + (iii)
+    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
+  %
+  $2^{\rm st}$-order extended Limber, spherical & Ext2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr})
+    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
+  %
+  Full spherical & FullSph & (\ref{eq:C_ell_full}) &
+      $\ellbar^2(\ell, 2)$ & - & - \\ \hline
+  %
+  \end{tabular}
+
+\end{table}
+\renewcommand{\baselinestretch}{1}
+
+In Fig.~\ref{fig:xi_pm_K16} we show the correlation functions using the different cases
+for the shear power spectrum. \mk{Replace this figure, don't show CFHTLenS data?}
+
+\begin{figure}
+
+  \begin{center}
+    \resizebox{1.0\hsize}{!}{
+      \includegraphics{xi_p_comp}
+      \includegraphics{xi_m_comp}
+    }
+  \end{center}
+
+  %\caption{Shear correlation funtions $\xi_+$ (\emph{left panel}) and $\xi_-$ (\emph{right}) in the
+    %%represenation as in \cite{2016arXiv161104954K}. See Table \ref{tab:cases} for the cases of different
+    %approximations and their symbols. The  points with error bars are the data from
+    %\cite{CFHTLenS-2pt-notomo}; the theotical predictions correspond to the best-fit parameters with
+    %$\Omega_{\rm m} = 0.279$ and $\sigma_8 = 0.79$, except the red dashed curve with adapts a Planck-best fit
+    %normalisation $\sigma_8 = 0.83$.}
+
+  \label{fig:xi_pm_K16}
+
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Application to CFHTLenS data}
+\label{sec:cfhtlens}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{table}
+
+  \begin{tabular}{lc} \hline
+  ID       & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ \\ \hline
+  L1Fl     & $0.769 \pm 0.031$ \\
+  ExtL2Sph & $0.769 \pm 0.030$ \\ \hline
+  \end{tabular}
+
+\end{table}
+
+\section*{Acknowledgments}
+
+The authors thank Tommaso Giannantonio for very helpful discussions.
+
+\bibliographystyle{mn2e}
+\bibliography{astro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Derivation of the weak-lensing power spectra}
+\label{sec:derivations_C}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The following derivations are detailed e.g.~in \cite{2000PhRvD..62d3007H} and
+\cite{2005PhRvD..72b3516C}.
+
+\subsection{Spherical case}
+
+\subsubsection{Lensing potential power spectrum}
+
+To obtain the power spectrum of the lensing potential for a flat Universe, 
+we insert the lensing projection (\ref{eq:psi}) for $K=0$ into the
+inverse harmonics expansion (\ref{eq:psi_harm_exp_inv}) and write the 3D potential
+as its Fourier transform (\ref{eq:hatPhi_inv}) to get
+%
+\begin{equation}
+  \psi_{\ell m} = \frac 2 {c^2} \int {\rm d} \Omega {\rm Y}^\ast_{\ell m}(\theta, \varphi)
+    \int_0^{\chi_{\rm lim}} \frac{{\rm d}\chi}{\chi} q(\chi) \int \frac{{\rm d}^3 k}{(2\pi)^3} \hat \Phi(\vec k; \chi) {\rm e}^{-{\rm i} \vec k \vec r}.
+\end{equation}
+%
+The 3D position vector $\vec r$ is a 3D position vector with polar coordinate
+$r = \chi$ and polar angles $(\theta, \varphi)$. Similarly we denote with
+$\theta_k, \varphi_k$ the polar angles of the 3D Fourier vector $\vec k$. We
+insert the expansion of a plane wave into spherical harmonics,
+%
+% BBRV12 (41)
+%
+\begin{equation}
+  {\rm e}^{{\rm i} \vec k \vec r} = 4 \pi \sum_{\ell m} {\rm i}^\ell {\rm j}_\ell(k \chi)
+    {\rm Y}_{\ell m}(\theta, \varphi) {\rm Y}_{\ell m}(\theta_k, \varphi_k),
+  \label{eq:wave_exp}
+\end{equation}
+%
+\mk{Comment on minus sign in exponential.}
+
+Making use of the orthogonality of the spherical harmonics
+%
+% Rijt (6.15), Castro (B2).
+%
+\begin{equation}
+  \int {\rm d} \Omega {\rm Y}^{}_{\ell m}(\theta, \varphi) {\rm Y}^\ast_{\ell^\prime m^\prime}(\theta, \varphi) = \delta_{\ell \ell^\prime} \delta_{m m^\prime},
+  \label{eq:Yellm_ortho}
+\end{equation}
+%
+the expression for $\psi_{\ell m}$ simplifies to
+%
+\begin{equation}
+  \psi_{\ell m} = \frac {{\rm i}^\ell}{c^2 \pi^2} \int_0^{\chi_{\rm lim}} \frac{{\rm d}\chi}{\chi} q(\chi) \int {\rm d}^3 k \,
+    \hat \Phi(\vec k; \chi) {\rm j}_\ell(k \chi) {\rm Y}_{\ell m}(\theta_k, \varphi_k).
+  \label{eq:psi_ellm}
+\end{equation}
+%
+We take the absolute square and use the definition of the 3D potential power spectrum,
+%
+\begin{align}
+  \left\langle \Phi(\vec k; \chi) \Phi^\ast(\vec k^\prime; \chi^\prime) \right\rangle
+    = & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) P_\Phi(k; \chi, \chi^\prime).
+    %\nonumber \\
+    %= & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) \pref^2 k^{-4} a^{-1}(\chi) a^{-1}(\chi^\prime)
+      %P_{\rm m}(k; \chi, \chi^\prime).
+  \label{eq:p_phi}
+\end{align}
+%
+$P_{\rm m}$ is the 3D matter power cross-spectrum at line-of-sight comoving
+Fourier mode $k$ and comoving distances $\chi$ and $\chi^\prime$. We denote
+complex conjugation with superscript $^\ast$.
+\mk{Peter's comment: What does the correlation between two epochs actually mean if they
+are not on the backward light cone?}
+
+The delta-function resolves one 3D Fourier
+integral. We split the second integration into radial and spherical
+coordinates, ${\rm d}^3 k = {\rm d} k k^2 {\rm d} \Omega_k$ and use once again
+the orthogonality of the spherical harmonics to resolve the spherical integral. 
+This leads to the potential power spectrum (\ref{eq:C_ell_phi_Pm}).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion and comparison to previously published work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Kitching et al.~2016}
+
+Eq.~\ref{eq:C_ell_full} is analogous to (7) and (8) from
+\cite{2016arXiv161104954K} for a flat Universe and in the case of perfect
+photometric redshifts, $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$, and
+for a bin function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm p})
+= 1_{z \in i-\mbox{th bin}}$. In \cite{2016arXiv161104954K} eq.~(7) is however the
+factor $2/\pi$ missing.
+
+In App.~A they derive the Limber approximation starting from the full spherical
+projection. Note that their filter function $q$ defined in (31) has an
+errornous factor of comoving distance $r$, and an additional factor $\pi/2$
+appears.
+
+Eq.~19 of \cite{2016arXiv161104954K} corresponds to our
+(\ref{eq:P_ell_gamma}). \mk{Has to be checked.}
+
+We can not reproduce the amplitude of the differences between the cases, neither for
+the power spectrum nor for the shear correlation function (see Fig.~\ref{fig:xi_pm_K16}).
+
+
+\paragraph{Bernardeau, Bonvin, Van de Rijt, Vernizzi (2012); van de Rijt (2012)}
+
+Eq.~(44) of \cite{2012PhRvD..86b3001B} is the non-tomographic $C(\ell)$ in
+terms of the time-independent potential power spectrum $T^2(k) P(k)$, where $T$
+is the transfer function; the growth factor $D$ is contained in their window
+function $W$ (43) as growth-suppression factor $g(\chi) = D(\chi)/a(\chi)$
+(defined after eq.~{24}). For a single source redshift, we find the identity
+$W(\chi)$ = $q(\chi)\chi^{-1} D(\chi) a^{-1}(\chi)$.
+\cite{2012PhRvD..86b3001B} is consistent with our
+(\ref{eq:C_ell_full}), if we interpret the
+scale factors at distances $\chi$ and $\chi^\prime$, respectively.
+
+The PhD thesis of Van de Rijt \cite{vande2012} presents an explicit calculation
+of the second-order Limber approximation for a fixed source redshift. They
+carry out the derivatives of the kernels $f$ under the assumption of a constant
+growth-suppression factor $D_+(a)/a$. We show the consistency between their
+result (eq.~7.19) and our (\ref{eq:C_ell_limber2_dr}), as follows.
+
+We write (\ref{eq:C_ell_limber2_dr}) without tomography, and insert again the
+time-independent power spectrum (\ref{eq:P_geom_mean}),
+%
+\begin{align}
+  C^\gamma_{{\rm L2}}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
+    \int {\rm d} \chi \, \chi^{2} P_{\rm m}\left(k = \frac\nu\chi\right)
+    \nonumber \\
+    & \times D_+(\chi) a^{-1}(\chi) \chi^{3/2} q(\chi) \left[ f^{\prime\prime} 
+      + \frac{\chi}{3} f^{\prime\prime\prime} 
+    \right](\chi)
+  \label{eq:C_ell_limber2_dr_notomo}
+\end{align}
+%
+For a fixed source comoving distance $\chi_{\rm S}$ the lensing efficiency is
+$q(\chi) = (\chi_{\rm S} - \chi) \chi_{\rm S}^{-1}$. Assuming that
+$D_+(\chi)/a(\chi) \approx g = \mbox{const}$, we get for the derivative terms,
+with $f(\chi) = g \chi_{\rm S}^{-1} (\chi_{\rm S} - \chi) \chi^{-3/2}$,
+%
+\begin{equation}
+  f^{\prime\prime}(\chi) + \frac{\chi}{3} f^{\prime\prime\prime}(\chi)
+    = - \frac 1 8 \chi^{-5/2} \left( \frac 5 \chi
+          + \frac 1 {\chi_{\rm S}} \right) \frac{D_+(\chi)}{a(\chi)}.
+\end{equation}
+%
+Therefore,
+%
+\begin{align}
+  C^\gamma_{{\rm L2}}(\ell) = \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
+    \int {\rm d} \chi \, \chi \, P_{\rm m}\left(k = \frac\nu\chi\right)
+    \frac{q(\chi)}{8} \left( \frac 5 \chi + \frac 1 {\chi_{\rm S}} \right)
+      \left(\frac{D_+(\chi)}{a(\chi)}\right)^2 
+\end{align}
+%
+We now replace the matter with the potential power spectrum, ${\cal A}^2 P_{\rm m}(k) = k^{4} a^2 P_\Phi(k)$, and pull into the integral $\nu^{-4} = \chi^{-4} k^{-4}$. This yields
+%
+\begin{align}
+  C^\gamma_{{\rm L2}}(\ell) = \frac 1 {\nu^2} \, \ellbar^2(\ell, 2)
+    \int \frac{{\rm d} \chi}{\chi^2} \, P_\Phi\left(k = \frac\nu\chi\right)
+    a^2(\chi) \frac{1}{8} \frac{\chi_{\rm S} - \chi}{\chi \chi_{\rm S}}
+    \left( \frac 5 \chi + \frac 1 {\chi_{\rm S}} \right)
+      \left(\frac{D_+(\chi)}{a(\chi)}\right)^2 .
+\end{align}
+%
+Note the additional factor $a^2(\chi)$. This difference is accounted for by the
+factor $a^{-1}$ in the propagation of primordial potential perturbations to
+late times, see eq.~(6.22) in \cite{vande2012}, where the transition is done
+using $g(a)$ instead of $D(a)$. \mk{Check this further.}
+
+
+In Fig.~\ref{fig:L1L2E_Rijt} we reproduce Fig.~7.3 from \cite{vande2012} using
+a similar set up (flat $\Lambda$ Universe with $\Omega_{\rm m} = 0.3, h=0.65,
+\Omega_{\rm b} = 0.0461, \sigma_8 = 0.8, n_{\rm s} = 0.96$. All source galaxies
+are at redshift $z_{\rm S} = 1$. The non-linear 3D matter power spectrum from
+\cite{2012ApJ...761..152T} is used. The ratio of the first-and second- Limber approximated
+power spectra to the full
+projection shows excellent agreement at the sub-percent level.
+
+\begin{figure}
+
+  \begin{center}
+    \resizebox{0.9\hsize}{!}{
+      \includegraphics{P_kappa_limber_delta_Rijt}
+    }
+  \end{center}
+
+    \caption{Differences in percentage of spherical shear power spectra terms
+    as function of wave mode $\ell$, see Table \ref{tab:cases}.
+    The blue and red curves corresponds to the ones shown in Fig.~7.3 of \citet{vande2012}.
+    }
+
+    \label{fig:L1L2E_Rijt}
+
+\end{figure}
+
+
+
+\paragraph{LoVerde \& Afshordi (2009)}
+
+This paper introduces the extended Limber approximation to second order that we
+apply in this work. Although they present the specific case of 2D galaxy
+clustering, their calculations are general enough to apply to weak lensing.
+
+Their eq.~(5) is a general spherical power spectrum of a scalar field,
+projected from 3D to 2D via (4). Comparing their expressions with the
+weak-lensing potential (\ref{eq:psi}), we can set $F_A(\chi) = F_B(\chi) = 2
+c^{-2} D_+(\chi) q(\chi) \chi^{-1}$. With that, their eq.~(5) is identical to
+our (\ref{eq:C_ell_phi_Pphi}).
+
+The second-order Limber approximation in \cite{2008PhRvD..78l3506L} is presented in
+eq.~(12). This is consistent with our first-order (\ref{eq:C_ell_limber1}) and
+second-order (\ref{eq:C_ell_limber2_dr}) Limber approximation, when accounting for the difference between
+lensing potential and shear 2D power spectrum, and 3D potential and matter power spectrum.
+
+
+\paragraph{Schmidt (2009)}
+
+In eq.~(9) \cite{2008PhRvD..78d3002S} write the lensing power spectrum in the
+flat-sky limit. The Poisson factor $D_\phi$ is defined in their eq.~(5), see
+also our eq.~\ref{eq:poisson}, and $D_{\rm m}$ is the growth factor. The filter
+function $W_\kappa$ (eq.~10) can be written as
+%
+\begin{align}
+  W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
+              =  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
+                n(\chi)
+              \nonumber \\
+              & \equiv \frac 1 {H(z)} \chi q(\chi),
+\end{align}
+%
+using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
+To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
+comoving distance, we make the variable transformation
+%
+\begin{equation}
+  {\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
+\end{equation}
+%
+We recover our (\ref{eq:P_ell_gamma}).
+
+\paragraph{Giannantonio et al. (2012)}
+
+In eqs.~(25) and (26) \cite{2012MNRAS.422.2854G} write the flat-sky lensing
+power spectrum. Their window function $W^{\varepsilon_i}$ defined in (25) for a
+flat Universe equals $\pref \times q(\chi) / a(\chi)$, since ${\rm d} z {\rm d}
+N(z)/{\rm d} z = {\rm d} \chi n(\chi)$; however there is a factor $r_K[r(z)]$
+missing in the window function, which translates into a missing $r_K[r]
+r_K[r^\prime]$ in the integral\footnote{Confirmed by T.~G., priv.~comm.}. This
+also leads to an errorous $r_K^{-2}(r)$ in the Limber equation (27). With these
+factors accounted for, we reproduce the expressions of \cite{2012MNRAS.422.2854G}.
+
+
+\label{lastpage}
+
+\end{appendix}
+
+\end{document}
+
