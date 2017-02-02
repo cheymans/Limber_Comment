@@ -18,7 +18,7 @@ The corresponding pre-factor for the convergence power spectrum, along with the 
 
 When a survey is sufficiently small, a flat-sky approximation can be made reducing $T_\ell =1$ and $\nu(\ell) = \ell$.  In \citet{kitching/etal:2016} it is not fully clear which combinations of  $T_\ell$ and $\nu(\ell)$ are considered, so we review them all as summarised in Table~\ref{tab:Tl_nu}, also highlighting which combinations were used in recent cosmic shear analyses.   We note and confirm that there is a typographical error in equation 4 of \citet{hildebrandt/etal:2016} which should have included the extra term of `$+0.5$' in $\nu(\ell)$ that was incorporated in the cosmological analysis.
 
- \begin{table}[htb]
+ \begin{table*}%[htb]
 \begin{center}
 \begin{tabular}{ | l | l | c | c  | c |}
 \hline
@@ -33,20 +33,20 @@ Extended Standard Flat Sky & ESt & $1$ & $\ell + 0.5$ & \citet{joudaki/etal:2016
  \end{tabular}
  \end{center}
  \caption{\label{tab:Tl_nu}Variations on the different approximations that can be made when calculating the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), using a Limber approximation.} 
- \end{table}
+ \end{table*}
 
 Figure~\ref{fig:Cl_xi} shows theoretical models for the shear power spectrum $P_\gamma(\ell)$ (equation~\ref{eqn:Pkappa}), and the shear correlation function (equation~\ref{eqn:xiGG}) for the different variations on the approximations listed in Table~\ref{tab:Tl_nu}.   The Standard and Spherical models agree at the few percent level above $\ell>20$ and below $\theta< 100$ arcmin.  The two outliers are the Baseline and Extended `Flat' Sky Limber cases (LF and ELF) where the \citet{kitching/etal:2016} `Flat' Sky approximation has been made with
 \be
 T_\ell^{\rm `Flat'} = \ell^4 / (\ell + 0.5)^4 = 1-{2\over \ell}+{5\over 2\ell^2} +{\cal O}(\ell^{-3}) \, . 
 \label{eqn:Tlflat}
 \ee    
-We argue that applying the approximation, that $\ell \pm x \approx \ell$, where $x$ is small, only to the numerator of equation~\ref{eqn:Tl} is inconsistent.  By comparing the expansions of equations~\ref{eqn:Tl} and~\ref{eqn:Tlflat}, we see that the \citet{kitching/etal:2016} `Flat' Sky approximation effectively introduces a new term $2/\ell$ making it more deviant from the full spherical solution in comparison to the standard $T_\ell = 1$ case.    To our knowledge, this form of the flat-sky approximation has not been used in cosmic shear studies to date.  
+By comparing the Taylor expansions of equations~\ref{eqn:Tl} and~\ref{eqn:Tlflat}, we find that the \citet{kitching/etal:2016} `Flat' Sky approximation includes an extra term, $2/\ell$, making it more deviant from the full spherical solution, than the standard $T_\ell = 1$ case.    To our knowledge, this form of the flat-sky approximation has not been used in cosmic shear studies to date.  
 
 As shown in the lower panels of Figure~\ref{fig:Cl_xi}, the `standard flat' sky approximation used by recent cosmic shear surveys\footnote{The KSt approximation was used for pre-2014 CFHTLenS analysis and the ESt approximation was used for recent CFHTLenS and KiDS analyses.}, where $T_\ell = 1$, recovers a very similar result to the spherical sky case.  Over angular scales used in the recent KiDS cosmic shear analysis (where the maximum angular scale $\theta<50.7$ arcmin is shown dashed), these curves differ by less than 1\%.  As such the standard flat-sky approximations that have been used will not impact the cosmological analyses of current surveys.
  
  \begin{figure}
  \begin{center}
- \includegraphics[width=0.85\textwidth]{figures/Cl_xi_comp.pdf}
+ \includegraphics[width=0.5\textwidth]{figures/Cl_xi_comp.pdf}
  \caption{ \label{fig:Cl_xi}\emph{Upper Panels:} Theoretical models for the shear power spectrum (\emph{left}) and shear correlation function $\xi_+$ (\emph{right}) for the different approximations listed in Table~\ref{tab:Tl_nu}, assuming a \citet{planck/cosmo:2015} cosmology and the 2D CFHTLenS redshift distribution. \emph{Lower Panels:} Deviations with respect to the extended Limber spherical sky model (ELS).    The dashed lines in the right panels show the largest angular scale used in the recent KIDS cosmic shear analysis where an Extended Standard (ESt) analysis was used.}
  \end{center}
  \end{figure}
