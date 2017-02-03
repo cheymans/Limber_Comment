@@ -161,7 +161,7 @@ where the lensing efficiency $q$ is given by
   \label{eq:lens_efficiency}
 \end{equation}
 %
-corresponding to a population of lensed galaxies with source redshift
+corresponding to a population of lensed galaxies with normalised source redshift
 distribution $n(z) {\rm d}z = n(\chi) {\rm d} \chi$. Here, ${\rm c}$ is the
 speed of light, the projection is carried out over comoving distances $\chi$ up
 to a limiting distance $\chi_{\rm lim}$, and $f_K$ is the the comoving angular
@@ -227,7 +227,7 @@ of lensing efficiency functions $q_i$ defined by a corresponding family of
 redshift distributions $n_i$ via eq.~(\ref{eq:lens_efficiency}). The resulting
 lensing potential is denoted by $\psi_{\ell m, i}$. The tomographic power
 spectrum of the lensing potential between two redshift bins $i$ and $j$,
-$C_{ij}^\psi$ is then defined by
+$C_{ij}^\psi$ is then defined by \cite{pee80}
 %
 \begin{equation}
   \left\langle \psi^{}_{\ell m, i} \, \psi^\ast_{\ell^\prime m^\prime, j} \right\rangle
@@ -257,6 +257,29 @@ where for convenience we defined the normalisation constant $\pref$ as
   \pref = \frac 3 2 \Omega_{\rm m} \left(\frac{H_0} c\right)^2.
   \label{eq:pref}
 \end{equation}
+%
+The first line expresses $C_{ij}^\psi$ in terms of the 3D potential power spectrum $P_\Phi$, defined as
+%
+\begin{align}
+  \left\langle \hat \Phi(\vec k; \chi) \hat \Phi^\ast(\vec k^\prime; \chi^\prime) \right\rangle
+    = & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) P_\Phi(k; \chi, \chi^\prime).
+    %\nonumber \\
+    %= & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) \pref^2 k^{-4} a^{-1}(\chi) a^{-1}(\chi^\prime)
+      %P_{\rm m}(k; \chi, \chi^\prime).
+  \label{eq:p_phi}
+\end{align}
+%
+The second line uses the 3D matter density power spectrum $P_{\rm m}$, which is defined analogously as
+%
+\begin{align}
+  \left\langle \hat \delta(\vec k; \chi) \hat \delta^\ast(\vec k^\prime; \chi^\prime) \right\rangle
+    = & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) P_{\rm m}(k; \chi, \chi^\prime),
+  \label{eq:p_m}
+\end{align}
+%
+and is
+related to $P_\Phi$ via the absolute square of the Poisson equation (\ref{eq:poisson}).
+
 
 In the following section we will discuss the relations between of shear and
 convergence to the lensing potential on the sphere, and derive the power
@@ -358,6 +381,9 @@ For a flat Universe, this is given by
   \label{eq:C_ell_full}
 \end{align}
 %
+The spherical prefactor for the full projection power spectrum is $p(\ell) =
+\ellbar^2(\ell, 2)$, which will be modified under flat-sky and Limber
+approximations below.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Convergence power spectrum}
@@ -381,7 +407,7 @@ The spherical harmonics are eigenfunctions of the Laplacian,
   \label{eq:nabla_Ylm}
 \end{equation}
 %
-The potential power spectrum is then similar to the shear power spectrum
+The convergence power spectrum is then similar to the shear power spectrum
 (\ref{eq:C_ell_gamma}) with a different spherical prefactor,
 %
 \begin{equation}
@@ -487,8 +513,8 @@ involved distances \cite{2016arXiv161200770K}, and divide out the growth factor
 to define a redshift-independent power spectrum $P_{\rm m}(k)$,
 %
 \begin{equation}
- P_{\rm m}(k, \chi, \chi^\prime) = \sqrt{ P_{\rm m}(k, \chi) P_{\rm m}(k, \chi^\prime) },
-    = D_+(\chi) D_+(\chi^\prime) P_{\rm m}(k).
+ P_{\rm m}(k, \chi, \chi^\prime) = \sqrt{ P_{\rm m}(k, \chi) P_{\rm m}(k, \chi^\prime) }
+    =: D_+(\chi) D_+(\chi^\prime) P_{\rm m}(k).
   \label{eq:P_geom_mean}
 \end{equation}
 %
@@ -516,8 +542,10 @@ to \cite{2008PhRvD..78l3506L} who show calculations for a scalar field.
 Following \cite{2008PhRvD..78l3506L} we expand to third order
 %
 \begin{equation}
-  \lim_{\varepsilon \rightarrow 0} \int_0^\infty {\rm d} x \, {\rm e}^{-\epsilon (x - \nu)} g(x) {\rm J}_\nu(x) \approx g(\nu) - \frac 1 2 g^{\prime\prime}(\nu)
-      - \frac \nu 6 g^{\prime\prime\prime}(\nu) 
+  \lim_{\varepsilon \rightarrow 0} \int_0^\infty {\rm d} x \, {\rm e}^{-\epsilon (x - \nu)} g(x) {\rm J}_\nu(x)
+  %\approx g(\nu) - \frac 1 2 g^{\prime\prime}(\nu) - \frac \nu 6 g^{\prime\prime\prime}(\nu) 
+  \approx g(\nu) - \frac 1 2 \left.\frac{{\rm d}^2 g}{{\rm d} x^2}\right|_{x=\nu}
+                 - \frac \nu 6 \left.\frac{{\rm d}^3 g}{{\rm d} x^3}\right|_(x=\nu) ,
 \end{equation}
 %
 with $g(x) = k^{-1} f(\chi)$, $\chi=x/k$, and its derivatives $g^{(n)}(x) =
@@ -537,11 +565,11 @@ respectively, yields
   C^\gamma_{ij}(\ell) \approx & \, \ellbar^2(\ell, 2) \, \pref^2
     \int_0^\infty \frac{{\rm d} k}{k^3} \, P_{\rm m}(k) k^{-2}
     \left[ f_i(\chi) - \frac{1}{2 k^2} f_i^{\prime\prime}(\chi)
-      - \frac{\nu}{6 k^3} f_i^{\prime\prime\prime}(\nu) + \ldots \right]
+      - \frac{\nu}{6 k^3} f_i^{\prime\prime\prime}(\chi) + \ldots \right]
     %\nonumber \\
     %& \times
     \left[ f_j(\chi) - \frac{1}{2 k^2} f_j^{\prime\prime}(\chi)
-    - \frac{\nu}{6 k^3} f_j^{\prime\prime\prime}(\nu) + \ldots \right]
+    - \frac{\nu}{6 k^3} f_j^{\prime\prime\prime}(\chi) + \ldots \right]
   \label{eq:C_ell_limber2_dk}
 \end{align}
 %
@@ -575,7 +603,7 @@ power spectrum,
 %
 \begin{align}
   C^\gamma_{{\rm L1}, ij}(\ell) = & \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2 \int {\rm d} \chi \frac{ q_i(\chi) q_j(\chi) }{a^2(\chi)}
-  P\left(k = \frac{\nu}{\chi}; \chi\right).
+  P_{\rm m}\left(k = \frac{\nu}{\chi}; \chi\right).
   \label{eq:C_ell_limber1}
 \end{align}
 %
@@ -639,15 +667,16 @@ Different further approximations are commonly made for the prefactor $p(\ell) = 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In Fig.~\ref{fig:Cl_cases} we plot the full shear power spectrum and some of
-the approximations. For $\ell > 100$ all power spectra coincide to better than
-one percent. The standard first-order Limber approximation is better than 10\%
-but for the lowest $\ell$, but converges slowly to the true projection to
-higher $\ell$. For the extended Limber approximations, despite slightly worse
-for $\ell < 10$ in the hybrid cases, the errors with respect to the true power spectrum
-decrease much faster, with $\ell^{-2}$.
-Including the spherical prefactor decreases the difference by a
-factor of a few for $\ell < 5$. Going to second-order yields percent accuracy
-down to $\ell = 4$.
+the approximations. The redshift distribution corresponds to CFHTLenS
+\cite{CFHTLenS-2pt-notomo}. \mk{NL power spectrum parameters.}
+For $\ell > 100$ all power spectra coincide to
+better than one percent. The standard first-order Limber approximation is
+better than 10\% but for the lowest $\ell$, but converges slowly to the true
+projection to higher $\ell$. For the extended Limber approximations, despite
+slightly worse for $\ell < 10$ in the hybrid cases, the errors with respect to
+the true power spectrum decrease much faster, with $\ell^{-2}$. Including the
+spherical prefactor decreases the difference by a factor of a few for $\ell <
+5$. Going to second-order yields percent accuracy down to $\ell = 4$.
 
 The flat extended Limber approximations (ExtL1Fl and ExtL2Fl) perform relatively poorly, and
 reach 10\% precision only at $\ell > 100$.
@@ -690,12 +719,13 @@ reach 10\% precision only at $\ell > 100$.
 
   \label{tab:cases}
 
-  \caption{Shear power spectrum approximations compared in this paper. \mk{The last column will be removed in the
+  \caption{Shear power spectrum approximations compared in this paper. 'ID' is the abbrevation used in the plots.
+    The third column shows the power-spectrum prefactor $p(\ell)$.  \mk{The last column will be removed in the
         final version.}}
 
   \begin{tabular}{|l|l|c|c|c|c}
   \hline
-  Case & ID & eq.~ & $p(\ell)$ & $\nu(\ell)$ & Label [Comment paper] \\ \hline
+  Case & ID & eq.~ & prefactor & $\nu(\ell)$ & Label [Comment paper] \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
     & $1$ & $\ell$ & Kst \\ \hline
@@ -724,7 +754,8 @@ reach 10\% precision only at $\ell > 100$.
 \renewcommand{\baselinestretch}{1}
 
 In Fig.~\ref{fig:xi_pm_K16} we show the correlation functions using the different cases
-for the shear power spectrum. \mk{Replace this figure, don't show CFHTLenS data?}
+for the shear power spectrum. The redshift distribution and cosmological model are the same 
+as in Fig.~\ref{fig:Cl_cases}.
 
 \begin{figure}
 
@@ -743,7 +774,9 @@ for the shear power spectrum. \mk{Replace this figure, don't show CFHTLenS data?
   \caption{Shear correlation funtions $\xi_+$ (\emph{left panels}) and $\xi_-$ (\emph{right}).
     The lower row shows the relative differences to the case Ext2Sph,  see Table \ref{tab:cases} for the different
     approximations and their symbols.
-    %\cite{CFHTLenS-2pt-notomo}; the theotical predictions correspond to the best-fit parameters with
+    \mk{Probably remove ExtL1Fl, ExtL2Fl, we already showed for $P_\kappa$ that they are worse than standard
+    Limber.}
+    %\cite{CFHTLenS-2pt-notomo}; the theoretical predictions correspond to the best-fit parameters with
     %$\Omega_{\rm m} = 0.279$ and $\sigma_8 = 0.79$, except the red dashed curve with adapts a Planck-best fit
     %normalisation $\sigma_8 = 0.83$.
   }
@@ -809,12 +842,12 @@ insert the expansion of a plane wave into spherical harmonics,
 % BBRV12 (41)
 %
 \begin{equation}
-  {\rm e}^{{\rm i} \vec k \vec r} = 4 \pi \sum_{\ell m} {\rm i}^\ell {\rm j}_\ell(k \chi)
-    {\rm Y}_{\ell m}(\theta, \varphi) {\rm Y}_{\ell m}(\theta_k, \varphi_k),
+  {\rm e}^{{\rm i} \vec k \vec r} = 4 \pi \sum_{\ell=0}^{\infty} \sum_{m=-\ell}^{\ell}
+    {\rm i}^\ell \, {\rm j}_\ell(k \chi)
+    {\rm Y}_{\ell m}(\theta, \varphi) {\rm Y}_{\ell m}(\theta_k, \varphi_k) .
   \label{eq:wave_exp}
 \end{equation}
 %
-\mk{Comment on minus sign in exponential.}
 
 Making use of the orthogonality of the spherical harmonics
 %
@@ -833,17 +866,9 @@ the expression for $\psi_{\ell m}$ simplifies to
   \label{eq:psi_ellm}
 \end{equation}
 %
-We take the absolute square and use the definition of the 3D potential power spectrum,
-%
-\begin{align}
-  \left\langle \Phi(\vec k; \chi) \Phi^\ast(\vec k^\prime; \chi^\prime) \right\rangle
-    = & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) P_\Phi(k; \chi, \chi^\prime).
-    %\nonumber \\
-    %= & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) \pref^2 k^{-4} a^{-1}(\chi) a^{-1}(\chi^\prime)
-      %P_{\rm m}(k; \chi, \chi^\prime).
-  \label{eq:p_phi}
-\end{align}
-%
+We take the absolute square and use the definition of the 3D potential power spectrum (\ref{eq:p_phi}),
+to arrive at expression (\ref{eq:C_ell_phi_Pphi}).
+
 $P_{\rm m}$ is the 3D matter power cross-spectrum at line-of-sight comoving
 Fourier mode $k$ and comoving distances $\chi$ and $\chi^\prime$. We denote
 complex conjugation with superscript $^\ast$.
