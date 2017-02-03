@@ -89,7 +89,7 @@ and the full projection are publically available within the package
 cosmological parameters -- methods: statistical
 \end{keywords}
 
-%\input abbr-journals
+\input abbr-journals
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -639,11 +639,18 @@ Different further approximations are commonly made for the prefactor $p(\ell) = 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In Fig.~\ref{fig:Cl_cases} we plot the full shear power spectrum and some of
-the approximations. For $\ell > 100$ all power spectra coincide to better than one percent.
-The extended first-order Limber approximation shows a better convergence to the true
-power spectrum, the error decreases with $\ell^{-2}$. Including the spherical prefactor
-decreases the difference by a factor of a few for $\ell < 5$.
-Going to second-order yields percent accuracy down to $\ell = 4$.
+the approximations. For $\ell > 100$ all power spectra coincide to better than
+one percent. The standard first-order Limber approximation is better than 10\%
+but for the lowest $\ell$, but converges slowly to the true projection to
+higher $\ell$. For the extended Limber approximations, despite slightly worse
+for $\ell < 10$ in the hybrid cases, the errors with respect to the true power spectrum
+decrease much faster, with $\ell^{-2}$.
+Including the spherical prefactor decreases the difference by a
+factor of a few for $\ell < 5$. Going to second-order yields percent accuracy
+down to $\ell = 4$.
+
+The flat extended Limber approximations (ExtL1Fl and ExtL2Fl) perform relatively poorly, and
+reach 10\% precision only at $\ell > 100$.
 
 \begin{figure}
 
@@ -654,13 +661,14 @@ Going to second-order yields percent accuracy down to $\ell = 4$.
     }
   \end{center}
 
-  \caption{Shear power spectrum for different approximation. Limber to first order: for flat-sky (L1Fl),
-        extended ($\ell + 1/2$) for flat sky (ExtL1Fl), and extended in the spherical expansion (ExtL1Sph);
-        Second-order extended Limber spherical expansion (ExtL2Sph); full (exact) spherical projection (FullSph).
-        The left (right) panels show the total (relative difference) power spectrum.
+  \caption{Shear power spectrum for different approximation. Limber to first order: standard with flat-sky (L1Fl),
+        extended for flat sky (ExtL1Fl), extended hybrid for flat sky (ExtL1FlHyb),
+        and extended in the spherical expansion (ExtL1Sph);
+        second-order Limber approximations: extended flat sky (ExtL2Fl), extended hybrid flat sky (ExtL2FlHyb),
+        and extended spherical expansion (ExtL2Sph); full (exact) spherical projection (FullSph).
+        The left panels show the total power spectrum.
         See Table \ref{tab:cases} for more details on the different approximations.
         }
-      }
 
   \label{fig:Cl_cases}
 
@@ -725,14 +733,20 @@ for the shear power spectrum. \mk{Replace this figure, don't show CFHTLenS data?
       \includegraphics{figures/xi_p_comp}
       \includegraphics{figures/xi_m_comp}
     }
+
+    \resizebox{1.0\hsize}{!}{
+      \includegraphics{figures/xi_p_delta}
+      \includegraphics{figures/xi_m_delta}
+    }
   \end{center}
 
-  %\caption{Shear correlation funtions $\xi_+$ (\emph{left panel}) and $\xi_-$ (\emph{right}) in the
-    %%represenation as in \cite{2016arXiv161104954K}. See Table \ref{tab:cases} for the cases of different
-    %approximations and their symbols. The  points with error bars are the data from
+  \caption{Shear correlation funtions $\xi_+$ (\emph{left panels}) and $\xi_-$ (\emph{right}).
+    The lower row shows the relative differences to the case Ext2Sph,  see Table \ref{tab:cases} for the different
+    approximations and their symbols.
     %\cite{CFHTLenS-2pt-notomo}; the theotical predictions correspond to the best-fit parameters with
     %$\Omega_{\rm m} = 0.279$ and $\sigma_8 = 0.79$, except the red dashed curve with adapts a Planck-best fit
-    %normalisation $\sigma_8 = 0.83$.}
+    %normalisation $\sigma_8 = 0.83$.
+  }
 
   \label{fig:xi_pm_K16}
 
