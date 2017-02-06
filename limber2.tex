@@ -32,8 +32,8 @@
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[]
-{Precision calculations of the cosmic shear power spectrum projection}
+\title[Precision calculations for cosmic shear]{Precision calculations for cosmic shear}  %??
+%{Precision calculations of the cosmic shear power spectrum projection}
 
 \author[M.~Kilbinger et~al.]
  {
@@ -71,16 +71,17 @@
 
 We compute the spherical-sky weak-lensing power spectrum of the shear and
 convergence. We discuss various approximations, such as flat-sky, first- and
-second-order Limber equations for the projection. We show that the spherical
-second-order Limber approximation agrees with the full projection at the
-percent level for $\ell > 3$. for current surveys. The real-space shear
-correlation functions show excellent agreement between all cases. The
-consequence for parameter constraints are negligible for current surveys, which
-we demonstrate using CFHTLenS data. In particular, the reported tension with
-Planck CMB temperature anisotropy results cannot be alleviated. This is in
-contrast to the recent claim made by \citet{2016arXiv161104954K}. In the spirit
-of reproducible research, our numerical implementation of all approximations
-and the full projection are publically available within the package
+second-order Limber equations for the projection. We find that the impact of adopting 
+these approximations are negligible when constraining cosmological parameters from 
+current weak lensing surveys.
+This is demonstrated using data from the Canada-France-Hawaii Lensing Survey (CFHTLenS). 
+We find that the reported tension with Planck CMB temperature anisotropy results cannot be alleviated, in
+contrast to the recent claim made by \citet{2016arXiv161104954K}. 
+For future large-scale surveys with unprecedented precision, we show that the spherical
+second-order Limber approximation will provide sufficient accuracy, as it is in 
+agreement with the full projection at the percent level for $\ell > 3$.  
+In the spirit of reproducible research, our numerical implementation of all approximations
+and the full projection are publicly available within the package
 \texttt{nicaea} at \texttt{http://www.cosmostat.org/software/nicaea}.
 
 \end{abstract}
@@ -99,7 +100,7 @@ cosmological parameters -- methods: statistical
 The measurement of weak gravitational lensing by large-scale structures
 provides a powerful cosmological probe of dark matter, dark energy, and
 modifications to gravity.  As such it is the primary science goal of several
-current (KiDS, HSC, DES) and future (Euclid, LSST, WFIRST) large surveys.
+current (KiDS, HSC, DES) and future (Euclid, LSST, WFIRST) large-scale surveys.
 Interest in the results from these surveys is high as statistically significant
 deviations have been found between the cosmological parameter constraints from
 the CMB Planck experiment \citep{2015arXiv150201589P} in comparison to weak
@@ -113,16 +114,17 @@ the tension can be resolved with an evolving dark energy model.
 
 In the era of the upcoming large surveys that will provide measurements of
 cosmic shear with unprecedented precision, one needs to revisit the theoretical
-model predictions of the observables to make sure that the accuracy of the
+model predictions of the observables to ensure that the accuracy of the
 models meet the upcoming data. In this paper, we examine the widely used Limber
 approximation for the projected weak-lensing power spectrum. We consider
 spherical coordinates and the flat-sky approximation, and compute the full
 projection as well as first- and second-order Limber approximation. We show
 that the latter is an excellent approximation of the full projection. Since it
-involves only 1D integrals over the matter power specrum, it is very fast to
+involves only 1D integrals over the matter power spectrum, it is very fast to
 calculate numerically and can readily employed in Monte-Carlo sampling methods
 to obtain precision constraints on cosmological parameters.
 
+This paper is organised as follows.  In section~\ref{sec:wl} we provide a pedagogical introduction to weak gravitational lensing theory, projections and power spectra for the flat-sky and spherical cases.  In section~\ref{sec:L2} we derive weak lensing observables using a second-order limber approximation first introduced by \citet{2008PhRvD..78l3506L}.  We compare the shear power spectrum and commonly-used two-point shear correlation function for a range of different approximations in section~\ref{sec:comp}, providing cosmological constraints for each case using CFHTLenS data from \citet{CFHTLenS-2pt-notomo} in section~\ref{sec:cfhtlens}.  This paper draws from several sources of literature which have previously reviewed the accuracy of the Limber approximation for weak lensing studies, namely \citet{2008PhRvD..78d3002S,2012PhRvD..86b3001B, 2012MNRAS.422.2854G}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
