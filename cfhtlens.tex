@@ -38,14 +38,16 @@ corrections derived in \citet{CFHTLenS-shapes} were underestimated as a result
 of an imperfect match between the galaxy populations in the data and image
 simulations.}
 %
-\item{\citet{fenechconti/etal:2016} demonstrated that the CFHTLenS data would
+\item{\citet{2016arXiv160605337F} demonstrated that the CFHTLenS data would
 have been subject to a weight bias that favours galaxies that are more
 intrinsically oriented with the point-spread function.  They also showed that
 the impact of calibration selection biases, that were not considered in
-\citet{miller/etal:2013}, would have lead to the over-correction of
+\citet{CFHTLenS-shapes}, would have lead to the over-correction of
 multiplicative shear bias in the CFHTLenS analyses, by a few percent.}
 %
-\item{\citet{joudaki/etal:2016} updated the CFHTLenS covariance matrices using larger-box numerical simulations that were less subject to the lack of power on large scales.}
+\item{\citet{joudaki/etal:2016} updated the CFHTLenS covariance matrices using
+larger-box numerical simulations that were less subject to the lack of power on
+large scales.}
 \item{\cite{2012ApJ...761..152T} provided a more accurate non-linear power
 spectrum correction that that used in the original CFHTLenS analyses and the
 halo model from \cite{2015MNRAS.454.1958M} allowed for simultaneous modelling
@@ -65,14 +67,38 @@ statistical power to current weak lensing surveys, however, it is nevertheless
 provides a very useful testbed with which to demonstrate the impact of adopting
 different approximations when constraining cosmological parameters.
 
-We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo}, adopting the same priors and non-linear power spectrum correction\footnote{As an example of significant effects that need to be accounted for using the revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of \cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =0.768^{+0.029}_{-0.031}$.} from \cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.  For a first-order standard Limber flat-sky approximation (L1Fl) we find $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =0.787^{+0.031}_{-0.033}$.   For a second-order extended Limber flat-sky approximation we find $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =X^{+X}_{-0.X}$, a negligible change of $X\sigma$. 
+We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo}, adopting
+the same priors and non-linear power spectrum correction\footnote{As an example
+of significant effects that need to be accounted for using the revised
+non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
+\cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8
+(\Omega_{\rm m}/0.3)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
+\cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.
+For a first-order standard Limber flat-sky approximation (L1Fl) we find
+$\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =0.787^{+0.031}_{-0.033}$.   For a
+second-order extended Limber flat-sky approximation we find $\sigma_8
+(\Omega_{\rm m}/0.3)^{0.6} =X^{+X}_{-0.X}$, a negligible change of $X\sigma$. 
 
 Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the lensing
 power spectrum projections listed in Table~\ref{tab:cases}
 
-\ch{This text taken from the comment on paper;
-We note that \citet{kitching/etal:2016} use their `Flat' approximation for their `Full' non-Limber analysis of the CFHTLenS data.   This is because on a sphere, correlation functions cannot be related to the power spectrum by a Hankel transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined for non-integer $\ell$.   In Figure~\ref{fig:Cl_xi}, however, we show that this chosen version of a flat-sky approximation serves to exacerbate the tension in theoretical models when a flat-sky solution is compared with the spherical-sky solution in the Limber approximated case.  This is not the case when considering the standard $T_\ell = 1$ flat-sky approximation that has been used in the majority of cosmic shear studies to date.  We would therefore argue that it is more appropriate to use a $T_\ell = 1$ flat-sky approximation when carrying out a `Full' non-Limber analysis of the shear correlation function obtained from the Hankel transformation (equation~\ref{eqn:xiGG}).
-We need to take a decision here about what to use.  Do we need a Full Flat case in Table 1, and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl as our "truth" for the correlation function?}
+\ch{This text taken from the comment on paper; We note that
+\citet{2016arXiv161104954K} use their `Flat' approximation for their `Full'
+non-Limber analysis of the CFHTLenS data.   This is because on a sphere,
+correlation functions cannot be related to the power spectrum by a Hankel
+transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined
+for non-integer $\ell$. In Figure~\ref{fig:Cl_xi}, however, we show that this
+chosen version of a flat-sky approximation serves to exacerbate the tension in
+theoretical models when a flat-sky solution is compared with the spherical-sky
+solution in the Limber approximated case.  This is not the case when
+considering the standard $T_\ell = 1$ flat-sky approximation that has been used
+in the majority of cosmic shear studies to date.  We would therefore argue that
+it is more appropriate to use a $T_\ell = 1$ flat-sky approximation when
+carrying out a `Full' non-Limber analysis of the shear correlation function
+obtained from the Hankel transformation (equation~\ref{eqn:xiGG}). We need to
+take a decision here about what to use.  Do we need a Full Flat case in Table
+1, and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl
+as our "truth" for the correlation function?}
 
 \begin{table}
 
