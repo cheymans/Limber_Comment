@@ -477,7 +477,7 @@ The flat-sky power spectrum is
                 \int_{0}^{\chi_{\rm lim}} {\rm d} \chi^\prime\, \chi^\prime
                 \frac{q_j(\chi^\prime)}{a(\chi^\prime)}
                 \nonumber \\
-                & \times \int_0^\infty {\rm d} k \, k^2 \, P_{\rm m}(k, \chi, \chi^\prime) \,
+                & \times \int_0^\infty {\rm d} k \, k^2 \, P_{\rm m}(k; \chi, \chi^\prime) \,
                 {\rm j}_\ell(k \chi) \, {\rm j}_\ell(k \chi^\prime) .
   \label{eq:P_ell_gamma}
 \end{align}
@@ -512,32 +512,33 @@ integrals of the form
 \end{equation}
 %
 by performing a Taylor expansion of the function $f$ around $x = k \chi = \nu$, where
-the Bessel function has its approximate maximum. To separate the $k$- and
-$\chi, \chi^\prime$-terms in (\ref{eq:C_ell_full}), we first approximate the
-matter power cross-spectrum between two distances as geometric mean of the two
-involved distances \cite{2016arXiv161200770K}, and divide out the growth factor
-to define a redshift-independent power spectrum $P_{\rm m}(k)$,
+the Bessel function has its approximate maximum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Geometric mean cross-correlation power spectrum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To separate the $k$- and $\chi, \chi^\prime$-terms in (\ref{eq:C_ell_full}), we
+first approximate the matter power cross-spectrum between two distances as
+geometric mean of the two involved distances \cite{2005PhRvD..72b3516C,2016arXiv161200770K},
 %
 \begin{equation}
- P_{\rm m}(k, \chi, \chi^\prime) = \sqrt{ P_{\rm m}(k, \chi) P_{\rm m}(k, \chi^\prime) }
-    =: D_+(\chi) D_+(\chi^\prime) P_{\rm m}(k).
+ P_{\rm m}(k; \chi, \chi^\prime) = \sqrt{ P_{\rm m}(k; \chi) P_{\rm m}(k; \chi^\prime) }
   \label{eq:P_geom_mean}
 \end{equation}
 %
-This is not exact, since some non-linear prescriptions of the power spectrum
-depend on redshift other than the growth factor, for example when computing the
-non-linear scale $k_{\rm NL}(z)$ for \texttt{halofit}.
-
 With this, eq.~(\ref{eq:C_ell_full}) is written as
 %
 \begin{align}
   C^\gamma_{ij}(\ell) \approx & \, \ellbar^2(\ell, 2) \, \pref^2
-                \int_0^\infty \frac{{\rm d} k}{k^3} \, P_{\rm m}(k) \,
-                \int_{0}^\infty \frac{{\rm d} \chi}{\chi^{3/2}} \frac{D_+(\chi)}{a(\chi)} q_i(\chi) {\rm J}_{\ell+1/2}(k \chi)
+                \int_0^\infty \frac{{\rm d} k}{k^3} \,
+                % P_{\rm m}(k) \,
+                \int_{0}^\infty \frac{{\rm d} \chi}{\chi^{3/2}} \sqrt{P_{\rm m}(k; \chi)}
+                \frac{q_i(\chi)}{a(\chi)} {\rm J}_{\ell+1/2}(k \chi)
                 \nonumber \\
                  & \times
                 \int_{0}^\infty \frac{{\rm d} \chi^\prime}{{\chi^\prime}^{3/2}}
-                \frac{D_+(\chi^\prime)}{a(\chi^\prime)} q_j(\chi^\prime) {\rm J}_{\ell+1/2}(k \chi^\prime)
+                \sqrt{P_{\rm m}(k; \chi^\prime)} \frac{q_j(\chi^\prime)}{a(\chi^\prime)} {\rm J}_{\ell+1/2}(k \chi^\prime)
   \label{eq:C_ell_full_Pk}
 \end{align}
 %
@@ -551,14 +552,14 @@ Following \cite{2008PhRvD..78l3506L} we expand to third order
   \lim_{\varepsilon \rightarrow 0} \int_0^\infty {\rm d} x \, {\rm e}^{-\epsilon (x - \nu)} g(x) {\rm J}_\nu(x)
   %\approx g(\nu) - \frac 1 2 g^{\prime\prime}(\nu) - \frac \nu 6 g^{\prime\prime\prime}(\nu) 
   \approx g(\nu) - \frac 1 2 \left.\frac{{\rm d}^2 g}{{\rm d} x^2}\right|_{x=\nu}
-                 - \frac \nu 6 \left.\frac{{\rm d}^3 g}{{\rm d} x^3}\right|_(x=\nu) ,
+                 - \frac \nu 6 \left.\frac{{\rm d}^3 g}{{\rm d} x^3}\right|_{x=\nu} ,
 \end{equation}
 %
-with $g(x) = k^{-1} f(\chi)$, $\chi=x/k$, and its derivatives $g^{(n)}(x) =
-k^{-1-n} f^{(n)}(\chi)$. In our case the projection kernel is
+with $g(x) = k^{-1} f(k, \chi)$, $\chi=x/k$, and its derivatives $g^{(n)}(x) =
+k^{-1-n} f^{(n)}(k, \chi)$ for a given $k$. In our case the projection kernel is
 %
 \begin{equation}
-  f(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi).
+  f(k, \chi) = \sqrt{P_{\rm m}(k; \chi)} \, a^{-1}(\chi) \chi^{-3/2} q(\chi).
   \label{eq:f_LA08}
 \end{equation}
 %
@@ -569,13 +570,13 @@ respectively, yields
 %
 \begin{align}
   C^\gamma_{ij}(\ell) \approx & \, \ellbar^2(\ell, 2) \, \pref^2
-    \int_0^\infty \frac{{\rm d} k}{k^3} \, P_{\rm m}(k) k^{-2}
-    \left[ f_i(\chi) - \frac{1}{2 k^2} f_i^{\prime\prime}(\chi)
-      - \frac{\nu}{6 k^3} f_i^{\prime\prime\prime}(\chi) + \ldots \right]
+    \int_0^\infty \frac{{\rm d} k}{k^3} \, k^{-2}
+    \left[ f_i(k, \chi) - \frac{1}{2 k^2} f_i^{\prime\prime}(k, \chi)
+      - \frac{\nu}{6 k^3} f_i^{\prime\prime\prime}(k, \chi) + \ldots \right]
     %\nonumber \\
     %& \times
-    \left[ f_j(\chi) - \frac{1}{2 k^2} f_j^{\prime\prime}(\chi)
-    - \frac{\nu}{6 k^3} f_j^{\prime\prime\prime}(\chi) + \ldots \right]
+    \left[ f_j(k, \chi) - \frac{1}{2 k^2} f_j^{\prime\prime}(k, \chi)
+    - \frac{\nu}{6 k^3} f_j^{\prime\prime\prime}(k, \chi) + \ldots \right]
   \label{eq:C_ell_limber2_dk}
 \end{align}
 %
@@ -585,16 +586,16 @@ Changing the integration to $\chi = \nu/k$ and collecting terms according to the
   C^\gamma_{ij}(\ell) \approx & \, C^\gamma_{{\rm L1}, ij}(\ell) + C^\gamma_{{\rm L2}, ij}(\ell)
       \nonumber \\
     = & \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
-    \int_0^\infty {\rm d} \chi \, \chi^3 \, P_{\rm m}\left( k \right)
+    \int_0^\infty {\rm d} \chi \, \chi^3 \, % P_{\rm m}\left( k \right)
     %\Bigg\{
     \left\{
-    f_i(\chi) f_j(\chi)
+    (f_i f_j)(\nu/\chi, \chi)
     %\right.
       %\nonumber \\
     %&
     %\left.
-     - \frac 1 {\nu^2} \left[ \frac{\chi^2}{2} \left( f^{}_i f^{\prime\prime}_j + f_i^{\prime\prime} f^{}_j \right)(\chi)
-    + \frac{\chi^3}{6} \left( f^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i f^{}_j \right)(\chi)
+     - \frac 1 {\nu^2} \left[ \frac{\chi^2}{2} \left( f^{}_i f^{\prime\prime}_j + f_i^{\prime\prime} f^{}_j \right)(\nu/\chi, \chi)
+    + \frac{\chi^3}{6} \left( f^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i f^{}_j \right)(\nu/\chi, \chi)
     \right]
     \right\}
     %\Bigg\}
@@ -609,7 +610,7 @@ power spectrum,
 %
 \begin{align}
   C^\gamma_{{\rm L1}, ij}(\ell) = & \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2 \int {\rm d} \chi \frac{ q_i(\chi) q_j(\chi) }{a^2(\chi)}
-  P_{\rm m}\left(k = \frac{\nu}{\chi}; \chi\right).
+  P_{\rm m}\left(\frac{\nu}{\chi}; \chi\right).
   \label{eq:C_ell_limber1}
 \end{align}
 %
@@ -621,18 +622,80 @@ $\nu^{-2}$-dependence, and is therefore strongly suppressed for large $\ell$.
 %
 \begin{align}
   C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
-    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(k = \frac\nu\chi; \chi\right)
+    \int {\rm d} \chi \, \chi^{2} a^{-2} \sqrt{P_{\rm m}\left(\frac\nu\chi; \chi\right)}
     %\nonumber \\
     %& \times
-    \frac 1 2 D^{-1}_+(\chi) a(\chi) \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j
+    \frac{a(\chi)}{2} \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j
       + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i q^{}_j
       \right)
-    \right](\chi)
+    \right](\nu/\chi, \chi)
   \label{eq:C_ell_limber2_dr} 
 \end{align}
 %
-The derivatives of the filter functions have to be computed numerically in the general case.
+The higher-order derivatives of the filter functions have to be computed
+numerically in the general case. These suffer from numerical noise and are
+sensitive to the set-up, for example the step size. The tabulation and
+interpolation of those derivatives is time-taking since they depend on two
+arguments, $\nu$ and $\chi$. In the following section, we will separate the
+$k$- and $\chi$-dependend parts of the power spectrum to make the numerical
+derivatives faster and more smooth.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Time-independent power spectrum separation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To further develop (\ref{eq:P_geom_mean}), we divide out the growth factor to
+define a redshift-independent power spectrum $P_{\rm m}(k)$,
+%
+\begin{equation}
+ P_{\rm m}(k, \chi) =: D_+(\chi) P_{\rm m}(k).
+  \label{eq:P_k_chi_sep_s}
+\end{equation}
+%
+This is not exact, since some non-linear prescriptions of the power spectrum
+depend on redshift other than the growth factor, for example when computing the
+non-linear scale $k_{\rm NL}(z)$ for \texttt{halofit}.
+
+With this approximation, the $k$-independent term factors out
+from (\ref{eq:f_LA08}), and we define the separated kernel function $f_{\rm s}$ as
+%
+\begin{equation}
+  f_{\rm s}(\chi) = \sqrt{P_{\rm m}(k)} D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi).
+  \label{eq:f_LA08_s}
+\end{equation}
+%
+and does not need to be considered when taking the derivatives with respect to comoving distances.
+The second-order Limber term of the shear power spectrum can then be simplified to
+%
+\begin{align}
+  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
+    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(\frac\nu\chi; \chi\right)
+    %\nonumber \\
+    %& \times
+    \frac {a(\chi)}{2 D_+(\chi)} \chi^{3/2}
+    \left[ q^{}_i f^{\prime\prime}_{{\rm s} j} + f^{\prime\prime}_{{\rm s}i} q^{}_j
+      + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_{{\rm s}j} + f^{\prime\prime\prime}_{{\rm s}i} q^{}_j
+      \right)
+    \right](\chi)
+  \label{eq:C_ell_limber2_dr_s}
+\end{align}
+%
+We compute the numerical higher derivatives as follows. The functions $f_{\rm
+s}(\chi)$ are fitted as power laws with index $\approx 1.5$. The fit is
+performed between $\chi_{\rm min} = 0.001 {\rm Mpc}/h$ and $\chi_{\rm max} =
+500 \mbox{Mpc}/h$. At larger comoving distances the kernel decreases faster
+than a power law, so we exclude this range from the fit. Even though the
+derivaties are larger due to the steeper decline, the associated errors are
+very small since those scales are down-weighed by the kernel function $f_{\rm
+s}$ itself. At $\chi = 500 \mbox{Mpc}/h$ the filter function is less than
+$10^{-4}$ of its value of unity at Mpc$/h$.
+
+%The error between filter and power-law fit
+%becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
+%scales where the second-order Limber approximation significantly contributes to the shear
+%power spectrum, $\ell \le 100$, this corresponds to $k < 0.03 h/$Mpc, linear
+%scales where the 3D power spectrum is small and does not strongly contribute to the lensing
+%power spectrum.
 
 \subsection{Flat sky}
 
@@ -648,8 +711,8 @@ spherical case, by replacing the prefactor $\ellbar^2(\ell, 2)$ with $\ell^4$,
     \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(k = \frac\nu\chi; \chi\right)
     %\nonumber \\
     %& \times
-    \frac 1 2 D^{-1}_+(\chi) a(\chi) \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j  
-      + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i q^{}_j
+    \frac{a(\chi)}{2 D^{-1}_+(\chi)} \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_{{\rm s}j} + f^{\prime\prime}_{{\rm s}i} q^{}_j  
+      + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_{{\rm s}j} + f^{\prime\prime\prime}_{{\rm s}i} q^{}_j
       \right)
     \right](\chi)
   \label{eq:P_ell_limber2}
@@ -745,10 +808,10 @@ reach 10\% precision only at $\ell > 100$.
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
     & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & ELS \\ \hline
   %
-  $2^{\rm st}$-order extended Limber, flat sky & Ext2FlHyb & (\ref{eq:P_ell_limber2}) + (iii)
+  $2^{\rm st}$-order extended Limber, flat sky & Ext2FlHyb &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
     & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
   %
-  $2^{\rm st}$-order extended Limber, spherical & Ext2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr})
+  $2^{\rm st}$-order extended Limber, spherical & Ext2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr_s})
     & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
   %
   Full spherical & FullSph & (\ref{eq:C_ell_full}) &
@@ -797,7 +860,6 @@ as in Fig.~\ref{fig:Cl_cases}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{cfhtlens.tex}
-
 \input{discussion.tex}
 
 \section*{Acknowledgments}
@@ -923,10 +985,11 @@ scale factors at distances $\chi$ and $\chi^\prime$, respectively.
 The PhD thesis of Van de Rijt \cite{vande2012} presents an explicit calculation
 of the second-order Limber approximation for a fixed source redshift. They
 carry out the derivatives of the kernels $f$ under the assumption of a constant
-growth-suppression factor $D_+(a)/a$. We show the consistency between their
-result (eq.~7.19) and our (\ref{eq:C_ell_limber2_dr}), as follows.
+growth-suppression factor $D_+(a)/a$, and a power spectrum that separates $k$-
+from $\chi$-terms. We show the consistency between their result (eq.~7.19) and
+our (\ref{eq:C_ell_limber2_dr_s}), as follows.
 
-We write (\ref{eq:C_ell_limber2_dr}) without tomography, and insert again the
+We write (\ref{eq:C_ell_limber2_dr_s}) without tomography, and insert again the
 time-independent power spectrum (\ref{eq:P_geom_mean}),
 %
 \begin{align}
