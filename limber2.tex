@@ -23,9 +23,13 @@
 \newcommand{\pref}{{\cal A}}
 \newcommand{\edth}{\,\eth\,}
 \renewcommand{\vec}{\bm}
+\renewcommand{\d}[0]{{\rm d}}
 
 \newcommand{\mk}[1]{{\bf\textcolor{blue}{#1}}}
 
+
+\definecolor{purple}{RGB}{76, 0,153}
+\newcommand{\ch}[1]{\textcolor{purple}{\bf #1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,7 +110,7 @@ deviations have been found between the cosmological parameter constraints from
 the CMB Planck experiment \citep{2015arXiv150201589P} in comparison to weak
 lensing constraints from both the Kilo-Degree Survey \citep[KiDS;][]{KiDS-450}
 and the Canada-France-Hawaii Telescope Lensing Survey
-\citep[CFHTLenS;][]{2016arXiv160105786J}.  If the source of this tension is not
+\citep[CFHTLenS;][]{joudaki/etal:2016}.  If the source of this tension is not
 a result of so-far unconsidered sources of systematic errors in one or all
 experiments, extensions to the standard flat $\Lambda$CDM cosmological models
 need to be considered. \citet{joudaki/etal:2017} have shown, for example, that
@@ -862,55 +866,12 @@ as in Fig.~\ref{fig:Cl_cases}.
 \label{sec:cfhtlens}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We run various projection modes on CFHTLenS single-redshift bin data
-\cite{CFHTLenS-2pt-notomo}. The setting is exactly the same as for the 2013
-results. Note that since then many improvements have been obtained, those
-results do not reflect the most up-to-date cosmological constraints. This is
-sufficient however for our purpose to show the effect of projection
-approximations for weak-lensing surveys. Thos improvement have been made on the
-theoretical modelling side (revised non-linear power spectrum
-\cite{2012ApJ...761..152T}, baryonic modifications of the total power spectrum
-\cite{2015MNRAS.454.1958M}), and the data processing (photometric redshifts
-\cite{2016MNRAS.463.3737C,joudaki/etal:2016}, shear calibration
-\cite{KiDS-450}, Fenech Compti). The state-of-the-art cosmological constraints
-for CFHTLenS including most of those updates are $\sigma_8 (\Omega_{\rm
-m}/0.3)^{0.4} = 0.78\pm{0.04}$, presented in \cite{joudaki/etal:2016}.
-
-The mean and 68\% credible interval for $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$
-published in \cite{CFHTLenS-2pt-notomo} were $0.787 \pm 0.032$. We make sure
-that changes introduced to \texttt{CosmoPMC} over the last four years do not
-change this result, we re-run the same setting using the newest version of
-\texttt{CosmoPMC} and obtain $0.787^{+0.031}_{-0.033}$.
-
-Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
-$\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
-power spectrum projections.
-
-As an example of significant effects that need to be accounted for, using the
-revised non-linear power spectrum of \cite{2012ApJ...761..152T} instead of
-\cite{2003MNRAS.341.1311S} yields $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =
-0.768^{+0.029}_{-0.031}$ for L1Fl, which is a lower corresponding to 60\% of
-the error bar.
-
-\begin{table}
-
-  \label{tab:CFHTLenS_Sigma8}
-
-  \caption{Mean and 68\% credible interval for 
-  $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
-  power spectrum projections.}
-
-  \begin{tabular}{lc} \hline
-  ID       & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ \\ \hline
-  L1Fl     & $0.787^{+0.031}_{-0.033}$ \\
-  ExtL2Sph & $0.788 \pm 0.032$ \\ \hline
-  \end{tabular}
-
-\end{table}
+\input{cfhtlens.tex}
+\input{discussion.tex}
 
 \section*{Acknowledgments}
 
-The authors thank Tommaso Giannantonio for very helpful discussions.
+The authors thank Tommaso Giannantonio, Sarah Bridle, Ami Choi, Donnacha Kirk, Lance Miller, Benjamin Joachimi, Chris Blake and Adam Amara for very helpful discussions.
 
 \bibliographystyle{mnras}
 \bibliography{astro}
