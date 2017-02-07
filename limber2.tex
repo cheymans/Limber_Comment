@@ -743,6 +743,13 @@ the true power spectrum decrease much faster, with $\ell^{-2}$. Including the
 spherical prefactor decreases the difference by a factor of a few for $\ell <
 5$. Going to second-order yields percent accuracy down to $\ell = 4$.
 
+\mk{Not sure whether the following comments should be left in the draft.} One
+notes that the difference between the full projection and second-order Limber
+does not scale as expected with $\ell^{-4}$, but rather with $\ell^{-2}$. This
+might be due to numercical noise that creates residual terms at the ${\cal
+O}(\ell^{-2})$ which do not cancel. Also note that the numerical noise for
+$\ell > 20$ is due to numerical integration errors for the full projection.
+
 The flat extended Limber approximations (ExtL1Fl and ExtL2Fl) perform relatively poorly, and
 reach 10\% precision only at $\ell > 100$.
 
@@ -988,25 +995,26 @@ This leads to the potential power spectrum (\ref{eq:C_ell_phi_Pm}).
 \section{Discussion and comparison to previously published work}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Kitching et al.~2016}
+\subsection{Kitching et al.~2016}
 
-Eq.~\ref{eq:C_ell_full} is analogous to (7) and (8) from
-\cite{2016arXiv161104954K} for a flat Universe and in the case of perfect
+\cite{2016arXiv161104954K} compute the full projection of the weak-lensing power
+spectrum, which they present as spherical-radial representation the 3D shear field.
+Our results (\ref{eq:C_ell_full}) correspond to their equations (7) and (8)
+for a flat Universe and in the case of perfect
 photometric redshifts, $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$, and
 for a bin function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm p})
 = 1_{z \in i-\mbox{th bin}}$. In \cite{2016arXiv161104954K} eq.~(7) is however the
 factor $2/\pi$ missing.
 
-In App.~A they derive the Limber approximation starting from the full spherical
-projection. Note that their filter function $q$ defined in (31) has an
-errornous factor of comoving distance $r$, and an additional factor $\pi/2$
-appears.
+In App.~A \cite{2016arXiv161104954K} derives the spherical and extended
+Limber approximation starting from the full spherical projection. Note that
+their filter function $q$ defined in (31) has an errornous factor of comoving
+distance $r$, and an additional factor $\pi/2$ appears. \mk{This is probably worded
+too strongly.}
 
-Eq.~19 of \cite{2016arXiv161104954K} corresponds to our
-(\ref{eq:P_ell_gamma}). \mk{Has to be checked.}
-
-We can not reproduce the amplitude of the differences between the cases, neither for
-the power spectrum nor for the shear correlation function (see Fig.~\ref{fig:xi_pm_K16}).
+We can not reproduce the amplitude of the differences between the cases,
+neither for the power spectrum nor for the shear correlation function (see
+Figs.~\ref{fig:Cl_cases} and \ref{fig:xi_pm_K16}).
 
 
 \paragraph{Bernardeau, Bonvin, Van de Rijt, Vernizzi (2012); van de Rijt (2012)}
@@ -1088,14 +1096,16 @@ projection shows excellent agreement at the sub-percent level.
 \begin{figure}
 
   \begin{center}
-    \resizebox{0.9\hsize}{!}{
+    \resizebox{0.5\hsize}{!}{
       \includegraphics{figures/P_kappa_limber_delta_Rijt}
     }
   \end{center}
 
-    \caption{Differences in percentage of spherical shear power spectra terms
-    as function of wave mode $\ell$, see Table \ref{tab:cases}.
-    The blue and red curves corresponds to the ones shown in Fig.~7.3 of \citet{vande2012}.
+    \caption{Relative differences in percentage of spherical first- and second-order Limber
+    shear power spectra with respect to the full projection
+    as function of wave mode $\ell$, see Table \ref{tab:cases}. The redshift distribution
+    and the cosmological parameters (see text) are chosen to match
+    \citet{vande2012}, see their Fig.~7.3 for comparison.
     }
 
     \label{fig:L1L2E_Rijt}
