@@ -1,3 +1,5 @@
+%\subsubsection{CFHTLenS updates and advances since 2014}
+
 The Canada-France-Hawaii Telescope Lensing Survey (CFHTLenS) represented a
 major step forward for the field of weak gravitational lensing, in terms of
 improved accuracy in data reduction \citep{CFHTLenS-data}, the implementation
@@ -20,9 +22,9 @@ spectroscopic data from the Sloan Digital Sky Survey.  The conclusion of this
 work was that any re-analysis of CFHTLenS should include systematic error terms
 to account for bias and scatter, with a prediction that accounting for these
 biases would be {\it reduce} the recovered amplitude of $\sigma_8$ by $\sim
-4$\%. }
+4$\%.}
 %
-\item{ The CFHTLenS tomographic cosmological analysis was then revisited by
+\item{The CFHTLenS tomographic cosmological analysis was then revisited by
 \citet{joudaki/etal:2016} in order to include a full redshift error analysis
 based on the results from \citet{2016MNRAS.463.3737C}.  The impact of
 correcting for these biases, including their associated errors, served to
@@ -59,54 +61,39 @@ All these advances in our understanding were incorporated and accounted for in
 the recent KiDS cosmic shear analysis \citep{KiDS-450} which reports a $2.3
 \sigma$ tension with Planck.  Efforts are now underway to fully re-analyse
 CFHTLenS using the advanced KiDS analysis pipeline with revised shape
-measurements and calibrations for the shear and photometric redshifts.  Until
+measurements and calibrations for the shear and photometric redshifts. Until
 this analysis is complete we note that these known shortcomings with the
 original CFHTLenS results impact in different ways the cosmological conclusions
-that one can draw from the survey.  As CFHTLenS has similar statistical power
+that one can draw from the survey. As CFHTLenS has similar statistical power
 to current weak lensing surveys, however, it nevertheless provides a very
 useful testbed with which to demonstrate the impact of adopting different
 approximations when constraining cosmological parameters.
 
+%\subsubsection{Cosmological analysis setup}
+
 In this work, we focus on the weak-lensing power spectrum projection, and
 assess the impact of various approximations on cosmological constraints from
-CFHTLenS. We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo},
-adopting the same priors and non-linear power spectrum corrections\footnote{As
-an example of significant effects that need to be accounted for using the
-revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
-\cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8
-(\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
-\cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.
-We use the real-space two-point correlation function of shear, which in flat-sky
-coordinates is a Hankel transform of the shear power spectrum,
-%
-\begin{eqnarray}
-  \xi_+(\theta) 
-  % &
-  = \frac 1 {2\pi} \int {\rm d} \ell \, \ell {\rm J}_0(\ell
-   \theta)
-  P^\gamma(\ell);
-  \quad
-  %\nonumber \\
-   %
-   \xi_-(\theta)
-  %&
-  = \frac 1 {2\pi} \int
-   {\rm d} \ell \, \ell {\rm J}_4(\ell \theta)
-  P^\gamma(\ell).
-  %
-   \label{eqn:xiGG}
-\end{eqnarray}
-%
-As in \cite{CFHTLenS-2pt-notomo} we fit both components $\xi_+$ and $\xi_-$
-between angular scales $\theta = 0.8$ and $350$ arc minutes, and use a $N$-body
-simulation estimate of the non-Gaussian covariance including the
-cross-covariance between both components. The Bayesian Monte-Carlo parameter
-sampling is performed using the publically available software
-\textsc{CosmoPMC}\footnote{\texttt{www.cosmopmc.info}} \citep{WK09,KWR10}. The
-cosmological modelling part including the various lensing projections are
-performed with the library
-\textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}
-\citep{KB09}. \mk{Check reference.}
+CFHTLenS. For consistency with the original analysis
+\citep{CFHTLenS-2pt-notomo}, we adopt the same priors and non-linear power
+spectrum corrections from \cite{2003MNRAS.341.1311S}.
+
+We re-analyse the 2D CFHTLenS measurement of the two-point shear correlation
+function $\xi_\pm(\theta)$ from \cite{CFHTLenS-2pt-notomo}, defined in
+(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both components
+$\xi_+$ and $\xi_-$ between angular scales $\theta = 0.8$ and $350$ arc
+minutes, and use a $N$-body simulation estimate of the non-Gaussian covariance
+including the cross-covariance between both components. The Bayesian
+Monte-Carlo parameter sampling is performed using the publically available
+software \textsc{CosmoPMC}\footnote{\texttt{www.cosmopmc.info}}
+\citep{WK09,KWR10}. The cosmological modelling part including the various
+lensing projections are performed with the library
+\textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Cosmological parameter results}
+\label{ref:cosmo_results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 For a first-order standard Limber flat-sky approximation (L1Fl) we find
 $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$, the same
@@ -116,7 +103,13 @@ m}/0.27)^{0.6} =X^{+X}_{-X}$, a negligible change of $X\sigma$.
 
 Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
 $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the
-lensing power spectrum projections listed in Table~\ref{tab:cases}
+lensing power spectrum projections listed in Table~\ref{tab:cases} Note again
+that these values do not represent the state-of-the-art cosmological results,
+since many of the above listed analysis advancements made since 2013 have not
+been taken into account. As an example of a significant effect, when using the
+revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
+\cite{2003MNRAS.341.1311S}, there is a decrease of $0.6 \sigma$ with $\sigma_8
+(\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.
 
 \ch{This text taken from the comment on paper; We note that
 \citet{2016arXiv161104954K} use their `Flat' approximation for their `Full'
@@ -147,11 +140,13 @@ our "truth" for the correlation function?}
   $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
   power spectrum projections.}
 
-  \begin{tabular}{lcc} \hline
-  ID         & $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$\\ \hline
-  L1Fl       & $0.787^{+0.031}_{-0.033}$ & $0.739^{+0.029}_{-0.031}$ \\
-  ExtL1FlHyb & $0.788^{+0.031}_{-0.033}$ & $0.740^{+0.029}_{-0.031}$ \\
-  ExtL2Sph   & $0.789^{+0.031}_{-0.032}$ & $0.740^{+0.029}_{-0.030}$ \\ \hline
+  \begin{tabular}{lccc} \hline
+  ID         & $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ & Comment \\ \hline
+  L1Fl       & $0.787^{+0.031}_{-0.033}$ & $0.739^{+0.029}_{-0.031}$ & Used for pre-2014 CFHTLenS \\
+  ExtL1Fl    & $x^{+y}_{-z}$ & $x^{+y}_{-z}$ & Depreciated \\
+  ExtL1FlHyb & $0.788^{+0.031}_{-0.033}$ & $0.740^{+0.029}_{-0.031}$ & Used for post-2014 CFHTLenS, KiDS \\
+  ExtL2FlHyb & $x^{+y}_{-z}$ & $x^{+y}_{-z}$ & Best flat-sky approximation \\
+  ExtL2Sph   & $0.789^{+0.031}_{-0.032}$ & $0.740^{+0.029}_{-0.030}$ & Best approximation but mixing with flat-sky Hankel transform \\ \hline
   \end{tabular}
 
 \end{table}
