@@ -775,7 +775,8 @@ reach 10\% precision only at $\ell > 100$.
         second-order Limber approximations: extended flat sky (ExtL2Fl), extended hybrid flat sky (ExtL2FlHyb),
         and extended spherical expansion (ExtL2Sph); full (exact) spherical projection (FullSph).
         The left panels show the total power spectrum.
-        See Table \ref{tab:cases} for more details on the different approximations.
+        See Table \ref{tab:cases} for more details on the different approximations.     
+       \ch{ExtL2Fl isn't in the table - so suggest to remove that from both plots}
         }
 
   \label{fig:Cl_cases}
@@ -818,10 +819,11 @@ reach 10\% precision only at $\ell > 100$.
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
     & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & ELS \\ \hline
   %
-  $2^{\rm st}$-order extended Limber, flat sky & Ext2FlHyb &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
-    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
+  $2^{\rm st}$-order extended Limber, flat sky & ExtL2FlHyb &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
+    & \ch{I think this should be 1?}%$\ellbar^2(\ell, 2)/(\ell+1/2)^4$ 
+    & $\ell+1/2$ & - \\ \hline
   %
-  $2^{\rm st}$-order extended Limber, spherical & Ext2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr_s})
+  $2^{\rm st}$-order extended Limber, spherical & ExtL2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr_s})
     & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
   %
   Full spherical & FullSph & (\ref{eq:C_ell_full}) &
@@ -832,37 +834,6 @@ reach 10\% precision only at $\ell > 100$.
 \end{table}
 \renewcommand{\baselinestretch}{1}
 
-In Fig.~\ref{fig:xi_pm_K16} we show the correlation functions using the different cases
-for the shear power spectrum. The redshift distribution and cosmological model are the same 
-as in Fig.~\ref{fig:Cl_cases}.
-
-\begin{figure}
-
-  \begin{center}
-    \resizebox{1.0\hsize}{!}{
-      \includegraphics{figures/xi_p_comp}
-      \includegraphics{figures/xi_m_comp}
-    }
-
-    \resizebox{1.0\hsize}{!}{
-      \includegraphics{figures/xi_p_delta}
-      \includegraphics{figures/xi_m_delta}
-    }
-  \end{center}
-
-  \caption{Shear correlation funtions $\xi_+$ (\emph{left panels}) and $\xi_-$ (\emph{right}).
-    The lower row shows the relative differences to the case Ext2Sph,  see Table \ref{tab:cases} for the different
-    approximations and their symbols.
-    \mk{Probably remove ExtL1Fl, ExtL2Fl, we already showed for $P_\kappa$ that they are worse than standard
-    Limber.}
-    %\cite{CFHTLenS-2pt-notomo}; the theoretical predictions correspond to the best-fit parameters with
-    %$\Omega_{\rm m} = 0.279$ and $\sigma_8 = 0.79$, except the red dashed curve with adapts a Planck-best fit
-    %normalisation $\sigma_8 = 0.83$.
-  }
-
-  \label{fig:xi_pm_K16}
-
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application to CFHTLenS data}

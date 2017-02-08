@@ -77,8 +77,43 @@ given by}
 \xi_\pm^{ij}(\theta) = \frac{1}{2\pi}\int_0^\infty \d\ell \,\ell \,P^{ij}_\gamma(\ell) \, J_{0,4}(\ell \theta) \, , 
 \label{eqn:xiGG}
 \end{equation}
-\ch{where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\gamma(\ell)$ is the shear power spectrum at angular wave number $\ell$ which can be related to the underlying matter power spectrum through equation~\ref{eq:P_ell_limber1} when adopting a first-order extended Limber approximation, or equation~\ref{eq:P_ell_limber2} when adopting a second-order extended Limber approximation \citep[for more details see][and references therein]{miraldaescude:1991, kaiser:1992, bartelmann/schneider:2001}.  Note that as we have shown in section~\ref{sec:comp} that the second-order extended Limber approximation provides a percent-level precision representation of the full spherical projection, we do not investigate predictions for the two-point shear correlation function using the full spherical projection.  This is because on a sphere,
-correlation functions cannot be related to the power spectrum by a Hankel transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined for non-integer $\ell$.}
+\ch{where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\gamma(\ell)$ is the shear power spectrum at angular wave number $\ell$ which can be related to the underlying matter power spectrum through equation~\ref{eq:P_ell_limber1} when adopting a first-order extended Limber approximation, or equation~\ref{eq:P_ell_limber2} when adopting a second-order extended Limber approximation \citep[for more details see][and references therein]{miraldaescude:1991, kaiser:1992, bartelmann/schneider:2001}.  }
+
+\ch{On a sphere, correlation functions cannot be related to the power spectrum by a Hankel transform in equation~\ref{eqn:xiGG}, as the power spectrum is not defined for non-integer $\ell$ \citep[see][for alternative spherical-sky formulae for the two-point correlation function]{2005PhRvD..72b3516C}.  As we have shown in section~\ref{sec:comp} that the spherical second-order extended Limber approximation provides a percent-level precision representation of the full spherical projection for $\ell > 3$, we do not present predictions for the two-point shear correlation function using the full spherical projection, instead choosing the spherical second-order extended Limber approximation (Ext2Sph) as our `truth' in this case.}
+
+\ch{Figure.~\ref{fig:xi_pm_K16} presents the two-point correlation functions $\xi_+$ (left) and $\xi_-$ (right) using the different cases for the shear power spectrum listed in Table~\ref{tab:cases}. The adopted CFHTLenS redshift distribution and fiducial cosmological model are the same as in Figure.~\ref{fig:Cl_cases}.   }
+
+
+\begin{figure}
+
+  \begin{center}
+    \resizebox{1.0\hsize}{!}{
+      \includegraphics{figures/xi_p_comp}
+      \includegraphics{figures/xi_m_comp}
+    }
+
+    \resizebox{1.0\hsize}{!}{
+      \includegraphics{figures/xi_p_delta}
+      \includegraphics{figures/xi_m_delta}
+    }
+  \end{center}
+
+  \caption{Shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right}).
+    The lower panels shows the relative differences to the case Ext2Sph,  see Table \ref{tab:cases} for the different
+    approximations and their symbols.
+    \mk{Probably remove ExtL1Fl, ExtL2Fl, we already showed for $P_\kappa$ that they are worse than standard
+    Limber.}
+    \ch{ExtL2Fl isn't in the table - so yes agreed to remove that from both plots}
+    \ch{I'd keep the ExtL1Fl, just incase someone is daft enough to do that approximation one day.}
+    %\cite{CFHTLenS-2pt-notomo}; the theoretical predictions correspond to the best-fit parameters with
+    %$\Omega_{\rm m} = 0.279$ and $\sigma_8 = 0.79$, except the red dashed curve with adapts a Planck-best fit
+    %normalisation $\sigma_8 = 0.83$.
+  }
+
+  \label{fig:xi_pm_K16}
+
+\end{figure}
+
 
 For consistency, we adopt the same priors and non-linear power spectrum corrections\footnote{As
 an example of more significant effects that need to be accounted for, when using the
