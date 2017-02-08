@@ -917,7 +917,7 @@ present predictions for the two-point shear correlation function using the full
 spherical projection, instead choosing the spherical second-order extended
 Limber approximation (Ext2Sph) as our \mk{reference} in this case.
 
-Figure.~\ref{fig:xi_pm_K16} presents the two-point correlation functions
+Figure.~\ref{fig:xi_pm} presents the two-point correlation functions
 $\xi_+$ (left) and $\xi_-$ (right) using the different cases for the shear
 power spectrum listed in Table~\ref{tab:cases}. The adopted CFHTLenS redshift
 distribution and fiducial cosmological model are the same as in
@@ -950,7 +950,7 @@ methods.
     cosmology with $\Omega_{\rm m} = 0.3$, $h=0.67$ and $\sigma_8 = 0.83$ \citep{2015arXiv150201589P}.
   }
 
-  \label{fig:xi_pm_K16}
+  \label{fig:xi_pm}
 
 \end{figure}
 
@@ -1055,64 +1055,50 @@ This leads to the potential power spectrum (\ref{eq:C_ell_phi_Pm}).
 \label{app:B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+In this section we briefly discuss previously published work on the full
+projection and second-order Limber equation of the lensing power spectrum. We
+compare those results with our findings.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Kitching et al.~2016}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cite{2016arXiv161104954K} compute the full projection of the weak-lensing power
-spectrum, which they present as spherical-radial representation the 3D shear field.
-Our results (\ref{eq:C_ell_full}) correspond to their equations (7) and (8)
-for a flat Universe and in the case of perfect
-photometric redshifts, $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$, and
-for a bin function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm p})
-= 1_{z \in i-\mbox{th bin}}$. In \cite{2016arXiv161104954K} eq.~(7) is however the
-factor $2/\pi$ missing.
+\cite{2016arXiv161104954K} compute the full projection of the weak-lensing
+power spectrum, which they present as spherical-radial representation the 3D
+shear field. Our results (\ref{eq:C_ell_full}) correspond to their equations
+(7) and (8) for a flat Universe and in the case of perfect photometric
+redshifts, $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$, and for a bin
+function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm p}) = 1_{z
+\in i-\mbox{th bin}}$. In \cite{2016arXiv161104954K} eq.~(7) the factor $2/\pi$
+is absent.
 
-In App.~A \cite{2016arXiv161104954K} derives the spherical and extended
-Limber approximation starting from the full spherical projection. Note that
-their filter function $q$ defined in (31) has an errornous factor of comoving
-distance $r$, and an additional factor $\pi/2$ appears. \mk{This is probably worded
-too strongly.}
+In App.~A \cite{2016arXiv161104954K} derives the spherical and extended Limber
+approximation starting from the full spherical projection. Note that their
+filter function $q$ defined in (31) has an errornous additional factor of
+comoving distance $r$, and shows an additional factor of $\pi/2$.
 
-We can not reproduce the amplitude of the differences between the cases,
+As shown in the main text of our paper,
+we can not reproduce the amplitude of the differences between the cases,
 neither for the power spectrum nor for the shear correlation function (see
-Figs.~\ref{fig:Cl_cases} and \ref{fig:xi_pm_K16}).
+Figs.~\ref{fig:Cl_cases} and \ref{fig:xi_pm}).
 
 
-\paragraph{Bernardeau, Bonvin, Van de Rijt, Vernizzi (2012); van de Rijt (2012)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bernardeau, Bonvin, Van de Rijt, Vernizzi (2012); van de Rijt (2012)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Eq.~(44) of \cite{2012PhRvD..86b3001B} is the non-tomographic $C(\ell)$ in
-terms of the time-independent potential power spectrum $T^2(k) P(k)$, where $T$
-is the transfer function; the growth factor $D$ is contained in their window
-function $W$ (43) as growth-suppression factor $g(\chi) = D(\chi)/a(\chi)$
-(defined after eq.~{24}). For a single source redshift, we find the identity
-$W(\chi)$ = $q(\chi)\chi^{-1} D(\chi) a^{-1}(\chi)$.
-\cite{2012PhRvD..86b3001B} is consistent with our
-(\ref{eq:C_ell_full}), if we interpret the
-scale factors at distances $\chi$ and $\chi^\prime$, respectively.
+Eq.~(44) of \cite{2012PhRvD..86b3001B} is the non-tomographic full projection
+$C(\ell)$ in the approximation of the 3D potential power spectrum $P^\Phi$ separating
+into $k$- and $\chi$-dependent functions. Their expression holds for a single
+source redshift.
 
 The PhD thesis of Van de Rijt \cite{vande2012} presents an explicit calculation
-of the second-order Limber approximation for a fixed source redshift. They
-carry out the derivatives of the kernels $f$ under the assumption of a constant
-growth-suppression factor $D_+(a)/a$, and a power spectrum that separates $k$-
-from $\chi$-terms. We show the consistency between their result (eq.~7.19) and
-our (\ref{eq:C_ell_limber2_dr_s}), as follows.
-
-We write (\ref{eq:C_ell_limber2_dr_s}) without tomography, and insert again the
-time-independent power spectrum (\ref{eq:P_geom_mean}),
-%
-\begin{align}
-  C^\gamma_{{\rm L2}}(\ell) = & - \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
-    \int {\rm d} \chi \, \chi^{2} P_{\rm m}\left(k = \frac\nu\chi\right)
-    \nonumber \\
-    & \times D_+(\chi) a^{-1}(\chi) \chi^{3/2} q(\chi) \left[ f^{\prime\prime} 
-      + \frac{\chi}{3} f^{\prime\prime\prime} 
-    \right](\chi)
-  \label{eq:C_ell_limber2_dr_notomo}
-\end{align}
-%
-For a fixed source comoving distance $\chi_{\rm S}$ the lensing efficiency is
-$q(\chi) = (\chi_{\rm S} - \chi) \chi_{\rm S}^{-1}$. Assuming that
-$D_+(\chi)/a(\chi) \approx g = \mbox{const}$, we get for the derivative terms,
-with $f(\chi) = g \chi_{\rm S}^{-1} (\chi_{\rm S} - \chi) \chi^{-3/2}$,
+of the second-order Limber approximation. They carry out the derivatives of the
+kernels $f$ under the assumption of a constant growth-suppression factor
+$D_+(a)/a$. Then, for a constant source comoving distance $\chi_{\rm S}$, the
+lensing efficiency (\ref{eq:lens_efficiency}) is $q(\chi) = (\chi_{\rm S} -
+\chi) \chi_{\rm S}^{-1}$, and the derivative of the separated kernel function
+(\ref{eq:f_LA08_s}) can be calculated analytically,
 %
 \begin{equation}
   f^{\prime\prime}(\chi) + \frac{\chi}{3} f^{\prime\prime\prime}(\chi)
@@ -1120,38 +1106,25 @@ with $f(\chi) = g \chi_{\rm S}^{-1} (\chi_{\rm S} - \chi) \chi^{-3/2}$,
           + \frac 1 {\chi_{\rm S}} \right) \frac{D_+(\chi)}{a(\chi)}.
 \end{equation}
 %
-Therefore,
-%
-\begin{align}
-  C^\gamma_{{\rm L2}}(\ell) = \frac 1 {\nu^2} \, \frac{\ellbar^2(\ell, 2)}{\nu^4} \, \pref^2
-    \int {\rm d} \chi \, \chi \, P_{\rm m}\left(k = \frac\nu\chi\right)
-    \frac{q(\chi)}{8} \left( \frac 5 \chi + \frac 1 {\chi_{\rm S}} \right)
-      \left(\frac{D_+(\chi)}{a(\chi)}\right)^2 
-\end{align}
-%
-We now replace the matter with the potential power spectrum, ${\cal A}^2 P_{\rm m}(k) = k^{4} a^2 P_\Phi(k)$, and pull into the integral $\nu^{-4} = \chi^{-4} k^{-4}$. This yields
-%
-\begin{align}
-  C^\gamma_{{\rm L2}}(\ell) = \frac 1 {\nu^2} \, \ellbar^2(\ell, 2)
-    \int \frac{{\rm d} \chi}{\chi^2} \, P_\Phi\left(k = \frac\nu\chi\right)
-    a^2(\chi) \frac{1}{8} \frac{\chi_{\rm S} - \chi}{\chi \chi_{\rm S}}
-    \left( \frac 5 \chi + \frac 1 {\chi_{\rm S}} \right)
-      \left(\frac{D_+(\chi)}{a(\chi)}\right)^2 .
-\end{align}
-%
-Note the additional factor $a^2(\chi)$. This difference is accounted for by the
-factor $a^{-1}$ in the propagation of primordial potential perturbations to
-late times, see eq.~(6.22) in \cite{vande2012}, where the transition is done
-using $g(a)$ instead of $D(a)$. \mk{Check this further.}
+This result confirms the power-law behaviour of the filter function, which we exploited earlier to fit
+this function.
 
+Inserting this into the second-order Limber power spectrum
+(\ref{eq:C_ell_limber2_dr_s}) and using the inverse Poisson equation to replace
+the matter with the potential power spectrum we obtain the same expression as
+\cite{vande2012} (their eq.~7.19), except for an additional factor $a^2(\chi)$.
+This difference is accounted for by the factor $a^{-1}$ in the propagation of
+primordial potential perturbations to late times, see eq.~(6.22) in
+\cite{vande2012}, where the transition is done using $g(a)$ instead of $D(a)$.
+\mk{Check this further.}
 
 In Fig.~\ref{fig:L1L2E_Rijt} we reproduce Fig.~7.3 from \cite{vande2012} using
 a similar set up (flat $\Lambda$ Universe with $\Omega_{\rm m} = 0.3, h=0.65,
 \Omega_{\rm b} = 0.0461, \sigma_8 = 0.8, n_{\rm s} = 0.96$. All source galaxies
 are at redshift $z_{\rm S} = 1$. The non-linear 3D matter power spectrum from
-\cite{2012ApJ...761..152T} is used. The ratio of the first-and second- Limber approximated
-power spectra to the full
-projection shows excellent agreement at the sub-percent level.
+\cite{2012ApJ...761..152T} is used. The ratio of the first-and second- Limber
+approximated power spectra to the full projection shows excellent agreement at
+the sub-percent level.
 
 \begin{figure}
 
@@ -1174,59 +1147,64 @@ projection shows excellent agreement at the sub-percent level.
 
 
 
-\paragraph{LoVerde \& Afshordi (2009)}
+\subsection{LoVerde \& Afshordi (2009)}
 
 This paper introduces the extended Limber approximation to second order that we
 apply in this work. Although they present the specific case of 2D galaxy
-clustering, their calculations are general enough to apply to weak lensing.
+clustering, their calculations are general enough to apply to a weak-lensing
+context. Their eq.~(5) is a spherical cross-power spectrum of two scalar fields
+$A$ and $B$, projected from 3D to 2D via projection kernels $F_A$ and $F_B$
+defined in their eq.~(4). Comparing their expressions with the weak-lensing
+potential (\ref{eq:psi}), we set $F_A(\chi) = F_B(\chi) = 2 c^{-2}
+D_+(\chi) q(\chi) \chi^{-1}$. With that, their eq.~(5) is identical to our
+(\ref{eq:C_ell_phi_Pphi}).
 
-Their eq.~(5) is a general spherical power spectrum of a scalar field,
-projected from 3D to 2D via (4). Comparing their expressions with the
-weak-lensing potential (\ref{eq:psi}), we can set $F_A(\chi) = F_B(\chi) = 2
-c^{-2} D_+(\chi) q(\chi) \chi^{-1}$. With that, their eq.~(5) is identical to
-our (\ref{eq:C_ell_phi_Pphi}).
-
-The second-order Limber approximation in \cite{2008PhRvD..78l3506L} is presented in
-eq.~(12). This is consistent with our first-order (\ref{eq:C_ell_limber1}) and
-second-order (\ref{eq:C_ell_limber2_dr}) Limber approximation, when accounting for the difference between
-lensing potential and shear 2D power spectrum, and 3D potential and matter power spectrum.
+The second-order Limber approximation in \cite{2008PhRvD..78l3506L} is
+presented in eq.~(12). This is consistent with our first-order
+(\ref{eq:C_ell_limber1}) and second-order (\ref{eq:C_ell_limber2_dr}) Limber
+approximation terms, when accounting for the difference between lensing
+potential and shear 2D power spectrum, and 3D potential and matter power
+spectrum.
 
 
-\paragraph{Schmidt (2009)}
+\subsection{Schmidt (2009)}
 
 In eq.~(9) \cite{2008PhRvD..78d3002S} write the lensing power spectrum in the
-flat-sky limit. The Poisson factor $D_\phi$ is defined in their eq.~(5), see
-also our eq.~\ref{eq:poisson}, and $D_{\rm m}$ is the growth factor. The filter
-function $W_\kappa$ (eq.~10) can be written as
+flat-sky limit. Inserting the Poisson factor $D_\phi$, 
+ the growth function $D_{\rm m}$, and writing the redshift filter
+function $W_\kappa$ (eq.~10) in terms of the lensing efficiency and comoving distances,
+$W_\kappa[z(\chi)] = H(z)^{-1} \chi q(\chi)$, we
 %
-\begin{align}
-  W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
-              =  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
-                n(\chi)
-              \nonumber \\
-              & \equiv \frac 1 {H(z)} \chi q(\chi),
-\end{align}
-%
-using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
-To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
-comoving distance, we make the variable transformation
-%
-\begin{equation}
-  {\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
-\end{equation}
-%
-We recover our (\ref{eq:P_ell_gamma}).
+%\begin{align}
+  %W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
+              %=  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
+                %n(\chi)
+              %\nonumber \\
+              %& \equiv \frac 1 {H(z)} \chi q(\chi),
+%\end{align}
+%%
+%using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
+%To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
+%comoving distance, we make the variable transformation
+%%
+%\begin{equation}
+  %{\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
+%\end{equation}
+%%
+%We
+recover our (\ref{eq:P_ell_gamma}).
 
-\paragraph{Giannantonio et al. (2012)}
+\subsection{Giannantonio et al. (2012)}
 
 In eqs.~(25) and (26) \cite{2012MNRAS.422.2854G} write the flat-sky lensing
 power spectrum. Their window function $W^{\varepsilon_i}$ defined in (25) for a
-flat Universe equals $\pref \times q(\chi) / a(\chi)$, since ${\rm d} z {\rm d}
-N(z)/{\rm d} z = {\rm d} \chi n(\chi)$; however there is a factor $r_K[r(z)]$
-missing in the window function, which translates into a missing $r_K[r]
-r_K[r^\prime]$ in the integral\footnote{Confirmed by T.~G., priv.~comm.}. This
-also leads to an errorous $r_K^{-2}(r)$ in the Limber equation (27). With these
-factors accounted for, we reproduce the expressions of \cite{2012MNRAS.422.2854G}.
+flat Universe equals $\pref \times q(\chi) / a(\chi)$, since ${\rm d} z \,
+({\rm d} N(z)/{\rm d} z) = {\rm d} \chi n(\chi)$; however due to a typo there
+is a factor $r_K[r(z)]$ missing in the window function, which translates into a
+missing $r_K[r] r_K[r^\prime]$ in the full projection integral\footnote{Typo confirmed by T.~G.,
+priv.~comm.}. This also leads to an errorous $r_K^{-2}(r)$ in the Limber
+equation (27). With these factors accounted for, we reproduce the expressions
+of \cite{2012MNRAS.422.2854G}.
 
 
 \label{lastpage}
