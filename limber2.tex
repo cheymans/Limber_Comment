@@ -376,7 +376,7 @@ The tomographic shear power spectrum, in analogy to (\ref{eq:C_ell_phi_Pm}), is 
   \label{eq:C_ell_gamma}
 \end{equation}
 %
-For a flat Universe, this is given by
+For a zero-curvature Universe, this is given by
 %
 \begin{align}
   C^\gamma_{ij}(\ell) = \frac 1 4 \ellbar^2(\ell, 2) \, C^\psi_{ij}(\ell)
@@ -751,46 +751,32 @@ Different further approximations are commonly made for the prefactor $p(\ell) = 
 \label{sec:comp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In Fig.~\ref{fig:Cl_cases} we plot the full spherical projection of the shear
-power spectrum in comparison to shear power spectra derived assuming the range
-of different approximations listed in Table \ref{tab:cases}.  The adopted
-redshift distribution corresponds to CFHTLenS \cite{CFHTLenS-2pt-notomo} and we
-assume their best-fit flat $\Lambda$CDM cosmology with $\Omega=0.279$,
-$\Omega_b=0.046$, $\sigma_8=0.70$, $H_0=0.701$, $n_s=0.96$. For $\ell > 100$ we
-find that all shear power spectra predictions agree with the full spherical
-solution to better than one percent, with the majority of the approximations
-tested accurate to better than 0.1 per cent.   
 
-Considering first the flat-sky cases, the standard first-order Limber
-approximation (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, we
-find to be accurate to better than 10\% for $\ell>3$, converging slowly to the
-true projection with percent level precison at $\ell>100$. For the extended
-Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
-decreased accuracy for $\ell < 8$ in comparison to the standard first-order
-Limber case, the errors with respect to the true power spectrum decrease much
-faster, as $\ell^{-2}$, such that percent-level precision is reached at
-$\ell>15$.  The first-order extended Limber approximation `hybrid' case
-(ExtL1FlHyb) was adopted by both \citet{joudaki/etal:2016} and
-\cite{KiDS-450}\footnote{We confirm that there is a typographical error in
-equation 4 of \cite{KiDS-450} which should include the extra term of `+0.5' in
-$\nu(\ell)$ that was incorporated in the cosmological analysis.} 
+In Fig.~\ref{fig:Cl_cases} we plot the full spherical projection of the shear power spectrum in comparison to shear power spectra derived assuming
+the range of different approximations listed in Table~\ref{tab:cases}.  The adopted redshift distribution corresponds to CFHTLenS
+\cite{CFHTLenS-2pt-notomo} and we assume their best-fit flat $\Lambda$CDM cosmology with $\Omega_{\rm m}=0.279$, $\Omega_{\rm b}=0.046$, $\sigma_8=0.79$, $H_0=0.701$, $n_{\rm s}=0.96$. 
+For $\ell > 100$ we find that all shear power spectra predictions agree with the full spherical solution to better than one percent, with the majority of the approximations tested accurate to better than 0.1 per cent.   
 
-The outlier in the flat-sky cases is the extended Limber approximation
-(ExtL1Fl) which performs relatively poorly, and reach 10\% precision only at
-$\ell > 100$. To our knowledge this form of the flat-sky approximation has not
-been used in cosmic shear studies to date. The same slow convergence can be
-observed for the corresponding second-order flat case, ExtL2Fl.
+Considering first the flat-sky cases, the standard first-order Limber approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, we find to be 
+accurate to better than 10\% for $\ell>3$, converging slowly to the true projection with percent level precison at $\ell>100$. 
+For the extended Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite decreased accuracy
+for $\ell < 8$ in comparison to the standard first-order Limber case, the errors with respect to
+the true power spectrum decrease much faster, as $\ell^{-2}$, such that percent-level precision is reached at $\ell>15$.  The first-order extended Limber approximation `hybrid' cases (ExtL1FlHyb) was adopted by both \citet{joudaki/etal:2016} and \cite{KiDS-450}\footnote{We confirm that there is a typographical error in equation 4 of \cite{KiDS-450} which should include the extra term of `+0.5' in $\nu(\ell)$ that was incorporated in the cosmological analysis.}. 
 
-Including the spherical prefactor (the case ExtL1Sph) decreases the difference
-by a factor of a few for $\ell < 5$. Going to second-order (ExtL2Sph) yields
-percent accuracy down to $\ell = 4$.
+The outlier in the flat-sky cases is the extended Limber approximation (ExtL1Fl) which performs relatively poorly, and
+reaches 10\% precision only at $\ell > 100$. The same slow convergence can be
+observed for the corresponding second-order flat case, ExtL2Fl. To our knowledge this form of the flat-sky approximation has not been used in any cosmic shear studies to date, and should not be used in any future studies given these results.  The poor behaviour of this case, in comparison with the `hybrid' case, (e.g ExtL1FlHyb) can be understood by considering Taylor expansions of the different pre-factors.  The spherical pre-factor,
+\begin{equation}
+p(\ell) = \frac{(\ell+2)(\ell+1)\ell(\ell-1)}{(\ell + 0.5)^4} = 1-{5\over 2\ell^2} +{\cal O}(\ell^{-3}) \, .
+\end{equation}
+can be compared to the flat-sky extended Limber pre-factor
+\begin{equation}
+p(\ell) = \ell^4 / (\ell + 0.5)^4 = 1-{2\over \ell}+{5\over 2\ell^2} +{\cal O}(\ell^{-3}) \, , 
+\end{equation} 
+showing it to be more deviant from the full spherical solution, than the `hybrid' $p(\ell) = 1$ case. 
 
-\mk{Not sure whether this following paragraph should be left in the draft: One
-notes that the difference between the full projection and second-order Limber
-does not scale as expected with $\ell^{-4}$, but rather with $\ell^{-2}$. This
-might be due to numerical noise that creates residual terms at the ${\cal
-O}(\ell^{-2})$ which do not cancel. Also note that the numerical noise for
-$\ell > 20$ is due to numerical integration errors for the full projection.}
+Considering now the spherical-sky cases, we find that including the spherical pre-factor decreases the difference between the extended Limber approximated cases (ExtL1Sph and ExtL2Sph) and the full spherical solution by a factor of a few for $\ell < 5$.   We find that using the spherical-sky second-order extended Limber approximation (ExtL2Sph) yields percent accuracy down to $\ell > 3$.  The numerical calculation of the second-order extended Limber approximation is a factor of \ch{X} faster than the calculation of the full spherical solution.   We note that the noise seen in the right panel of Fig.~\ref{fig:Cl_cases} is due to numerical noise arising from numerical integration errors the full spherical solution calculation for
+$\ell > 20$.  Increasing numerical precision would increase the calculation time still further, relative to the  second-order extended Limber calculation.
 
 
 \begin{figure}
