@@ -16,9 +16,9 @@ could improve:
  \item{\citet{2016MNRAS.463.3737C} identified significant biases in the tomographic
 photometric redshift distributions using a more effective clustering analysis,
 in comparison to \citet{CFHTLenS-2pt-tomo}, by incorporating newly overlapping
-spectroscopy from the Sloan Digital Sky Survey.  The conclusion of this work
-was that any re-analysis of CFHTLenS should include systematic error terms to
-account for bias and scatter, with a prediction that accounting for these
+spectroscopic data from the Sloan Digital Sky Survey.  The conclusion of this
+work was that any re-analysis of CFHTLenS should include systematic error terms
+to account for bias and scatter, with a prediction that accounting for these
 biases would be {\it reduce} the recovered amplitude of $\sigma_8$ by $\sim
 4$\%. }
 %
@@ -29,9 +29,9 @@ correcting for these biases, including their associated errors, served to
 reduce the overall constraining power of the survey and hence also the tension
 between CFHTLenS and CMB constraints.}
 %
- \item{\citet{2016arXiv160100115A} used the stringent `COSEBI' statistic to
-identify significant non-lensing `B-mode' distortions when the CFHTLenS data
-was split into tomographic slices.}
+ \item{\citet{2016arXiv160100115A} used the stringent COSEBI statistic
+\cite{COSEBIs} to identify significant non-lensing B-mode distortions when the
+CFHTLenS data was split into tomographic slices.}
 %
 \item{\citet{2015MNRAS.454.3500K} showed that the CFHTLenS shear calibration
 corrections derived in \citet{CFHTLenS-shapes} were underestimated as a result
@@ -49,7 +49,7 @@ multiplicative shear bias in the CFHTLenS analyses, by a few percent.}
 larger-box numerical simulations that were less subject to the lack of power on
 large scales.}
 \item{\cite{2012ApJ...761..152T} provided a more accurate non-linear power
-spectrum correction that that used in the original CFHTLenS analyses and the
+spectrum correction than that used in the original CFHTLenS analyses, and the
 halo model from \cite{2015MNRAS.454.1958M} allowed for simultaneous modelling
 of baryonic modifications to the non-linear power spectrum.} 
 %
@@ -61,26 +61,30 @@ the recent KiDS cosmic shear analysis \citep{KiDS-450} which reports a $2.3
 CFHTLenS using the advanced KiDS analysis pipeline with revised shape
 measurements and calibrations for the shear and photometric redshifts.  Until
 this analysis is complete we note that these known shortcomings with the
-original CFHTLenS results impact in different ways on the cosmological
-conclusions that one can draw from the survey.  As CFHTLenS has similar
-statistical power to current weak lensing surveys, however, it is nevertheless
-provides a very useful testbed with which to demonstrate the impact of adopting
-different approximations when constraining cosmological parameters.
+original CFHTLenS results impact in different ways the cosmological conclusions
+that one can draw from the survey.  As CFHTLenS has similar statistical power
+to current weak lensing surveys, however, it nevertheless provides a very
+useful testbed with which to demonstrate the impact of adopting different
+approximations when constraining cosmological parameters.
 
-We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo}, adopting
-the same priors and non-linear power spectrum correction\footnote{As an example
-of significant effects that need to be accounted for using the revised
-non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
+In this work, we focus on the weak-lensing power spectrum projection, and
+assess the impact of various approximations on cosmological constraints from
+CFHTLenS. We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo},
+adopting the same priors and non-linear power spectrum corrections\footnote{As
+an example of significant effects that need to be accounted for using the
+revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
 \cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8
-(\Omega_{\rm m}/0.3)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
+(\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
 \cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.
 For a first-order standard Limber flat-sky approximation (L1Fl) we find
-$\sigma_8 (\Omega_{\rm m}/0.3)^{0.6} =0.787^{+0.031}_{-0.033}$.   For a
+$\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$. For a
 second-order extended Limber flat-sky approximation we find $\sigma_8
-(\Omega_{\rm m}/0.3)^{0.6} =X^{+X}_{-0.X}$, a negligible change of $X\sigma$. 
+(\Omega_{\rm m}/0.27)^{0.6} =X^{+X}_{-X}$, a negligible change of
+$X\sigma$. 
 
-Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the lensing
-power spectrum projections listed in Table~\ref{tab:cases}
+Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
+$\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the
+lensing power spectrum projections listed in Table~\ref{tab:cases}
 
 \ch{This text taken from the comment on paper; We note that
 \citet{2016arXiv161104954K} use their `Flat' approximation for their `Full'
@@ -100,6 +104,7 @@ take a decision here about what to use.  Do we need a Full Flat case in Table
 1, and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl
 as our "truth" for the correlation function?}
 
+\renewcommand{\baselinestretch}{1.5}
 \begin{table}
 
   \label{tab:CFHTLenS_Sigma8}
@@ -108,12 +113,14 @@ as our "truth" for the correlation function?}
   $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
   power spectrum projections.}
 
-  \begin{tabular}{lc} \hline
-  ID       & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ \\ \hline
-  L1Fl     & $0.787^{+0.031}_{-0.033}$ \\
-  ExtL2Sph & $0.788 \pm 0.032$ \\ \hline
+  \begin{tabular}{lcc} \hline
+  ID         & $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$\\ \hline
+  L1Fl       & $0.787^{+0.031}_{-0.033}$ & $0.739^{+0.029}_{-0.031}$ \\
+  ExtL1FlHyb & $0.788^{+0.031}_{-0.033}$ & $0.740^{+0.029}_{-0.031}$ \\
+  ExtL2Sph   & $0.789^{+0.031}_{-0.032}$ & $0.740^{+0.029}_{-0.030}$ \\ \hline
   \end{tabular}
 
 \end{table}
+\renewcommand{\baselinestretch}{1}
 
 
