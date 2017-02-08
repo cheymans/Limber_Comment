@@ -67,13 +67,23 @@ to current weak lensing surveys, however, it nevertheless provides a very
 useful testbed with which to demonstrate the impact of adopting different
 approximations when constraining cosmological parameters.
 
-In this work, we focus on the weak-lensing power spectrum projection, and
+\ch{New stuff here - see if you approve - edit and then de-purple it!}
+
+\ch{In this work, we focus on the weak-lensing power spectrum projection, and
 assess the impact of various approximations on cosmological constraints from
-CFHTLenS. We re-analyse the 2D CFHTLenS data from \cite{CFHTLenS-2pt-notomo},
-adopting the same priors and non-linear power spectrum corrections\footnote{As
-an example of significant effects that need to be accounted for using the
+CFHTLenS. We re-analyse the 2D CFHTLenS measurement of the two-point shear correlation function $\xi_\pm(\theta)$ from \cite{CFHTLenS-2pt-notomo}, which is
+given by}
+\begin{equation}
+\xi_\pm^{ij}(\theta) = \frac{1}{2\pi}\int_0^\infty \d\ell \,\ell \,P^{ij}_\gamma(\ell) \, J_{0,4}(\ell \theta) \, , 
+\label{eqn:xiGG}
+\end{equation}
+\ch{where $J_{0,4} (\ell \theta)$ is the zeroth (for $\xi_+$) or fourth (for $\xi_- $) order Bessel function of the first kind and $P_\gamma(\ell)$ is the shear power spectrum at angular wave number $\ell$ which can be related to the underlying matter power spectrum through equation~\ref{eq:P_ell_limber1} when adopting a first-order extended Limber approximation, or equation~\ref{eq:P_ell_limber2} when adopting a second-order extended Limber approximation \citep[for more details see][and references therein]{miraldaescude:1991, kaiser:1992, bartelmann/schneider:2001}.  Note that as we have shown in section~\ref{sec:comp} that the second-order extended Limber approximation provides a percent-level precision representation of the full spherical projection, we do not investigate predictions for the two-point shear correlation function using the full spherical projection.  This is because on a sphere,
+correlation functions cannot be related to the power spectrum by a Hankel transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined for non-integer $\ell$.}
+
+For consistency, we adopt the same priors and non-linear power spectrum corrections\footnote{As
+an example of more significant effects that need to be accounted for, when using the
 revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
-\cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8
+\cite{2003MNRAS.341.1311S}, there is a decrease of $0.6 \sigma$ with $\sigma_8
 (\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
 \cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.
 For a first-order standard Limber flat-sky approximation (L1Fl) we find
@@ -85,24 +95,6 @@ $X\sigma$.
 Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
 $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the
 lensing power spectrum projections listed in Table~\ref{tab:cases}
-
-\ch{This text taken from the comment on paper; We note that
-\citet{2016arXiv161104954K} use their `Flat' approximation for their `Full'
-non-Limber analysis of the CFHTLenS data.   This is because on a sphere,
-correlation functions cannot be related to the power spectrum by a Hankel
-transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined
-for non-integer $\ell$. In Figure~\ref{fig:Cl_xi}, however, we show that this
-chosen version of a flat-sky approximation serves to exacerbate the tension in
-theoretical models when a flat-sky solution is compared with the spherical-sky
-solution in the Limber approximated case.  This is not the case when
-considering the standard $T_\ell = 1$ flat-sky approximation that has been used
-in the majority of cosmic shear studies to date.  We would therefore argue that
-it is more appropriate to use a $T_\ell = 1$ flat-sky approximation when
-carrying out a `Full' non-Limber analysis of the shear correlation function
-obtained from the Hankel transformation (equation~\ref{eqn:xiGG}). We need to
-take a decision here about what to use.  Do we need a Full Flat case in Table
-1, and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl
-as our "truth" for the correlation function?}
 
 \renewcommand{\baselinestretch}{1.5}
 \begin{table}
