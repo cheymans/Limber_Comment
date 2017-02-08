@@ -1,41 +1,48 @@
-\subsection{Comparison of two-point shear statistics; the two-point correlation function, mass aperture statistic and COSEBIs}
+\subsection{Comparison of two-point shear statistics; the two-point correlation
+function, mass aperture statistic and COSEBIs}
 
-\ch{Copied this over from original comment paper - I would like to include this material somewhere in the paper - this needs work though to make it fit.... TBD}
+\ch{Copied this over from original comment paper - I would like to include this
+material somewhere in the paper - this needs work though to make it fit....
+TBD}
 
 \citet{CFHTLenS-2pt-notomo} present a detailed comparison of cosmological
 constraints obtained from a range of different two-point shear statistics
 including the shear correlation function, $\xi_\pm$, the aperture-mass
-dispersion, $\langle M_ {\rm ap} \rangle ^2$ \citep{1998MNRAS.296..873S}, and
+dispersion, $\langle M_ {\rm ap}^2 \rangle2$ \citep{1998MNRAS.296..873S}, and
 the COSEBIs, $E_n$ \citep{COSEBIs}.  These statistics are linearly related to
-the power spectrum via integrals of the form,
+the shear power spectrum in the flat-sky approximation via integrals of the form (omitting tomographic indices),
 %
 \begin{align}
-%\label{eqn:integ}
-& E_n =\int_0^{\infty}\frac{\d \ell \ell}{2\pi} W_n(\ell) P(\ell)\;,\\ \nonumber
-& \langle M_ {\rm ap} \rangle ^2(\theta)=\int_0^{\infty}\frac{\d \ell \ell}{2\pi} U^2_\theta(\ell) P(\ell)\;,
+  \langle M_ {\rm ap}^2 \rangle(\theta) & = \int_0^{\infty}\frac{\d \ell \ell}{2\pi}
+  \hat U^2(\theta\ell) P^\gamma(\ell),
+  \label{eqn:integ}
+  \\
+  E_n & = \int_0^{\infty}\frac{\d \ell \ell}{2\pi} W_n(\ell) P^\gamma(\ell),
 \end{align}
 %
-where $W_n(\ell)$ and $U^2_\theta(\ell)$ are defined in \cite{COSEBIs} and
-\cite{1998MNRAS.296..873S}. The corresponding equations for $\xi_\pm$ are given
-in equation~\ref{eqn:xiGG}. Figure~\ref{fig:filters} shows the integrands of
-these statistics for two cases, normalised to their maximum value, where the
-integrands are of the form $\ell F(\ell) P(\ell)$. For $\xi_\pm$, $P(\ell)$ is
-equal to the sum of the E and B-mode power spectra, motivating the development
-of the aperture-mass dispersion statistic, $\langle M_ {\rm ap} \rangle ^2$.
-This statistic is, however, a lossy conversion and is biased by small angular
-separations, where blending of galaxies makes shear measurement challenging
-\citep{KSE06}.  The COSEBIs statistic tackles both these
-shortcomings.  The upper two panels of figure~\ref{fig:filters} show the
+where the Fourier-space filter functions $\hat U$ and $W_n$ are defined in
+\cite{1998MNRAS.296..873S} and \cite{COSEBIs}. The corresponding equations for
+$\xi_\pm$ are given in equation~\ref{eqn:xiGG}. Figure~\ref{fig:filters} shows
+the integrands of these statistics for two cases, normalised to their maximum
+value, where the integrands are of the form $\ell F(\ell) P^\gamma(\ell)$. For
+$\xi_\pm$, $P^\gamma(\ell)$ is equal to the sum of the E and B-mode power spectra
+which cannot easily be separated,
+motivating the development of the aperture-mass dispersion statistic, $\langle
+M_ {\rm ap}^2 \rangle$. This statistic is, however, a lossy conversion and is
+biased by small angular separations, where blending of galaxies makes shear
+measurement challenging \citep{KSE06}. The COSEBIs statistic tackles both
+these shortcomings.  The upper two panels of figure~\ref{fig:filters} show the
 integrands\footnote{Note that the lower left panel of Fig.~1 in
 \citet{2016arXiv161104954K} shows an integrated form of this function for a
-maximum angular separation of $100^\prime$. However, in \citet{CFHTLenS-2pt-notomo},
-the data used in \citet{2016arXiv161104954K}, $\theta$ is between $0.8'$ and
-$350'$.} of $\xi_\pm$ for $\theta=100'$ and $\theta=350'$. The lower middle
-panel in Figure~\ref{fig:filters} shows the COSEBIs integrands for two angular
-ranges, $[1',100']$ and $[0.8',350']$, where we only show the integrands for
-the lowest COSEBIs mode, $E_1$, as the higher modes generally probe larger
-$\ell$-modes.  Finally, the lowest panel shows the integrands of aperture mass
-dispersion statistics, for the same two maximum angular ranges. 
+maximum angular separation of $100^\prime$. However, in
+\citet{CFHTLenS-2pt-notomo}, the data used in \citet{2016arXiv161104954K},
+$\theta$ is between $0.8'$ and $350'$.} of $\xi_\pm$ for $\theta=100'$ and
+$\theta=350'$. The lower middle panel in Figure~\ref{fig:filters} shows the
+COSEBIs integrands for two angular ranges, $[1',100']$ and $[0.8',350']$, where
+we only show the integrands for the lowest COSEBIs mode, $E_1$, as the higher
+modes generally probe larger $\ell$-modes.  Finally, the lowest panel shows the
+integrands of aperture mass dispersion statistics, for the same two maximum
+angular ranges. 
 
 \begin{figure}%[!htp]
 \begin{center}
