@@ -76,11 +76,43 @@ revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
 \cite{2003MNRAS.341.1311S} results in a decrease of $0.6 \sigma$ with $\sigma_8
 (\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.} from
 \cite{2003MNRAS.341.1311S} as the original \cite{CFHTLenS-2pt-notomo} analysis.
+We use the real-space two-point correlation function of shear, which in flat-sky
+coordinates is a Hankel transform of the shear power spectrum,
+%
+\begin{eqnarray}
+  \xi_+(\theta) 
+  % &
+  = \frac 1 {2\pi} \int {\rm d} \ell \, \ell {\rm J}_0(\ell
+   \theta)
+  P^\gamma(\ell);
+  \quad
+  %\nonumber \\
+   %
+   \xi_-(\theta)
+  %&
+  = \frac 1 {2\pi} \int
+   {\rm d} \ell \, \ell {\rm J}_4(\ell \theta)
+  P^\gamma(\ell).
+  %
+   \label{eqn:xiGG}
+\end{eqnarray}
+%
+As in \cite{CFHTLenS-2pt-notomo} we fit both components $\xi_+$ and $\xi_-$
+between angular scales $\theta = 0.8$ and $350$ arc minutes, and use a $N$-body
+simulation estimate of the non-Gaussian covariance including the
+cross-covariance between both components. The Bayesian Monte-Carlo parameter
+sampling is performed using the publically available software
+\textsc{CosmoPMC}\footnote{\texttt{www.cosmopmc.info}} \citep{WK09,KWR10}. The
+cosmological modelling part including the various lensing projections are
+performed with the library
+\textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}
+\citep{KB09}. \mk{Check reference.}
+
 For a first-order standard Limber flat-sky approximation (L1Fl) we find
-$\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$. For a
-second-order extended Limber flat-sky approximation we find $\sigma_8
-(\Omega_{\rm m}/0.27)^{0.6} =X^{+X}_{-X}$, a negligible change of
-$X\sigma$. 
+$\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$, the same
+result that was published in \cite{CFHTLenS-2pt-notomo}. Using the second-order
+extended Limber flat-sky approximation results in $\sigma_8 (\Omega_{\rm
+m}/0.27)^{0.6} =X^{+X}_{-X}$, a negligible change of $X\sigma$. 
 
 Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
 $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the
@@ -88,21 +120,23 @@ lensing power spectrum projections listed in Table~\ref{tab:cases}
 
 \ch{This text taken from the comment on paper; We note that
 \citet{2016arXiv161104954K} use their `Flat' approximation for their `Full'
-non-Limber analysis of the CFHTLenS data.   This is because on a sphere,
+non-Limber analysis of the CFHTLenS data. This is because on a sphere,
 correlation functions cannot be related to the power spectrum by a Hankel
-transform (e.g. equation~\ref{eqn:xiGG}) as the power spectrum is not defined
-for non-integer $\ell$. In Figure~\ref{fig:Cl_xi}, however, we show that this
+transform (\ref{eqn:xiGG}) as formally the power spectrum is not defined for
+non-integer $\ell$. In Fig.~\ref{fig:Cl_cases}, however, we show that this
 chosen version of a flat-sky approximation serves to exacerbate the tension in
 theoretical models when a flat-sky solution is compared with the spherical-sky
 solution in the Limber approximated case.  This is not the case when
-considering the standard $T_\ell = 1$ flat-sky approximation that has been used
-in the majority of cosmic shear studies to date.  We would therefore argue that
-it is more appropriate to use a $T_\ell = 1$ flat-sky approximation when
-carrying out a `Full' non-Limber analysis of the shear correlation function
+considering the standard and extended hybrid flat-sky Limber approximation
+(both for which $p(\ell) = 1$, which corresponds to $T_\ell$ in
+\citet{2016arXiv161104954K}, see Sect.~\ref{sec:Limber_flat_sky}) that has been
+used in the majority of cosmic shear studies to date.  We would therefore argue
+that it is more appropriate to use a $p(\ell) = 1$ flat-sky approximation when
+carrying out a `full' non-Limber analysis of the shear correlation function
 obtained from the Hankel transformation (equation~\ref{eqn:xiGG}). We need to
-take a decision here about what to use.  Do we need a Full Flat case in Table
-1, and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl
-as our "truth" for the correlation function?}
+take a decision here about what to use. Do we need a Full Flat case in Table 1,
+and to demonstrate that Ext2Fl is very close to FullFl?  And then use Ext2Fl as
+our "truth" for the correlation function?}
 
 \renewcommand{\baselinestretch}{1.5}
 \begin{table}

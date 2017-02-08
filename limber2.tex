@@ -86,7 +86,7 @@ second-order Limber approximation will provide sufficient accuracy, as it is in
 agreement with the full projection at the percent level for $\ell > 3$.  
 In the spirit of reproducible research, our numerical implementation of all approximations
 and the full projection are publicly available within the package
-\texttt{nicaea} at \texttt{http://www.cosmostat.org/software/nicaea}.
+\textsc{nicaea} at \texttt{http://www.cosmostat.org/software/nicaea}.
 
 \end{abstract}
 
@@ -257,7 +257,8 @@ App.~\ref{sec:derivations_C} for details) the power spectrum can be written as
   \label{eq:C_ell_phi_Pm}
 \end{align}
 %
-where for convenience we defined the normalisation constant $\pref$ as
+where ${\rm j}_\ell$ it the spherical Bessel function of order $\ell$. For
+convenience we defined the normalisation constant $\pref$ as
 %
 \begin{equation}
   \pref = \frac 3 2 \Omega_{\rm m} \left(\frac{H_0} c\right)^2.
@@ -387,7 +388,7 @@ For a flat Universe, this is given by
   \label{eq:C_ell_full}
 \end{align}
 %
-The spherical prefactor for the full projection power spectrum is $p(\ell) =
+The spherical prefactor for the full projection power spectrum is $p(\ell) :=
 \ellbar^2(\ell, 2)$, which will be modified under flat-sky and Limber
 approximations below.
 
@@ -502,8 +503,9 @@ all-sky case. First, we use the identity of Bessel functions
   {\rm j}_\ell(x) = \sqrt{\frac{\pi}{2x}} {\rm J}_{\ell + 1/2}(x)
 \end{equation}
 %
-in eq.~(\ref{eq:C_ell_full}). Next, \cite{2008PhRvD..78l3506L} solve
-integrals of the form
+in eq.~(\ref{eq:C_ell_full}), where ${\rm J}_\ell$ is the first-kind Bessel
+function of order $\ell$. Next, \cite{2008PhRvD..78l3506L} solve integrals of
+the form
 %
 \begin{equation}
   \int_0^\infty {\rm d} \chi f(\chi) {\rm J}_{\ell + 1/2}(k \chi)
@@ -698,6 +700,7 @@ $10^{-4}$ of its value of unity at Mpc$/h$.
 %power spectrum.
 
 \subsection{Flat sky}
+\label{sec:Limber_flat_sky}
 
 The extended flat-sky Limber approximation is readily derived from the
 spherical case, by replacing the prefactor $\ellbar^2(\ell, 2)$ with $\ell^4$,
@@ -718,13 +721,13 @@ spherical case, by replacing the prefactor $\ellbar^2(\ell, 2)$ with $\ell^4$,
   \label{eq:P_ell_limber2}
 \end{align}
 %
-Different further approximations are commonly made for the prefactor $p(\ell) = \ell^4/\nu^4$ and $\nu(\ell)$.
+Different further approximations are commonly made for the prefactor $p(\ell) = \ell^4/\nu^4$ and $\nu(\ell)$:
 %
 \begin{enumerate}
   \item $p(\ell) = 1$, this corresponds to setting $\nu(\ell) = \ell$, and is the standard Limber approximation.
     Until recently, i.e.~for all pre-2014 CFHTlenS results, this was the approximation of choice.
-  \item $p(\ell) = \ell^4/\nu^4(\ell)$ with $\nu(\ell) = \ell + 1/2$. This corresponds to the extended Limber
-    approximation; however the following case is typically employed:
+  \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the extended Limber
+    approximation with $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
   \item $p(\ell) = 1$, but as the argument of the 3D power spectrum $\nu = \ell + 1/2$. This is a hybrid between
     standard and extended Limber approximation, and was used in \cite{KiDS-450,joudaki/etal:2016}. As is shown
     later, this is a much better approximation than case 2.
