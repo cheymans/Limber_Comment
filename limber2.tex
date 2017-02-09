@@ -33,7 +33,7 @@
 
 
 
-\title[Precision calculations for cosmic shear]{Precision calculations for cosmic shear}  %??
+\title[Precision calculations for cosmic shear projections]{Precision calculations of cosmic shear projections}  %??
 %{Precision calculations of the cosmic shear power spectrum projection}
 
 \input{authors.tex}
@@ -464,17 +464,23 @@ expansion (equation~\ref{eq:psi_harm_exp}) can be approximated by the Fourier
 representation in equation~\ref{eq:psi_fourier}). They also demonstrated that the power
 spectra are approximately equal, $P^\psi \approx C^\psi$.
 
-For a spin-2 field, \cite{2000PhRvD..62d3007H} approximates the edth operator by Cartesian derivatives, and approximates
-equation~(\ref{eq:sYlm_def}) as
+For a spin-2 field, \cite{2000PhRvD..62d3007H} approximates the edth operator
+by Cartesian derivatives, and approximates equation~(\ref{eq:sYlm_def}) as
 %
 \begin{equation}
-  \ell^2 \, _{\pm2}\!{\rm Y}_{\ell m}(\theta, \varphi) =  {\rm e}^{{\mp}2 {\rm i} \phi_\ell}
+  \ell^2 \, _{\pm2}\!{\rm Y}_{\ell m}(\theta, \varphi) \approx  {\rm e}^{{\mp}2 {\rm i} \phi_\ell}
     (\partial_1 \pm \partial_2)^2 \, {\rm Y}_{\ell m}(\theta, \varphi).
   \label{eq:sYlm_def_flat}
 \end{equation}
 %
-The spin pre-factor $\sqrt{(\ell-1) \ell (\ell+1) (\ell+2)}$ is replaced by $\ell^2$ in flat co-ordinates. \ch{@MK - say why this is so.  Is it just that flat by definition means large $\ell$?}
-We find for the flat-sky shear power spectrum
+The spin pre-factor $\sqrt{(\ell-1) \ell (\ell+1) (\ell+2)}$ is replaced by
+$\ell^2$ in flat co-ordinates, \mk{an approximation that holds for large $\ell$.}
+ \ch{@MK - say why this is so.  Is it just that
+flat by definition means large $\ell$?} \mk{I think it's a large-ell approximation,
+but I don't know whether this is an assumption to derive this approximation, or whether it follows from that.
+I'll have to check this.}
+We find for the flat-sky shear power
+spectrum
 %
 \begin{align}
   P^\gamma_{ij}(\ell) 
@@ -504,6 +510,7 @@ all-sky case. First, we use the identity of Bessel functions
 %
 \begin{equation}
   {\rm j}_\ell(x) = \sqrt{\frac{\pi}{2x}} {\rm J}_{\ell + 1/2}(x)
+  \label{eq:jJ}
 \end{equation}
 %
 in equation~(\ref{eq:C_ell_full}), where ${\rm J}_\ell$ is the first-kind Bessel
@@ -661,14 +668,15 @@ This is not exact, since some non-linear prescriptions of the power spectrum
 depend on redshift other than the growth factor, for example when computing the
 non-linear scale $k_{\rm NL}(z)$ for \texttt{halofit}.
 
-With this approximation, the $k$-independent term factors out from equation~(\ref{eq:f_LA08}), and we define the separated kernel function $f_{\rm s}$ as
+With this approximation, the \mk{$\chi$-independent term $P_{\rm m}(k)$}
+factors out from equation~(\ref{eq:f_LA08}), and we define the separated kernel
+function $f_{\rm s}$ as
 %
 \begin{equation}
-  f_{\rm s}(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi) \, ,
+  f_{\rm s}(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi) \,
   \label{eq:f_LA08_s}
 \end{equation}
 %
-\ch{?? and - do you mean which?} does not need to be considered when taking the derivatives with respect to comoving distances.
 The second-order Limber term of the shear power spectrum can then be simplified to
 %
 \begin{align}
@@ -735,7 +743,8 @@ Further approximations are commonly made for the pre-factor $p(\ell) = \ell^4/\n
     standard and extended Limber approximation, and was used in \cite{KiDS-450,joudaki/etal:2016}. As is shown
     later, this is a better approximation to the full projection than case (ii).
 \end{enumerate}
-\ch{@MK - in the second order hybrid case does $\ell^4 / \nu^6$ become $\ell^{-2}$ or 1?.  Would this section be clearer if we had $p(\ell)$ in the equations instead of 
+%
+\ch{Would this section be clearer if we had $p(\ell)$ in the equations instead of 
 $\ell^4/\nu^4$?}
 
 % (i)  Standard Flat
@@ -776,9 +785,24 @@ p(\ell) = \ell^4 / (\ell + 0.5)^4 = 1-{2\over \ell}+{5\over 2\ell^2} +{\cal O}(\
 \end{equation} 
 showing it to be more deviant from the full spherical solution, than the `hybrid' $p(\ell) = 1$ case. 
 
-Considering now the spherical-sky cases, we find that including the spherical pre-factor decreases the difference between the extended Limber approximated cases (ExtL1Sph and ExtL2Sph) and the full spherical solution by a factor of a few for $\ell < 5$.   We find that using the spherical-sky second-order extended Limber approximation (ExtL2Sph) yields percent accuracy down to $\ell > 3$.  The numerical calculation of the second-order extended Limber approximation is a factor of \ch{X} faster than the calculation of the full spherical solution.   We note that the noise seen in the right panel of Fig.~\ref{fig:Cl_cases} is due to numerical noise arising from numerical integration errors in the calculation of 
-the full spherical solution when $\ell > 20$.  Increasing numerical precision would increase the calculation time still further, relative to the  second-order extended Limber calculation.
+Considering now the spherical-sky cases, we find that including the spherical
+pre-factor decreases the difference between the extended Limber approximated
+cases (ExtL1Sph and ExtL2Sph) and the full spherical solution by a factor of a
+few for $\ell < 5$.   We find that using the spherical-sky second-order
+extended Limber approximation (ExtL2Sph) yields percent accuracy down to $\ell
+> 3$.  The numerical calculation of the second-order extended Limber
+approximation is a factor of \mk{15 times} faster than the calculation of the
+full spherical solution \mk{for the first $18$ $\ell$-modes.} We note that the
+\mk{sub-$0.1\%$}-noise seen in the right panel of Fig.~\ref{fig:Cl_cases} is
+due to numerical noise arising from numerical integration errors in the
+calculation of the full spherical solution when $\ell > 20$.
 
+
+% Compuation times:
+% l>=20, 20 modes
+% full 37s
+% L2   2.14s
+% L1   0.8s
 
 \begin{figure}
 
@@ -886,18 +910,20 @@ spectrum through equation~(\ref{eq:P_ell_limber1}) when adopting a first-order
 extended Limber approximation, or equation~(\ref{eq:P_ell_limber2}) when adopting
 a second-order extended Limber approximation.
 
-On a sphere, correlation functions cannot be related to the power spectrum by the
-Hankel transform in equation~(\ref{eqn:xiGG}), as the spherical power spectrum is
-formally not defined for non-integer $\ell$ \citep[see][for alternative
-spherical-sky formulae for the two-point correlation
+On a sphere, correlation functions cannot be related to the power spectrum by
+the Hankel transform in equation~(\ref{eqn:xiGG}), as the spherical power
+spectrum is formally not defined for non-integer $\ell$ \citep[see][for
+alternative spherical-sky formulae for the two-point correlation
 function]{2005PhRvD..72b3516C}. In particular, the spherical Bessel functions
-necessary to compute the full projection in equation~(\ref{eq:C_ell_full}) is defined only
-for integer order $\ell$. \mk{Is this really true?}
+necessary to compute the full projection in equation~(\ref{eq:C_ell_full}) is
+defined only for integer order $\ell$. \mk{I think this is actually not true,
+since J$_\nu$ can be computed for fractional $\nu$, and then one could use the
+identity (\ref{P_kappa_full_l1}). Or is it?}.
 
 As we have shown in section~\ref{sec:comp}, however, the spherical
 second-order extended Limber approximation provides a percent-level precision
 representation of the full spherical projection for $\ell > 3$.  
-In the Limber approximations the Bessel functions expanded \ch{to by ?? which one??}
+In the Limber approximations the Bessel functions \mk{are expanded into}
 polynomials, allowing for arbitrary wave modes $\ell$. The spherical pre-factor
 $\ellbar(\ell, 2)$ (equation~ref{eq:ellbar}) can be generalised to non-integer
 arguments and is positive for $\ell \le 2$. We can thus use the spherical power
@@ -1051,7 +1077,6 @@ In this section we briefly discuss previously published work on the full
 projection and second-order Limber equation of the lensing power spectrum, cross-checking and comparing their
 results with our independent findings.
 
-\ch{MNRAS rules;  equation when you refer to your equation.  Equation when it is in another paper.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Kitching et al.~2016}
@@ -1059,20 +1084,23 @@ results with our independent findings.
 
 \cite{2016arXiv161104954K} compute the full projection of the weak-lensing
 power spectrum, which they present as spherical-radial representation the 3D
-shear field. Our results in equation~(\ref{eq:C_ell_full}) corresponds to their Equations
-(7) and (8) assuming a flat Universe and the case of perfect photometric
-redshifts, with $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$, and for a bin
-function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm p}) = 1_{z
-\in i-\mbox{th bin}}$. We find that Equation~(7) in \cite{2016arXiv161104954K} is missing a factor $2/\pi$.
+shear field. Our results in equation~(\ref{eq:C_ell_full}) corresponds to their
+Equations (7) and (8) assuming a flat Universe and the case of perfect
+photometric redshifts, with $p(z | z_{\rm p}) = \delta_{\rm D}(z - z_{\rm p})$,
+and for a bin function that selects the redshift bin $i$, $W^{\rm SR}(z, z_{\rm
+p}) = 1_{z \in i-\mbox{th bin}}$. We find that Equation~(7) in
+\cite{2016arXiv161104954K} is missing a factor $2/\pi$.
 
 \cite{2016arXiv161104954K} derives the spherical and extended Limber
-approximation starting from the full spherical projection in their Appendix.~A.  We find that the
-filter function $q$ defined in their Equation~(31) has an additional factor of
-comoving distance $r$, and an additional factor of $\pi/2$.
+approximation starting from the full spherical projection in their Appendix.~A.
+We find that the filter function $q$ defined in their Equation~(31) has an
+additional factor of comoving distance $r$, and an additional factor of
+$\pi/2$.
 
-As shown in this paper, we are unable to reproduce the differences that \cite{2016arXiv161104954K} report,
-between the full spherical solution and the different approximations,
-neither for the power spectrum nor for the shear correlation function.
+As shown in this paper, we are unable to reproduce the differences that
+\cite{2016arXiv161104954K} report, between the full spherical solution and the
+different approximations, neither for the power spectrum nor for the shear
+correlation function.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1080,16 +1108,17 @@ neither for the power spectrum nor for the shear correlation function.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cite{2012PhRvD..86b3001B} present the non-tomographic full projection
-$C(\ell)$ in the approximation of the 3D potential power spectrum $P^\Phi$ separating
-into $k$- and $\chi$-dependent functions in their Equation~(44). Their expression holds for a single
-source redshift.
+$C(\ell)$ in the approximation of the 3D potential power spectrum $P^\Phi$
+separating into $k$- and $\chi$-dependent functions in their Equation~(44).
+Their expression holds for a single source redshift.
 
 The PhD thesis of Van de Rijt \cite{vande2012} presents an explicit calculation
 of the second-order Limber approximation. They carry out the derivatives of the
 kernels $f$ under the assumption of a constant growth-suppression factor
 $D_+(a)/a$. Then, for a constant source comoving distance $\chi_{\rm S}$, the
-lensing efficiency in equation~(\ref{eq:lens_efficiency}) is $q(\chi) = (\chi_{\rm S} -
-\chi) \chi_{\rm S}^{-1}$, and the derivative of the separated kernel function in equation~(\ref{eq:f_LA08_s}) can be calculated analytically,
+lensing efficiency in equation~(\ref{eq:lens_efficiency}) is $q(\chi) =
+(\chi_{\rm S} - \chi) \chi_{\rm S}^{-1}$, and the derivative of the separated
+kernel function in equation~(\ref{eq:f_LA08_s}) can be calculated analytically,
 %
 \begin{equation}
   f^{\prime\prime}(\chi) + \frac{\chi}{3} f^{\prime\prime\prime}(\chi)
@@ -1098,17 +1127,17 @@ lensing efficiency in equation~(\ref{eq:lens_efficiency}) is $q(\chi) = (\chi_{\
 \label{eqn:B1}
 \end{equation}
 %
-This result confirms the power-law behaviour of the filter function, which we exploited earlier to fit
-this function.
+This result confirms the power-law behaviour of the filter function, which we
+exploited earlier to fit this function.
 
 Inserting equation~(\ref{eqn:B1}) into the second-order Limber power spectrum
-in equation~(\ref{eq:C_ell_limber2_dr_s}) and using the inverse Poisson equation to replace
-the matter with the potential power spectrum we obtain the same expression as
-\cite{vande2012} (their Equation.~7.19), except for an additional factor $a^2(\chi)$.
-This difference is accounted for by the factor $a^{-1}$ in the propagation of
-primordial potential perturbations to late times, see Equation~(6.22) in
-\cite{vande2012}, where the transition is calculated using $g(a)$ instead of $D(a)$.
-\mk{Check this further.}
+in equation~(\ref{eq:C_ell_limber2_dr_s}) and using the inverse Poisson
+equation to replace the matter with the potential power spectrum we obtain the
+same expression as \cite{vande2012} (their Equation.~7.19), except for an
+additional factor $a^2(\chi)$. This difference is accounted for by the factor
+$a^{-1}$ in the propagation of primordial potential perturbations to late
+times, see Equation~(6.22) in \cite{vande2012}, where the transition is
+calculated using $g(a)$ instead of $D(a)$. \mk{Check this further.}
 
 In Fig.~\ref{fig:L1L2E_Rijt} we reproduce Fig.~7.3 from \cite{vande2012} using
 a similar set up (flat $\Lambda$ Universe with $\Omega_{\rm m} = 0.3, h=0.65,
