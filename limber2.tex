@@ -32,45 +32,23 @@
 \newcommand{\ch}[1]{\textcolor{purple}{\bf #1}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title[Precision calculations for cosmic shear]{Precision calculations for cosmic shear}  %??
 %{Precision calculations of the cosmic shear power spectrum projection}
 
-\author[M.~Kilbinger et~al.]
- {
-  \parbox[h]{\textwidth}
-  {
-      Martin Kilbinger$^{1,2}$\thanks{E-mail: martin.kilbinger@cea.fr},
-      %Catherine Heymans,
-      %Peter Schneider,
-      %Shahab Joudaki,
-      %Marika Asgari,   % note that we'll worry about order at the end - Marika and Shahab put a lot of work into the comment paper, so we might just want to go alpha
-      and other members of CFHTLenS and KiDS
-      $\ldots$,
-  }
-  % 
-  \vspace*{10pt} \\
-  \hspace{-.1cm}$^1$ CEA/Irfu/SAp Saclay, Laboratoire AIM, 91191 Gif-sur-Yvette, France\\
-  \hspace{-.1cm}$^2$ Institut d'Astrophysique de Paris, UMR7095 CNRS,
-           Universit\'e Pierre \& Marie Curie, 98 bis boulevard Arago, 75014 Paris,
-           France \\
- }
-
-\voffset-0.50in
-
+\input{authors.tex}
 
 \date{\today}
 
 \pagerange{\pageref{firstpage}--\pageref{lastpage}} \pubyear{2017}
 
-\maketitle
+\begin{document}
+\setlength{\voffset}{-12mm}
 
 \label{firstpage}
 
 
+\maketitle
 \begin{abstract}
 
 We compute the spherical-sky weak-lensing power spectrum of the shear and
@@ -836,47 +814,45 @@ $\ell > 20$.  Increasing numerical precision would increase the calculation time
 % limber2_la08_sph  ExtL2Sph
 % full              Full
 
-\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\baselinestretch}{1.5}
 \begin{table}
-
+\begin{centering}
   \label{tab:cases}
-
   \caption{Shear power spectrum approximations compared in this paper. 'ID' is the abbrevation used in the plots.
-    The third column shows the power-spectrum prefactor $p(\ell)$.  \mk{The last column will be removed in the
-        final version.}}
-
-  \begin{tabular}{|l|l|c|c|c|c}
+    The third column shows the power-spectrum prefactor $p(\ell)$. }  
+    \begin{tabular}{|l|l|c|c|c}
   \hline
-  Case & ID & eq.~ & prefactor & $\nu(\ell)$ & Label [Comment paper] \\ \hline
+  Case & ID & eq.~ & prefactor & $\nu(\ell)$ \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
-    & $1$ & $\ell$ & Kst \\ \hline
+    & $1$ & $\ell$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
-    & $\ell^4/(\ell+1/2)^4$ & $\ell + 1/2$ & ELF \\ \hline
+    & $\ell^4/(\ell+1/2)^4$ & $\ell + 1/2$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
-    & $1$ & $\ell + 1/2$ & ESt \\ \hline
+    & $1$ & $\ell + 1/2$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
-    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & ELS \\ \hline
+    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ \\ \hline
   %
   $2^{\rm st}$-order extended Limber, flat sky & ExtL2Fl &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
     & $\ell^4/(\ell+1/2)^4$ 
-    & $\ell+1/2$ & - \\ \hline
+    & $\ell+1/2$ \\ \hline
   %
   $2^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL2FlHyb &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
     & $1$ 
-    & $\ell+1/2$ & - \\ \hline
+    & $\ell+1/2$ \\ \hline
   %
   $2^{\rm st}$-order extended Limber, spherical & ExtL2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr_s})
-    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ & - \\ \hline
+    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ \\ \hline
   %
   Full spherical & FullSph & (\ref{eq:C_ell_full}) &
-      $\ellbar^2(\ell, 2)$ & - & - \\ \hline
+      $\ellbar^2(\ell, 2)$ & - \\ \hline
   %
   \end{tabular}
 
+\end{centering}
 \end{table}
 \renewcommand{\baselinestretch}{1}
 
@@ -969,7 +945,7 @@ methods.
     The lower panels shows the relative differences to the case ExtL2Sph,  see Table \ref{tab:cases} for the different
     approximations and their symbols.
     The theoretical model corresponds to the CFHTLenS best-fit parameters with
-    $\Omega_{\rm m} = 0.279$, $h=0.701$, and $\sigma_8 = 0.79$ \citep{2015arXiv150201589P},
+    $\Omega_{\rm m} = 0.279$, $h=0.701$, and $\sigma_8 = 0.79$ \citep{CFHTLenS-2pt-notomo},
     except the red dashed curve with adapts a Planck-best fit
     cosmology with $\Omega_{\rm m} = 0.3$, $h=0.67$ and $\sigma_8 = 0.83$ \citep{2015arXiv150201589P}.
   }
@@ -995,6 +971,9 @@ methods.
 \section*{Acknowledgments}
 
 The authors thank Tommaso Giannantonio, Sarah Bridle, Ami Choi, Donnacha Kirk, Lance Miller, Benjamin Joachimi, Chris Blake and Adam Amara for very helpful discussions.
+This work was financially supported by the DFG (Emmy Noether grants Hi 1495/2-1 and SI 1769/1-1; TR33 `The Dark Universe'), the Alexander von Humboldt Foundation, the ERC (grants 279396, 647112), the Seventh Framework Programme of the European Commission (Marie Sklodwoska Curie Fellowship grant 656869), NSERC and CIfAR.
+
+\ch{Check your acknowledgements}
 
 \bibliographystyle{mnras}
 \bibliography{astro}
