@@ -21,7 +21,7 @@ in comparison to \citet{CFHTLenS-2pt-tomo}, by incorporating newly overlapping
 spectroscopic data from the Sloan Digital Sky Survey.  The conclusion of this
 work was that any re-analysis of CFHTLenS should include systematic error terms
 to account for bias and scatter, with a prediction that accounting for these
-biases would be {\it reduce} the recovered amplitude of $\sigma_8$ by $\sim
+biases would {\it reduce} the recovered amplitude of $\sigma_8$ by $\sim
 4$\%.}
 %
 \item{The CFHTLenS tomographic cosmological analysis was then revisited by
@@ -65,7 +65,7 @@ CFHTLenS using the advanced KiDS analysis pipeline with revised shape
 measurements and calibrations for the shear and photometric redshifts. Until
 this analysis is complete we note that these known shortcomings with the
 original CFHTLenS results impact in different ways the cosmological conclusions
-that one can draw from the survey. As CFHTLenS has similar statistical power
+that one can draw. As CFHTLenS has similar statistical power
 to current weak lensing surveys, however, it nevertheless provides a very
 useful testbed with which to demonstrate the impact of adopting different
 approximations when constraining cosmological parameters.
@@ -80,19 +80,19 @@ spectrum corrections from \cite{2003MNRAS.341.1311S}.
 
 We re-analyse the 2D CFHTLenS measurement of the two-point shear correlation
 function $\xi_\pm(\theta)$ from \cite{CFHTLenS-2pt-notomo}, defined in
-(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both components
+equation~(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both components
 $\xi_+$ and $\xi_-$ between angular scales $\theta = 0.8$ and $350$ arc
 minutes, and use a $N$-body simulation estimate of the non-Gaussian covariance
 including the cross-covariance between both components. The Bayesian
 Monte-Carlo parameter sampling is performed using the publically available
 software \textsc{CosmoPMC}\footnote{\texttt{http://www.cosmostat.org/software/cosmopmc}}
-\citep{WK09,KWR10}. The cosmological modelling part including the various
-lensing projections are performed with the library
+\citep{WK09,KWR10}. The cosmological modelling part includes the various
+lensing projections, calculated using the software library
 \textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Cosmological parameter results}
-\label{ref:cosmo_results}
+%\label{ref:cosmo_results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -117,11 +117,10 @@ revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
 \renewcommand{\baselinestretch}{1.5}
 \begin{table}
 \begin{centering}
-  \label{tab:CFHTLenS_Sigma8}
-
-  \caption{Mean and 68\% credible interval for 
+  
+  \caption{\label{tab:CFHTLenS_Sigma8}Mean and 68\% confidence interval for 
   $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
-  power spectrum projections.}
+  power spectrum projections listed in Table~\ref{tab:cases}.}
 
   \begin{tabular}{lccc} \hline
   ID         & $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ & Comment \\ \hline
