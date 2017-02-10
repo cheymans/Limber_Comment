@@ -29,7 +29,7 @@
 
 
 \definecolor{purple}{RGB}{76, 0,153}
-\newcommand{\ch}[1]{\textcolor{purple}{\bf #1}}
+\newcommand{\ch}[1]{\textcolor{purple}{\textbf{#1}}}
 
 
 
@@ -412,7 +412,8 @@ The spherical harmonics are eigenfunctions of the Laplacian,
 \end{equation}
 %
 The convergence power spectrum is then similar to the shear power spectrum
-(equation~\ref{eq:C_ell_gamma}) with a different spherical pre-factor, \citep{jk12}
+(equation~\ref{eq:C_ell_gamma}) with a different spherical pre-factor,
+\citep{2000PhRvD..62d3007H,jk12}
 %
 \begin{equation}
   C^\kappa_{ij}(\ell) = \frac 1 4 \ellbar^4(\ell, 1) \, C^\psi_{ij}(\ell)
@@ -575,7 +576,7 @@ k^{-1-n} f^{(n)}(k, \chi)$ for a given $k$. In our case the projection kernel is
   \label{eq:f_LA08}
 \end{equation}
 %
-\mk{Add indices $i, j$ to $f$ and $q$ for the tomographic case.}{\ch Do we want to do this?}
+\mk{In the tomographic case, the index $i$ is added to $q$ and $f$.}
 %
 Replacing both distance integrals in equation~(\ref{eq:C_ell_full_Pk}) by their Taylor-expansions around $\nu = k \chi$ and $\nu = k \chi^\prime$,
 respectively, yields
@@ -792,7 +793,7 @@ few for $\ell < 5$.   We find that using the spherical-sky second-order
 extended Limber approximation (ExtL2Sph) yields percent accuracy down to $\ell
 > 3$.  The numerical calculation of the second-order extended Limber
 approximation is a factor of \mk{15 times} faster than the calculation of the
-full spherical solution \mk{for the first $18$ $\ell$-modes.} We note that the
+full spherical solution \mk{(averaged over the first $18$ $\ell$-modes).} We note that the
 \mk{sub-$0.1\%$}-noise seen in the right panel of Fig.~\ref{fig:Cl_cases} is
 due to numerical noise arising from numerical integration errors in the
 calculation of the full spherical solution when $\ell > 20$.
@@ -918,7 +919,7 @@ function]{2005PhRvD..72b3516C}. In particular, the spherical Bessel functions
 necessary to compute the full projection in equation~(\ref{eq:C_ell_full}) is
 defined only for integer order $\ell$. \mk{I think this is actually not true,
 since J$_\nu$ can be computed for fractional $\nu$, and then one could use the
-identity (\ref{P_kappa_full_l1}). Or is it?}.
+identity (\ref{eq:jJ}). Or is it?}.
 
 As we have shown in section~\ref{sec:comp}, however, the spherical
 second-order extended Limber approximation provides a percent-level precision
