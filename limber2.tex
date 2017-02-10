@@ -844,35 +844,35 @@ calculation of the full spherical solution when $\ell > 20$.
 \begin{centering}
   \caption{\label{tab:cases}The shear power spectrum approximations studied in this paper. 'ID' is the abbrevation used in the figures.
     The third column shows the power-spectrum pre-factor $p(\ell)$. }  
-    \begin{tabular}{|l|l|c|c|c}
+    \begin{tabular}{|l|l|c|c|c|p{0.21\textwidth}}
   \hline
-  Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ \\ \hline
+  Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & Comment \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
-    & $1$ & $\ell$ \\ \hline
+    & $1$ & $\ell$ & Used for pre-2014 CFHTLenS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
-    & $\ell^4/(\ell+1/2)^4$ & $\ell + 1/2$ \\ \hline
+    & $\frac{\ell^4}{(\ell+1/2)^4}$ & $\ell + \frac 1 2$ & Converges only with ${\cal O}(\ell^{-1})$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
-    & $1$ & $\ell + 1/2$ \\ \hline
+    & $1$ & $\ell + \frac 1 2$ & Used for post-2014 CFHTLenS, KiDS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
-    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ \\ \hline
+    & $\frac{\ellbar^2(\ell, 2)}{(\ell+1/2)^4}$ & $\ell+ \frac 1 2$ & \\ \hline
   %
   $2^{\rm st}$-order extended Limber, flat sky & ExtL2Fl &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
-    & $\ell^4/(\ell+1/2)^4$ 
-    & $\ell+1/2$ \\ \hline
+    & $\frac{\ell^4}{(\ell+1/2)^4}$ 
+    & $\ell+\frac 1 2$ & Converges only with ${\cal O}(\ell^{-1})$ \\ \hline
   %
   $2^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL2FlHyb &  (\ref{eq:P_ell_limber1}) + (\ref{eq:P_ell_limber2}) + (iii)
     & $1$ 
-    & $\ell+1/2$ \\ \hline
+    & $\ell+ \frac 1 2$ & Best flat-sky approximation \\ \hline
   %
   $2^{\rm st}$-order extended Limber, spherical & ExtL2Sph & (\ref{eq:C_ell_limber1})+(\ref{eq:C_ell_limber2_dr_s})
-    & $\ellbar^2(\ell, 2)/(\ell+1/2)^4$ & $\ell+1/2$ \\ \hline
+    & $\frac{\ellbar^2(\ell, 2)}{(\ell+1/2)^4}$ & $\ell+\frac 1 2$ & Best approximation but mixing with flat-sky Hankel transform \\ \hline
   %
   Full spherical & FullSph & (\ref{eq:C_ell_full}) &
-      $\ellbar^2(\ell, 2)$ & - \\ \hline
+      $\ellbar^2(\ell, 2)$ & - & Correct projection \\ \hline
   %
   \end{tabular}
 
