@@ -30,8 +30,10 @@
 \newcommand{\Label}[1]{\quad \mk{(\mbox{#1})}}
 \newcommand{\LabelTxt}[1]{\mk{(\mbox{#1})}}
 
+\newcommand{\MA}[1]{\textcolor{red}{#1}}
 
 \definecolor{purple}{RGB}{76, 0,153}
+%\definecolor{purple}{RGB}{76, 0,153}
 \newcommand{\ch}[1]{\textcolor{purple}{\textbf{#1}}}
 
 
@@ -154,7 +156,7 @@ power spectra in Appendix~\ref{sec:derivations_C}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The lensing potential $\psi$ at a direction on the sky $(\theta, \varphi)$ in
+The lensing potential $\psi$ at a direction (\MA {position}?) on the sky $(\theta, \varphi)$ in
 the Born approximation is defined as the projected 3D metric potential $\Phi$
 along the line of sight \mk{of a flat Universe} \citep{1998ApJ...498...26K,BS01},
 %
@@ -178,9 +180,9 @@ where the lensing efficiency $q$ is given by
 \end{equation}
 %
 corresponding to a population of lensed galaxies with a normalised source
-redshift distribution $n_z(z) {\rm d}z = n(\chi) {\rm d} \chi$, \mk{with limit the
-comoving distance to the horizon $\chi_{\rm h}$.} Here, ${\rm c}$ is the speed
-of light, and the projection is carried out over comoving distances $\chi$
+redshift distribution $n_z(z) {\rm d}z = n(\chi) {\rm d} \chi$, \MA{with  $\chi_{\rm h}$,
+the comoving distance to the horizon.} Here, ${\rm c}$ is the speed
+of light, and the projection is carried out over comoving distances $\chi$.
 %, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
 % diameter distance, where the function $S_K$ equals $\sin$, ${\rm id}$, or
 % $\sinh$ if the spatial curvature of the Universe $K$ is positive, zero, or
@@ -208,7 +210,7 @@ equation. Assuming General Relativity, this relation is written in Fourier space
 \end{align}
 %
 where $\Omega_{\rm m}$ is the matter density parameter, $H_0$ the Hubble
-constant, $\vec k$ a 3D Fourier wave vector \mk{with modulus $k$ being the comoving
+constant, $\vec k$ a 3D Fourier wave vector, \mk{with $|\vec k|$ being the comoving
 wave number}, and $a$ the scale factor with $a=1$ today. The Fourier transform
 of the potential and its inverse are defined as
 %
@@ -234,7 +236,7 @@ where the integration range for both integrals is $\mathbb{R}^3$.
 
 Following \cite{2000PhRvD..62d3007H} we decompose the lensing
 potential (equation~\ref{eq:psi}) into spherical harmonics, in analogy
-to the CMB
+to the \MA{cosmic microwave background (CMB)}
 temperature, both of which are scalar functions on the sphere. This
 decomposition and its inverse are
 %
@@ -323,7 +325,7 @@ spectrum of the former two fields.
 The shear $\gamma = \gamma_1 + {\rm i} \gamma_2$ is related to the potential at
 linear order by the trace-free part of the Jacobi matrix. The involved
 differential operator on the sphere is called \emph{edth} derivative, $\edth$,
-see \cite{2005PhRvD..72b3516C} for a in-depth mathematical discussion of this
+see \cite{2005PhRvD..72b3516C} for an in-depth mathematical discussion of this
 concept. The edth operator $\edth$ ($\edth^\ast$) raises (lowers) the spin $s$
 of an object. Twice applying this operator to the scalar (spin-0) potential
 creates the spin-2 shear:
