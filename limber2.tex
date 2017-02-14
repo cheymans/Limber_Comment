@@ -71,8 +71,8 @@ second-order Limber approximation will provide sufficient accuracy. \mk{The
 cosmic-shear power spectrum} is in agreement with the full projection at the
 sub-percent level for $\ell > 3$, and the corresponding errors an order of
 magnitude below cosmic variance for all $\ell$. \mk{The shear two-point
-correlation function is accurate well below up to a few hundred arc minutes.
-Using the fast Hankel transformation, formally defined only in flat
+correlation function is accurate well below one percent up to a few hundred arc
+minutes. Using the fast Hankel transformation, formally defined only in flat
 coordinates, to compute the two-point function from the power spectrum results
 in errors below two percent compared to the spherical Legendre transformation.}
 %
@@ -275,6 +275,7 @@ $C_{ij}^\psi$ \citep{pee80} is then defined as
   \label{eq:C_ell_psi}
 \end{equation}
 %
+\mk{Note that the argument $\ell$ is a discrete integer variable, and is often written as index, $C_\ell$.}
 Using the properties of the spherical harmonics (see
 App.~\ref{sec:derivations_C} for details) the power spectrum can be written as
 %
@@ -491,9 +492,10 @@ degrees. To account for the sky curvature of the observed data, the shear
 correlation functions from observed galaxy ellipticities is now routinely
 computed using spherical coordinates, since projecting to a Cartesian plane has
 been shown to cause significant biases of the two-point funtion on large scales
-\citep{FSHK08}. Here we examine the effect of sky curvature on the theoretical
-models of the power spectrum, and the effect on cosmological parameter
-inference (see Sect.~\ref{sec:cfhtlens}).
+\citep{FSHK08}, \mk{and lead to spurious B-modes \cite{asgari/etal:2017}}. Here
+we examine the effect of sky curvature on the theoretical models of the power
+spectrum, and the effect on cosmological parameter inference (see
+Sect.~\ref{sec:cfhtlens}).
 
 For a flat-sky, the spherical harmonic expansions are approximated by Fourier
 transforms. The flat-sky equivalent of equations~(\ref{eq:psi_harm_exp}) and
@@ -1100,14 +1102,19 @@ precision we can achieve with the current fast Hankel transform implementation
 for the correlation function. The blue points shows the limit of the
 second-order Limber approximation on the correlation function.}
 
-Figure~\ref{fig:xi_pm} shows the Hankel-transform two-point correlation
-functions $\xi_+$ (left) and $\xi_-$ (right) using the different cases for the
-shear power spectrum listed in Table~\ref{tab:cases}. \mk{We use `ExtL2Sph' as
-reference case.} The adopted CFHTLenS redshift distribution and fiducial
-cosmological model are the same as in Figure~\ref{fig:Cl_cases}. As is clear by
-the red dotted curve, using the Planck cosmology \citep{2015arXiv150201589P}
-induces a significant change in the amplitude of the shear correlation function
-in comparison to the different projection methods.
+Figure~\ref{fig:xi_pm} shows the two-point correlation functions $\xi_+$ (left)
+and $\xi_-$ (right) using the different cases for the shear power spectrum
+listed in Table~\ref{tab:cases}. \mk{The component $\xi_+$ is calculated with
+the appropriate transformation, i.e.~Hankel for the flat cases, and Legendre
+for the spherical ones.} \mk{For $\xi_-$ which is much less dominated by large
+scales and thus Limber and flat-sky approximations than $\xi_+$, we use the
+Hankel transofm in all cases. In addition, for $\xi_-$ the approximation
+`ExtL2Sph' is our reference case.} The adopted CFHTLenS redshift distribution
+and fiducial cosmological model are the same as in Figure~\ref{fig:Cl_cases}.
+As is clear by the red dotted curve, using the Planck cosmology
+\citep{2015arXiv150201589P} induces a significant change in the amplitude of
+the shear correlation function in comparison to the different projection
+methods.
 
 \begin{figure}
 
@@ -1149,7 +1156,11 @@ with Legendre transform (blue squares).}
     }
   \end{center}
 
-  \caption{The two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right}).  The upper panels
+  \caption{The two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right}).
+  \mk{In the spherical cases (ExtL1Sph, ExtL2Sph, FullSph), $\xi_+$ has been computed using the Legendre
+  transform (\ref{eq:xi_Legendre}). For the flat cases, and all instances of $\xi_-$, the Hankel transform
+  (\ref{eqn:xiGG}) was used.}
+  The upper panels
   show the total shear correlation functions for the range of cases listed in Table~\ref{tab:cases}.
     The lower panels shows the relative differences to the spherical sky second-order extended Limber approximation, (ExtL2Sph).
      The theoretical models correspond to the CFHTLenS best-fit cosmological parameters with
