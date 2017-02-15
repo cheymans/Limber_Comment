@@ -1,0 +1,8 @@
+
+- Fig. 2: Add cosmic variance for CFHLenS/KiDS and Euclid.
+
+- Fig. 2: Go to larger scales
+
+- Check the a^2 factor for Van de Rijt.
+
+- Start from Jacobian for propagation, not lensing potential
