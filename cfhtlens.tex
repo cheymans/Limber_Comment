@@ -82,12 +82,13 @@ spectrum corrections from \cite{2003MNRAS.341.1311S}.
 
 We re-analyse the 2D CFHTLenS measurement of the two-point shear correlation
 function $\xi_\pm(\theta)$ from \cite{CFHTLenS-2pt-notomo}, defined in
-equation~(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both components
-$\xi_+$ and $\xi_-$ between angular scales $\theta = 0.8$ and $350$ arc
-minutes, and use a $N$-body simulation estimate of the non-Gaussian covariance
-including the cross-covariance between both components. The Bayesian
-Monte-Carlo parameter sampling is performed using the publicly available
-software \textsc{CosmoPMC}\footnote{\texttt{http://www.cosmostat.org/software/cosmopmc}}
+equation~(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both
+components $\xi_+$ and $\xi_-$ between angular scales $\theta = 0.8$ and $350$
+arc minutes, and use a $N$-body simulation estimate of the non-Gaussian
+covariance including the cross-covariance between both components. Bayesian
+Population Monte-Carlo parameter sampling is performed using the publicly
+available software
+\textsc{CosmoPMC}\footnote{\texttt{http://www.cosmostat.org/software/cosmopmc}}
 \citep{WK09,KWR10}. The cosmological modelling part includes the various
 lensing projections, calculated using the software library
 \textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}.
@@ -103,14 +104,16 @@ $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$, the same
 result that was published in \cite{CFHTLenS-2pt-notomo}. Using the second-order
 extended Limber flat-sky hybrid approximation (ExtL2FlHyb) results in $\sigma_8
 (\Omega_{\rm m}/0.27)^{0.6} = 0.788 \pm 0.032$, a negligible change of the
-amplitude that is well within the Monte-Carlo sampling noise. \mk{This
-negligible change relative to the error bars was to be expected owing to the
+amplitude that is well within the Monte-Carlo sampling noise. \mk{The largest
+difference is measured with the depreciated case ExtL1Fl, for which the
+recovered amplitude is larger by $16\%$ of the statistical error.} \mk{These
+negligible changes relative to the error bars were to be expected owing to the
 much larger cosmic variance, compared to the differences in the various
 approximations shown in Fig.~\ref{fig:Cl_cases}, which has been taken into
 account in the calculation of the uncertainty.}
 
 Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
-$\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for the various approximations to the
+$\sigma_8 \Omega_{\rm m}^{0.6}$ for the various approximations to the
 lensing power spectrum projections listed in Table~\ref{tab:cases} Note again
 that these values do not represent the state-of-the-art cosmological results,
 since many of the above listed analysis advancements made since 2013 have not
@@ -133,7 +136,8 @@ cosmological parameters.}
 \begin{centering}
   
   \caption{\label{tab:CFHTLenS_Sigma8}Mean and 68\% confidence interval for 
-  $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ for various approximations to the lensing
+  $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ and $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$
+  for various approximations to the lensing
   power spectrum projections listed in Table~\ref{tab:cases}.}
 
   \begin{tabular}{lcc} \hline

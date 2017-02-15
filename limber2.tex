@@ -37,6 +37,18 @@
 \newcommand{\ch}[1]{\textcolor{purple}{\textbf{#1}}}
 
 
+% symbol on top of another
+\newcommand{\ontop}[2]{
+  \renewcommand{\arraystretch}{0.2}
+  \begin{array}{c}
+  #1 \\ #2
+  \end{array}
+  \renewcommand{\arraystretch}{1.0}
+}
+% lesser similar, <~
+\newcommand{\lsim}{\ontop{<}{\sim}}
+% greater similar >~
+\newcommand{\gsim}{\ontop{>}{\sim}}
 
 \title[Precision calculations of the cosmic shear projection]{Precision calculations of the cosmic shear power spectrum
 projection}
@@ -57,7 +69,7 @@ projection}
 \begin{abstract}
 
 We compute the spherical-sky weak-lensing power spectrum of the shear and
-convergence. We discuss various approximations, such as flat-sky, first- and
+convergence. We discuss various approximations, such as flat-sky, and first- and
 second-order Limber equations for the projection. We find that the impact of
 adopting these approximations are negligible when constraining cosmological
 parameters from current weak lensing surveys.
@@ -131,6 +143,10 @@ integrals over the matter power spectrum, it is very fast to calculate
 numerically and can readily be employed in Monte-Carlo sampling methods to
 obtain precision constraints on cosmological parameters.
 
+\mk{We also compute the shear correlation function using a spherical Legendre
+transformation, and compare this to the flat-sky approximated, commonly used
+fast Hankel transformation.}
+
 This paper is organised as follows.  In section~\ref{sec:wl} we provide a
 pedagogical introduction to weak gravitational lensing theory, projections and
 power spectra for the flat-sky and spherical cases, following the seminal work
@@ -164,7 +180,7 @@ power spectra in Appendix~\ref{sec:derivations_C}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The lensing potential $\psi$ at a direction (\MA {position}?) on the sky $(\theta, \varphi)$ in
+The lensing potential $\psi$ at a position on the sky $(\theta, \varphi)$ in
 the Born approximation is defined as the projected 3D metric potential $\Phi$
 along the line of sight of a flat Universe \citep{1998ApJ...498...26K,BS01},
 %
@@ -190,7 +206,7 @@ where the lensing efficiency $q$ is given by
 corresponding to a population of lensed galaxies with a normalised source
 redshift distribution $n_z(z) {\rm d}z = n(\chi) {\rm d} \chi$, with the limit
 being the comoving distance to the horizon $\chi_{\rm h}$\footnote{\mk{In
-(\ref{eq:psi}) we have replaced this limit without loss of generality by
+(\ref{eq:psi}) we have replaced this limit without loss of generality with
 $\infty$, since $q(\chi > \chi_{\rm h}) = 0$.}}. Here, ${\rm c}$ is the speed of
 light, and the projection is carried out over comoving distances $\chi$.
 %, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
@@ -208,7 +224,7 @@ assumes a homogeneous galaxy distribution without clustering, so that the
 redshift distribution in this approximation does not depend on the direction on
 the sky. Accounting for this position-dependence leads to corrections of
 weak-lensing quantities due to clustering of source galaxies with other sources
-\citep{2002A&A...389..729S}, and with galaxies associated with lens structures
+\citep{2002A&A...389..729S}, and with galaxies associated to lens structures
 \citep{1998A&A...338..375B,H02}.
 
 The 3D potential is related to the density contrast $\delta$ via the Poisson
@@ -246,7 +262,7 @@ where the integration range for both integrals is $\mathbb{R}^3$.
 
 Following \cite{2000PhRvD..62d3007H} we decompose the lensing
 potential (equation~\ref{eq:psi}) into spherical harmonics, in analogy
-to the \MA{cosmic microwave background (CMB)}
+to the cosmic microwave background (CMB)
 temperature, both of which are scalar functions on the sphere. This
 decomposition and its inverse are
 %
@@ -325,7 +341,7 @@ and is related to $P_\Phi$ via the absolute square of the Poisson equation
 \mk{This type of cross-power spectrum between different cosmological epochs
 $\chi$ and $\chi^\prime$ was introduced in \cite{2005PhRvD..72b3516C}. In
 Sects.~\ref{sec:geom_mean} and \ref{sec:factor_D} this unequal-time
-cross-spectrum \cite{2016arXiv161200770K} will be further evaluated and
+cross-spectrum \citep{2016arXiv161200770K} will be further evaluated and
 simplified in the context of the Limber approximation. The oscillating Bessel
 functions  in (\ref{eq:C_ell_phi_Pm}) ensure that only relatively close epochs
 contribute to the lensing potential correlation. This make sense since observed
@@ -335,11 +351,11 @@ times while propagating through the large-scale structure. A similar argument
 has been made in \cite{BS01}: since the matter power spectrum scales with $k$
 for $k \rightarrow 0$, there is decreasing power towards larger and larger
 scales. In particular, the correlation of cosmic fields decreases strongly
-above a coherence scale $|\chi - \chi^\prime| \le L_{\rm coh}$ which is much
-smaller than the horizon scale. }
+above a coherence scale $|\chi - \chi^\prime| \gsim L_{\rm coh}$ which is much
+smaller than the horizon scale $\chi_{\rm h}$. }
 
 In the following section we will discuss the relations between shear and
-convergence to the lensing potential, on the sphere, and derive the power
+convergence to the lensing potential on the sphere, and derive the power
 spectrum of the former two fields.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,7 +371,7 @@ of an object. Twice applying this operator to the scalar (spin-0) potential
 creates the spin-2 shear:
 %
 \begin{align}
-  \gamma(\theta, \varphi) = & \frac 1 2 \edth \edth \psi(\theta, \varphi).
+  \gamma(\theta, \varphi) = & \frac 1 2 \edth \edth \psi(\theta, \varphi);
     \nonumber \\
   \gamma^\ast(\theta, \varphi) = & \frac 1 2 \edth^\ast \edth^\ast \psi(\theta, \varphi).
   \label{gamma_psi_spher}
@@ -512,7 +528,7 @@ transforms. The flat-sky equivalent of equations~(\ref{eq:psi_harm_exp}) and
 %
 where $\vec \vartheta = (\theta, \varphi)$ is the vector describing a 2D angle on the sky.
 Instead of a harmonics coefficients $\psi_{\ell m}$, the Fourier representation of the potential
-$\hat \psi$ now depends on the vector $\vec \ell \in R^2$.
+$\hat \psi$ now depends on the vector $\vec \ell \in \mathbb{R}^2$.
 
 The flat-sky power spectrum, i.e. the flat-sky analogue of equation~(\ref{eq:C_ell_psi}), is defined by
 %
@@ -536,14 +552,10 @@ by Cartesian derivatives, and approximates equation~(\ref{eq:sYlm_def}) as
   \label{eq:sYlm_def_flat}
 \end{equation}
 %
-The spin pre-factor $\ellbar(\ell, 2) = \sqrt{(\ell-1) \ell (\ell+1) (\ell+2)}$ is replaced by
-$\ell^2$ in flat co-ordinates, an approximation that holds for large $\ell$.
- \ch{@MK - say why this is so.  Is it just that
-flat by definition means large $\ell$?} \mk{I think it's a large-ell approximation,
-but I don't know whether this is an assumption to derive this approximation, or whether it follows from that.
-I'll have to check this.}\MA{I am pretty sure that flat means large $\ell$, as the sky is flatter for smaller angular scales.}
-We find for the flat-sky shear power
-spectrum
+The spin pre-factor $\ellbar(\ell, 2) = \sqrt{(\ell-1) \ell (\ell+1) (\ell+2)}$
+is replaced by $\ell^2$ in flat co-ordinates, an approximation that holds for
+large $\ell$, \mk{since sky curvature can be neglected for small angular
+scales.} We find for the flat-sky shear power spectrum
 %
 \begin{align}
   P^\gamma_{ij}(\ell) 
@@ -582,8 +594,8 @@ First, we use the identity of Bessel functions
   \label{eq:jJ}
 \end{equation}
 %
-in equation~(\ref{eq:C_ell_full}), \MA {where ${\rm J}_\ell$ is the Bessel function of the first kind
-and order $\ell$}. Next, \cite{2008PhRvD..78l3506L} solve integrals of
+in equation~(\ref{eq:C_ell_full}), where ${\rm J}_\nu$ is the Bessel function of the first kind
+and order $\nu$. Next, \cite{2008PhRvD..78l3506L} solve integrals of
 the form
 %
 \begin{equation}
@@ -650,7 +662,8 @@ k^{-1-n} f^{(n)}(k, \chi)$ for a given $k$, where the derivatives of $f$
 are with respect to the second argument $\chi$. \mk{This series expansion, the
 replacement of the integral with the evaluation of $g$ and its derivatives at
 the maximum of the Bessel function is a good approximation of the integral if
-$g$ is varying more slowly than the oscillating Bessel function [Check this].
+$g$ is varying more slowly than the oscillating Bessel function.
+% [Check this].
 As we will see below, $f$ is a slowly varying function of the comoving
 distance.} In our case the projection kernel is
 %
@@ -706,8 +719,7 @@ Changing the integration to $\chi = \nu/k$ and collecting terms according to the
 The first term corresponds to the well-known first-order Limber approximation
 \citep{1953ApJ...117..134L,1992ApJ...388..272K}, which is widely used in
 weak gravitational lensing. We retrieve the (spherical) standard expression by
-inserting back the projection kernel equation~(\ref{eq:f_LA08}) and the time-dependent
-power spectrum,
+inserting back the projection kernel (equation~\ref{eq:f_LA08}),
 %
 \begin{align}
   C^\gamma_{{\rm L1}, ij}(\ell) = & \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \, \pref^2 \int {\rm d} \chi \frac{ q_i(\chi) q_j(\chi) }{a^2(\chi)}
@@ -775,10 +787,12 @@ separated kernel function $f_{\rm s}$ as
   \label{eq:f_LA08_s}
 \end{equation}
 %
-The second-order Limber term of the shear power spectrum can then be approximated as
+The \mk{Limber equation up to second order} of the shear power spectrum can then be approximated as
 %
 \begin{align}
-  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \,
+  C^\gamma_{ij}(\ell) = & \, C^\gamma_{{\rm L1}, ij}(\ell) 
+    \nonumber \\
+    & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \,
     \frac{\pref^2}{2}
     \int {\rm d} \chi \, \chi^{7/2} a^{-1}(\chi) D_+^{-1}(\chi) P_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
     %\nonumber \\
@@ -791,16 +805,17 @@ The second-order Limber term of the shear power spectrum can then be approximate
 \end{align}
 %
 We compute the numerical higher derivatives as follows. The functions $f_{\rm
-s}(\chi)$ are fitted as power laws with index $\approx \mk{-1.5}$, \mk{which
-follows since the growth suppression factor $D_+(a)/a$ varies slowly with
-$\chi$, and the lensing efficiency $q ~ 1$ for small and medium $\chi$ given
-the CFHTLenS redshift range.} The fit is performed between $\chi_{\rm min} =
-0.001 {\rm Mpc}/h$ and $\chi_{\rm max} = 500 \mbox{Mpc}/h$. At larger comoving
+s}(\chi)$ are fitted as power laws with index $\approx \mk{-1.5}$, \mk{which is
+expected if the growth suppression factor $D_+(a)/a$ varies slowly with $\chi$,
+and the lensing efficiency $q \approx 1$ for small and medium $\chi$ given the
+CFHTLenS redshift range.} The fit is performed between $\chi_{\rm min} = 0.001
+\, {\rm Mpc}/h$ and $\chi_{\rm max} = 500 \, \mbox{Mpc}/h$. At larger comoving
 distances the kernel decreases faster than a power law, so we exclude this
-range from the fit. Even though the derivaties are larger due to the steeper
-decline, the associated errors are very small as these scales are down-weighed
-by the kernel function $f_{\rm s}$ itself. At $\chi = 500 \, \mbox{Mpc}/h$ the
-filter function is less than $10^{-4}$ of its value of unity at $1$\,Mpc$/h$.
+range from the fit. Even though on those scales the derivatives are larger due
+to the steeper decline, the associated errors are very small as these scales
+are down-weighed by the kernel function $f_{\rm s}$ itself. At $\chi = 500 \,
+\mbox{Mpc}/h$ the filter function is less than $10^{-4}$ of its value 
+at $1$\,Mpc$/h$.
 
 %The error between filter and power-law fit
 %becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
@@ -845,9 +860,9 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
   %
   \item $p(\ell) = 1$, but keeping as argument of the power spectrum $\nu(\ell) = \ell + 1/2$. This is
     a \emph{hybrid} between
-    standard and extended Limber approximation \Label{ExtL1FlHyb,ExtL2FlHyb}, and this case of first order
-    was used in \cite{KiDS-450,joudaki/etal:2016}. As is shown
-    later, this is a better approximation to the full projection than case (ii). In (\ref{eq:P_ell_limber2})
+    standard and extended Limber approximation \Label{ExtL1FlHyb,ExtL2FlHyb}, and the first-order case 
+    was used in \cite{KiDS-450,joudaki/etal:2016,joudaki/etal:2017}. As is shown
+    below, this is a better approximation to the full projection than case (ii). In (\ref{eq:P_ell_limber2})
     the second-order suppression factor is also left to be $\nu^{-2}(\ell) = (\ell + 1/2)^{-2}$, providing
     a slightly more accurate approximation compared to $\nu^{-2}(\ell) = \ell^{-2}$.
 \end{enumerate}
@@ -880,7 +895,7 @@ majority of the approximations tested accurate to better than 0.1 per cent.
 
 Considering first the flat-sky cases, the standard first-order Limber
 approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, we
-find to be accurate to better than 10\% for $\ell>3$, converging slowly to the
+find \mk{it} to be accurate to better than 10\% for $\ell>3$, converging slowly to the
 true projection with percent level precison at $\ell>100$. For the extended
 Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
 decreased accuracy for $\ell < 8$ in comparison to the standard first-order
@@ -923,7 +938,7 @@ extended Limber approximation (ExtL2Sph) yields percent accuracy down to $\ell
 > 3$.  The numerical calculation of the second-order extended Limber
 approximation is a factor of 15 times faster than the calculation of the
 full spherical solution (averaged over the first $18$ $\ell$-modes). We
-note that the sub-$0.1\%$-noise seen in the right panel of
+note that the sub-$0.1\%$-\mk{fluctuations} seen in the right panel of
 Fig.~\ref{fig:Cl_cases} is due to numerical noise arising from numerical
 integration errors in the calculation of the full spherical solution when $\ell
 > 20$.
@@ -1073,13 +1088,12 @@ The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
 correlation function]{2005PhRvD..72b3516C}, as functions defined on the
 sphere are necessarily periodic.
-
 As we have shown in section~\ref{sec:comp}, however, the spherical second-order
 extended Limber approximation provides a percent-level precision representation
 of the full spherical projection for $\ell > 3$.
 The spherical pre-factor $\ellbar(\ell, 2)$ (equation~\ref{eq:ellbar}) can be
 generalised to non-integer arguments and is positive for $\ell \ge 2$. We can
-thus use the spherical power spectrum \sout{in the Limber approximations} in
+thus use the spherical power spectrum \sout{in the Limber approximations} with
 the Hankel transformation (\ref{eqn:xiGG}) to compute the two-point correlation
 functions. This has the advantage of very fast numerical implementations of
 the Hankel tranforms using FFTs \citep{fftlog}, which can be used in
@@ -1091,15 +1105,15 @@ Fig.~\ref{fig:xi_p_legendre}. We show the full projection and the best
 approximation, ExtL2Sph. Note that for the `FullSph' case we replace the full
 projection with ExtL2Sph for $\ell > 200$ to save computation time.
 %
-2he Hankel transform (\ref{eqn:xiGG}) is accurate at the $1$ percent level.
+The Hankel transform (\ref{eqn:xiGG}) is accurate at the $1$ percent level.
 %
 The difference between second-order Limber and full projection using the
 spherical Legendre transform (\ref{eq:xi_Legendre}) is well below one percent
 for all but the very large scales.}
 
-\mk{The green curve in Fig.~\ref{fig:xi_p_legendre} presents the limit of
+\mk{The red circles in Fig.~\ref{fig:xi_p_legendre} present the limit of
 precision we can achieve with the current fast Hankel transform implementation
-for the correlation function. The blue points shows the limit of the
+for the correlation function. The green line shows the limit of the
 second-order Limber approximation on the correlation function.}
 
 Figure~\ref{fig:xi_pm} shows the two-point correlation functions $\xi_+$ (left)
@@ -1108,7 +1122,7 @@ listed in Table~\ref{tab:cases}. \mk{The component $\xi_+$ is calculated with
 the appropriate transformation, i.e.~Hankel for the flat cases, and Legendre
 for the spherical ones.} \mk{For $\xi_-$ which is much less dominated by large
 scales and thus Limber and flat-sky approximations than $\xi_+$, we use the
-Hankel transofm in all cases. In addition, for $\xi_-$ the approximation
+Hankel transform in all cases. In addition, for $\xi_-$ the approximation
 `ExtL2Sph' is our reference case.} The adopted CFHTLenS redshift distribution
 and fiducial cosmological model are the same as in Figure~\ref{fig:Cl_cases}.
 As is clear by the red dotted curve, using the Planck cosmology
@@ -1202,8 +1216,6 @@ Research Council Centre of Excellence for All-sky Astrophysics (CAASTRO),
 through project number CE110001020. MV acknowledges support from the European
 Research Council under FP7 grant number 279396 and the Netherlands Organisation
 for Scientific Research (NWO) through grants 614.001.103.
-
-\ch{Check your acknowledgements}
 
 \bibliographystyle{mnras}
 \bibliography{astro}
