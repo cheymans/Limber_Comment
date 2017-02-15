@@ -27,8 +27,8 @@
 \renewcommand{\d}[0]{{\rm d}}
 
 \newcommand{\mk}[1]{{\bf\textcolor{blue}{#1}}}
-\newcommand{\Label}[1]{\quad \mk{(\mbox{#1})}}
-\newcommand{\LabelTxt}[1]{\mk{(\mbox{#1})}}
+\newcommand{\Label}[1]{\quad (\mbox{#1})}
+\newcommand{\LabelTxt}[1]{(\mbox{#1})}
 
 \newcommand{\MA}[1]{\textcolor{red}{#1}}
 
@@ -192,7 +192,7 @@ redshift distribution $n_z(z) {\rm d}z = n(\chi) {\rm d} \chi$, with the limit
 being the comoving distance to the horizon $\chi_{\rm h}$\footnote{\mk{In
 (\ref{eq:psi}) we have replaced this limit without loss of generality by
 $\infty$, since $q(\chi > \chi_{\rm h}) = 0$.}}. Here, ${\rm c}$ is the speed of
-light, and the projection is carried out over comoving distances $\chi$
+light, and the projection is carried out over comoving distances $\chi$.
 %, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
 % diameter distance, where the function $S_K$ equals $\sin$, ${\rm id}$, or
 % $\sinh$ if the spatial curvature of the Universe $K$ is positive, zero, or
@@ -262,7 +262,7 @@ decomposition and its inverse are
 \end{align}
 %
 Complex conjugation is denoted with the superscript $^\ast$.
-To specify tomographic redshift bins $i=0\ldots N_z-1$, we introduce a family
+To specify tomographic redshift bins $i=1\ldots N_z$, we introduce a family
 of lensing efficiency functions $q_i$ defined by a corresponding family of
 redshift distributions $n_i$ via equation~(\ref{eq:lens_efficiency}). The resulting
 lensing potential is denoted by $\psi_{\ell m, i}$. The tomographic power
@@ -719,14 +719,15 @@ In the Limber approximation, modes between structures at different epochs do
 not contribute to the single line-of-sight integration.
 
 The second-order Limber term in equation~(\ref{eq:C_ell_limber12_dr}) has an additional
-$\nu^{-2}$-dependence, and is therefore strongly suppressed for large $\ell$.
+$\nu^{-2}$-dependence, and is therefore strongly suppressed for large $\ell$,
 %
 \begin{align}
-  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \, \pref^2
-    \int {\rm d} \chi \, \chi^{2} a^{-2} P^{1/2}_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
+  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \,
+    \frac{\pref^2}{2}
+    \int {\rm d} \chi \, \chi^{7/2} a^{-1} P^{1/2}_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
     %\nonumber \\
     %& \times
-    \frac{a(\chi)}{2} \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j
+    \left[ q^{}_i f^{\prime\prime}_j + f^{\prime\prime}_i q^{}_j
       + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_j + f^{\prime\prime\prime}_i q^{}_j
       \right)
     \right](\nu(\ell)/\chi, \chi) \, . 
@@ -736,14 +737,13 @@ $\nu^{-2}$-dependence, and is therefore strongly suppressed for large $\ell$.
 The higher-order derivatives of the filter functions have to be computed
 numerically in the general case. These suffer from numerical noise and are
 sensitive to the set-up, for example the step size. The tabulation and
-interpolation of those derivatives is time-taking since they depend on two
+interpolation of those derivatives is time-consuming since they depend on two
 arguments, $\nu$ and $\chi$. In the following section, we will separate the
 $k$- and $\chi$-dependent parts of the power spectrum to make the numerical
 derivatives faster and more smooth.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Time-independent power spectrum separation}
-\subsubsection{Facoring out the growth factor}
+\subsubsection{\mk{Approximation for small $\ell$}}
 \label{sec:factor_D}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -766,7 +766,7 @@ efficiency is small. The accuracy of a very nearby tomographic bin with low
 mean redshift should be further examined, but this is not the case for
 CFHTLenS.
 
-\mk{TODO: Make this clearer.}
+%\mk{TODO: Make this clearer.}
 
 With the definition (\ref{eq:P_k_chi_sep_s}), we factor out the function
 $\tilde P_{\rm m}(k, \chi)$ from equation~(\ref{eq:f_LA08}), and we define the
@@ -780,11 +780,11 @@ separated kernel function $f_{\rm s}$ as
 The second-order Limber term of the shear power spectrum can then be approximated as
 %
 \begin{align}
-  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \, \pref^2
-    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
+  C^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, \frac{\ellbar^2(\ell, 2)}{\nu^4(\ell)} \,
+    \frac{\pref^2}{2}
+    \int {\rm d} \chi \, \chi^{7/2} a^{-1}(\chi) D_+^{-1}(\chi) P_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
     %\nonumber \\
     %& \times
-    \frac {a(\chi)}{2 D_+(\chi)} \chi^{3/2}
     \left[ q^{}_i f^{\prime\prime}_{{\rm s} j} + f^{\prime\prime}_{{\rm s}i} q^{}_j
       + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_{{\rm s}j} + f^{\prime\prime\prime}_{{\rm s}i} q^{}_j
       \right)
@@ -793,14 +793,16 @@ The second-order Limber term of the shear power spectrum can then be approximate
 \end{align}
 %
 We compute the numerical higher derivatives as follows. The functions $f_{\rm
-s}(\chi)$ are fitted as power laws with index $\approx 1.5$. The fit is
-performed between $\chi_{\rm min} = 0.001 {\rm Mpc}/h$ and $\chi_{\rm max} =
-500 \mbox{Mpc}/h$. At larger comoving distances the kernel decreases faster
-than a power law, so we exclude this range from the fit. Even though the
-derivaties are larger due to the steeper decline, the associated errors are
-very small as these scales are down-weighed by the kernel function $f_{\rm
-s}$ itself. At $\chi = 500 \, \mbox{Mpc}/h$ the filter function is less than
-$10^{-4}$ of its value of unity at $1$\,Mpc$/h$.
+s}(\chi)$ are fitted as power laws with index $\approx \mk{-1.5}$, \mk{which
+follows since the growth suppression factor $D_+(a)/a$ varies slowly with
+$\chi$, and the lensing efficiency $q ~ 1$ for small and medium $\chi$ given
+the CFHTLenS redshift range.} The fit is performed between $\chi_{\rm min} =
+0.001 {\rm Mpc}/h$ and $\chi_{\rm max} = 500 \mbox{Mpc}/h$. At larger comoving
+distances the kernel decreases faster than a power law, so we exclude this
+range from the fit. Even though the derivaties are larger due to the steeper
+decline, the associated errors are very small as these scales are down-weighed
+by the kernel function $f_{\rm s}$ itself. At $\chi = 500 \, \mbox{Mpc}/h$ the
+filter function is less than $10^{-4}$ of its value of unity at $1$\,Mpc$/h$.
 
 %The error between filter and power-law fit
 %becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
@@ -821,24 +823,24 @@ replacing the pre-factor $\ellbar^2(\ell, 2)$ with $\ell^4$,
   P_{\rm m}\left(\frac{\nu(\ell)}{\chi}; \chi\right);
   \label{eq:P_ell_limber1}
   \\
-    P^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, p(\ell) \, \pref^2
-    \int {\rm d} \chi \, \chi^{2} a^{-2} P_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
+    P^\gamma_{{\rm L2}, ij}(\ell) = & - \frac 1 {\nu^2(\ell)} \, p(\ell) \, \frac{\pref^2}{2}
+    \int {\rm d} \chi \, \chi^{7/2} a^{-1}(\chi) D_+^{-1}(\chi) P_{\rm m}\left(\frac{\nu(\ell)}\chi; \chi\right)
     %\nonumber \\
     %& \times
-    \frac{a(\chi)}{2 D_+(\chi)} \chi^{3/2} \left[ q^{}_i f^{\prime\prime}_{{\rm s}j} + f^{\prime\prime}_{{\rm s}i} q^{}_j  
+    \left[ q^{}_i f^{\prime\prime}_{{\rm s}j} + f^{\prime\prime}_{{\rm s}i} q^{}_j  
       + \frac{\chi}{3} \left( q^{}_i f^{\prime\prime\prime}_{{\rm s}j} + f^{\prime\prime\prime}_{{\rm s}i} q^{}_j
       \right)
     \right](\chi)
   \label{eq:P_ell_limber2}
 \end{align}
 %
-Further approximations are can made for the pre-factor $p(\ell) = \ell^4/\nu^4(\ell)$ and $\nu(\ell)$:
+Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\ell)$ and $\nu(\ell)$:
 %
 \begin{enumerate}
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
     \emph{standard} Limber approximation \LabelTxt{L1Fl}
     Until recently, i.e.~for all pre-2014 CFHTLenS results, this was the approximation of choice.
-    Note that we do not discuss the non-extended second-order Limber approximation here.
+    Note that we do not discuss the second-order Limber approximation \mk{with this $p$} here.
   %
   \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the \emph{extended} Limber
     approximation \LabelTxt{ExtL1Fl,ExtL2Fl} with $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
@@ -931,7 +933,7 @@ integration errors in the calculation of the full spherical solution when $\ell
 Compared to the statistical power of current and future surveys, all
 approximations discussed here are subdominant to the cosmic variance, $\Delta
 C(\ell) / C(\ell) = [f_{\rm sky} (2 \ell + 1)]^{-1/2}$
-\citep{1992ApJ...388..272K}, where $f_{\rm sky}$ is the faction of sky observed
+\citep{1992ApJ...388..272K}, where $f_{\rm sky}$ is the fraction of sky observed
 by the survey. The uncertainties from the Limber approximation in the case of
 ExtL2Sph is an order of magnitude below the cosmic variance of a Euclid-like
 survey (sky area $15,000$ square degrees) for all $\ell$.
@@ -1346,7 +1348,8 @@ same expression as \cite{vande2012} (their Equation~7.19), except for an
 additional factor $a^2(\chi)$. This difference is accounted for by the factor
 $a^{-1}$ in the propagation of primordial potential perturbations to late
 times, see Equation~(6.22) in \cite{vande2012}, where the transition is
-calculated using $g(a)$ instead of $D(a)$. \mk{TODO: Check this further.}
+calculated using $g(a)$ instead of $D(a)$.
+%\mk{TODO: Check this further.}
 
 In Fig.~\ref{fig:L1L2E_Rijt} we reproduce Fig.~7.3 from \cite{vande2012} using
 a similar set up, a flat $\Lambda$ Universe with $\Omega_{\rm m} = 0.3, h=0.65,
