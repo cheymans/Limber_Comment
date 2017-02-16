@@ -79,14 +79,14 @@ This is demonstrated using data from the Canada-France-Hawaii Lensing Survey
 Background (CMB) temperature anisotropy results cannot be alleviated, in
 contrast to the recent claim made by \citet{2016arXiv161104954K}. 
 
-For future
-large-scale surveys with unprecedented precision, we show that the spherical
-second-order Limber approximation will provide sufficient accuracy. \ch{In this case, the
-cosmic-shear power spectrum is shown to be in agreement with the full projection at the
-sub-percent level for $\ell > 3$, with the corresponding errors an order of
-magnitude below cosmic variance for all $\ell$.
-When computing the two-point shear correlation function, we show that the flat-sky fast Hankel 
-transformation results in errors below two percent compared to the full spherical transformation.}
+For future large-scale surveys with unprecedented precision, we show that the
+spherical second-order Limber approximation will provide sufficient accuracy.
+In this case, the cosmic-shear power spectrum is shown to be in agreement with
+the full projection at the sub-percent level for $\ell > 3$, with the
+corresponding errors an order of magnitude below cosmic variance for all
+$\ell$. When computing the two-point shear correlation function, we show that
+the flat-sky fast Hankel transformation results in errors below two percent
+compared to the full spherical transformation.
 %
 In the spirit of reproducible research, our numerical implementation of all
 approximations and the full projection are publicly available within the
@@ -850,13 +850,14 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
 %
 \begin{enumerate}
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
-    \emph{standard} Limber approximation \LabelTxt{L1Fl}
-    Until recently, i.e.~for all pre-2014 CFHTLenS results, \ch{DES-SV \citep{abbott/etal:2016} and DLS \citep{jee/etal:2016} analyses, 
-    this was the approximation of choice.}
-    Note that we do not discuss the second-order Limber approximation \ch{with $p(\ell)=1$}.
+    \emph{standard} Limber approximation \LabelTxt{L1Fl} Until recently,
+  i.e.~for all pre-2014 CFHTLenS results, DES-SV \citep{abbott/etal:2016} and DLS
+  \citep{jee/etal:2016} analyses, this was the approximation of choice. Note that
+  we do not discuss the second-order Limber approximation with $p(\ell)=1$.
   %
-  \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the \emph{extended} Limber
-    approximation \LabelTxt{ExtL1Fl, ExtL2Fl} with $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
+  \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the
+  \emph{extended} Limber approximation \LabelTxt{ExtL1Fl, ExtL2Fl} with
+  $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
   %
   \item $p(\ell) = 1$, but keeping as argument of the power spectrum $\nu(\ell) = \ell + 1/2$. This is
     a \emph{hybrid} between
@@ -894,7 +895,7 @@ agree with the full spherical solution to better than one percent, with the
 majority of the approximations tested accurate to better than 0.1 per cent.   
 
 Considering first the flat-sky cases, the standard first-order Limber
-approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, \ch{DES-SV and DLS analyses}, we
+approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, DES-SV and DLS analyses, we
 find it to be accurate to better than 10\% for $\ell>3$, converging slowly to the
 true projection with percent level precison at $\ell>100$. For the extended
 Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
@@ -1008,13 +1009,13 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
   Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & Comment \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
-    & $1$ & $\ell$ & \ch{Pre-2014 CFHTLenS, DES-SV and DLS} \\ \hline
+    & $1$ & $\ell$ & Pre-2014 CFHTLenS, DES-SV and DLS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
     & $\frac{\ell^4}{(\ell+1/2)^4}$ & $\ell + \frac 1 2$ & Converges only with ${\cal O}(\ell^{-1})$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
-    & $1$ & $\ell + \frac 1 2$ & \ch{Post-2014 CFHTLenS, KiDS} \\ \hline
+    & $1$ & $\ell + \frac 1 2$ & Post-2014 CFHTLenS, KiDS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
     & $\frac{\ellbar^2(\ell, 2)}{(\ell+1/2)^4}$ & $\ell+ \frac 1 2$ & \\ \hline
@@ -1074,17 +1075,17 @@ when adopting a second-order extended Limber approximation.
 
 On a sphere, correlation functions formally cannot be related to the power
 spectrum by the Hankel transform in equation~(\ref{eqn:xiGG}), and should
-be replaced by the \mk{spherical} transform \citep{1973ApJ...185..413P}
+be replaced by the spherical transform \citep{1973ApJ...185..413P}
 %
 \begin{equation}
- \xi_+(\theta) = \mk{\left\langle \gamma \gamma^\ast \right\rangle(\theta)}
+ \xi_+(\theta) = \left\langle \gamma \gamma^\ast \right\rangle(\theta)
   =  \frac 1{4\pi} \sum\limits_{\ell=2}^\infty (2 \ell + 1) C^\gamma(\ell) {\rm P}_\ell[\cos(\theta)],
   \label{eq:xi_Legendre}
 \end{equation}
 %
-where ${\rm P}_\ell(x)$ are the Legendre polynomials in $x$ of order $\ell$. \mk{This equation is easily derived
+where ${\rm P}_\ell(x)$ are the Legendre polynomials in $x$ of order $\ell$. This equation is easily derived
 using the harmonics expansion of the shear (\ref{eq:gamma_harm_exp}) and the orthogonality relation of
-the spherical harmonics (\ref{eq:Yellm_ortho}).}
+the spherical harmonics (\ref{eq:Yellm_ortho}).
 
 The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
@@ -1106,15 +1107,14 @@ Fig.~\ref{fig:xi_p_legendre}. We show the full projection and the best
 approximation, ExtL2Sph. Note that for the `FullSph' case we replace the full
 projection with ExtL2Sph for $\ell > 200$ to reduce computation time.
 %
-\ch{We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than $2$ percent level.
+We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than $2$ percent level.
 %
 The difference between second-order Limber and full projection using the
-spherical transform (\ref{eq:xi_Legendre}) is well below one percent
-for $\vartheta < 200$ arcminutes.}
-The red circles in Fig.~\ref{fig:xi_p_legendre} present the limit of
-precision that we can achieve with the current fast Hankel transform implementation
-for the correlation function. The green line shows the limit of the
-second-order Limber approximation on the correlation function.
+spherical transform (\ref{eq:xi_Legendre}) is well below one percent for
+$\vartheta < 200$ arcminutes. The red circles in Fig.~\ref{fig:xi_p_legendre}
+present the limit of precision that we can achieve with the current fast Hankel
+transform implementation for the correlation function. The green line shows the
+limit of the second-order Limber approximation on the correlation function.
 
 Figure~\ref{fig:xi_pm} shows the two-point correlation functions $\xi_+$ (left)
 and $\xi_-$ (right) using the different cases for the shear power spectrum
@@ -1141,12 +1141,11 @@ projection methods.
   \end{center}
 
   \caption{\emph{Left panel:} The shear correlation function component $\xi_+$
-for the ExtL2Sph projection using the spherical transform (green line for ExtL2Sph, grey squares for FullSph),
-compared to the flat-sky Hankel transform of ExtL2Sph (red circles).
-\emph{Right panel:} The relative
-difference \mk{compared to the full spherical case FullSph of ExtL2Sph with spherical transform
-(green line), 
-and Hankel transform (red circles).}}
+for the ExtL2Sph projection using the spherical transform (green line for
+ExtL2Sph, grey squares for FullSph), compared to the flat-sky Hankel transform
+of ExtL2Sph (red circles). \emph{Right panel:} The relative difference compared
+to the full spherical case FullSph of ExtL2Sph with spherical transform (green
+line), and Hankel transform (red circles).}
 
   \label{fig:xi_p_legendre}
 
@@ -1235,8 +1234,8 @@ The following derivations are detailed in \cite{2000PhRvD..62d3007H} and
 
 \subsubsection{Lensing potential power spectrum}
 
-To obtain the power spectrum of the lensing potential for a flat Universe, 
-we insert the lensing projection (equation~\ref{eq:psi}) for $K=0$ into the
+To obtain the power spectrum of the lensing potential, 
+we insert the lensing projection (equation~\ref{eq:psi}) into the
 inverse harmonics expansion (equation~\ref{eq:psi_harm_exp_inv}) and write the 3D potential
 as its Fourier transform (equation~\ref{eq:hatPhi_inv}) to get
 %
