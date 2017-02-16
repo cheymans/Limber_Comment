@@ -1,3 +1,4 @@
+TODO for revised version
 
 - Fig. 2: Add cosmic variance for CFHLenS/KiDS and Euclid.
 
