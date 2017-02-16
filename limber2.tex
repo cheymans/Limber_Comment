@@ -148,7 +148,6 @@ precision for scales $\ell > 3$. Since this approximation involves only 1D
 integrals over the matter power spectrum, it is very fast to calculate
 numerically and can readily be employed in Monte-Carlo sampling methods to
 obtain precision constraints on cosmological parameters.
-
 \mk{We also compute the shear correlation function using a spherical Legendre
 transformation, and compare this to the flat-sky approximated, commonly used
 fast Hankel transformation.}
@@ -156,7 +155,7 @@ fast Hankel transformation.}
 This paper is organised as follows.  In section~\ref{sec:wl} we provide a
 pedagogical introduction to weak gravitational lensing theory, projections and
 power spectra for the flat-sky and spherical cases, following the seminal work
-from \citet{2000PhRvD..62d3007H}, see also \citet{2005PhRvD..72b3516C}. In
+from \citet{2000PhRvD..62d3007H} \cite[see also][]{2005PhRvD..72b3516C}. In
 section~\ref{sec:L2} we derive weak-lensing observables using a second-order
 Limber approximation first introduced by \citet{2008PhRvD..78l3506L}. We
 compare the shear power spectrum and the commonly-used two-point shear
@@ -349,7 +348,7 @@ $\chi$ and $\chi^\prime$ was introduced in \cite{2005PhRvD..72b3516C}. In
 Sects.~\ref{sec:geom_mean} and \ref{sec:factor_D} this unequal-time
 cross-spectrum \citep{2016arXiv161200770K} will be further evaluated and
 simplified in the context of the Limber approximation. The oscillating Bessel
-functions  in (\ref{eq:C_ell_phi_Pm}) ensure that only relatively close epochs
+functions in equation~(\ref{eq:C_ell_phi_Pm}) ensure that only relatively close epochs
 contribute to the lensing potential correlation. This make sense since observed
 light rays from two galaxies at different positions on the sky that necessarily
 converge at the observer today, pick up the density fluctuations at similar
@@ -357,7 +356,7 @@ times while propagating through the large-scale structure. A similar argument
 has been made in \cite{BS01}: since the matter power spectrum scales with $k$
 for $k \rightarrow 0$, there is decreasing power towards larger and larger
 scales. In particular, the correlation of cosmic fields decreases strongly
-above a coherence scale $|\chi - \chi^\prime| \gsim L_{\rm coh}$ which is much
+above a coherence scale $|\chi - \chi^\prime| \gsim L_{\rm coh}$ which is significantly
 smaller than the horizon scale $\chi_{\rm h}$. }
 
 In the following section we will discuss the relations between shear and
@@ -514,7 +513,7 @@ degrees. To account for the sky curvature of the observed data, the shear
 correlation functions from observed galaxy ellipticities is now routinely
 computed using spherical coordinates, since projecting to a Cartesian plane has
 been shown to cause significant biases of the two-point funtion on large scales
-\citep{FSHK08}, \mk{and lead to spurious B-modes \cite{asgari/etal:2017}}. Here
+\citep{FSHK08}, \mk{and lead to spurious B-modes \citep{asgari/etal:2017}}. Here
 we examine the effect of sky curvature on the theoretical models of the power
 spectrum, and the effect on cosmological parameter inference (see
 Sect.~\ref{sec:cfhtlens}).
@@ -631,9 +630,9 @@ distances \citep{2005PhRvD..72b3516C,2016arXiv161200770K},
 %
 \mk{This form is justified when considering the linear power spectrum, and
 follows when inserting the linearly evolving density contrast $\hat \delta(\vec
-k; \chi) = D_+(\chi) \hat \delta_0(\vec k)$ into (\ref{eq:p_m}), whhere
+k; \chi) = D_+(\chi) \hat \delta_0(\vec k)$ into equation~(\ref{eq:p_m}), where
 $\delta_0$ is the present-day linearly extrapolated density contrast, and $D_+$
-the linear growth factor with $D_+(0) = 1$. This is a very good approximation
+the linear growth factor with $D_+(0) = 1$. This is a good approximation
 also in the non-linear case as shown in \cite{2016arXiv161200770K}.}
 
 With this, equation~(\ref{eq:C_ell_full}) is written as
@@ -665,12 +664,12 @@ Following \cite{2008PhRvD..78l3506L} we expand to third order
 %
 with $g(x) = k^{-1} f(k, \chi)$, $\chi=x/k$, and its derivatives $g^{(n)}(x) =
 k^{-1-n} f^{(n)}(k, \chi)$ for a given $k$, where the derivatives of $f$
-are with respect to the second argument $\chi$. \mk{This series expansion, the
+are with respect to the second argument $\chi$. \mk{In this series expansion, the
 replacement of the integral with the evaluation of $g$ and its derivatives at
 the maximum of the Bessel function is a good approximation of the integral if
 $g$ is varying more slowly than the oscillating Bessel function.
 % [Check this].
-As we will see below, $f$ is a slowly varying function of the comoving
+As we will show below, $f$ is a slowly varying function of the comoving
 distance.} In our case the projection kernel is
 %
 \begin{equation}
@@ -789,7 +788,7 @@ $\tilde P_{\rm m}(k, \chi)$ from equation~(\ref{eq:f_LA08}), and we define the
 separated kernel function $f_{\rm s}$ as
 %
 \begin{equation}
-  f_{\rm s}(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi) \,
+  f_{\rm s}(\chi) = D_+(\chi) a^{-1}(\chi) \chi^{-3/2} q(\chi) \, .
   \label{eq:f_LA08_s}
 \end{equation}
 %
@@ -813,8 +812,8 @@ The \mk{Limber equation up to second order} of the shear power spectrum can then
 We compute the numerical higher derivatives as follows. The functions $f_{\rm
 s}(\chi)$ are fitted as power laws with index $\approx \mk{-1.5}$, \mk{which is
 expected if the growth suppression factor $D_+(a)/a$ varies slowly with $\chi$,
-and the lensing efficiency $q \approx 1$ for small and medium $\chi$ given the
-CFHTLenS redshift range.} The fit is performed between $\chi_{\rm min} = 0.001
+and the lensing efficiency $q \approx 1$ for small and medium $\chi$, given the
+CFHTLenS redshift range.} The fit is carried out between $\chi_{\rm min} = 0.001
 \, {\rm Mpc}/h$ and $\chi_{\rm max} = 500 \, \mbox{Mpc}/h$. At larger comoving
 distances the kernel decreases faster than a power law, so we exclude this
 range from the fit. Even though on those scales the derivatives are larger due
@@ -834,7 +833,7 @@ at $1$\,Mpc$/h$.
 \label{sec:Limber_flat_sky}
 
 The extended flat-sky Limber approximation is readily derived from the
-spherical case (\ref{eq:C_ell_limber1}, \ref{eq:C_ell_limber2_dr_s}), by
+spherical case equations~(\ref{eq:C_ell_limber1}, \ref{eq:C_ell_limber2_dr_s}), by
 replacing the pre-factor $\ellbar^2(\ell, 2)$ with $\ell^4$,
 %
 \begin{align}
@@ -858,17 +857,18 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
 \begin{enumerate}
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
     \emph{standard} Limber approximation \LabelTxt{L1Fl}
-    Until recently, i.e.~for all pre-2014 CFHTLenS results, this was the approximation of choice.
-    Note that we do not discuss the second-order Limber approximation \mk{with this $p$} here.
+    Until recently, i.e.~for all pre-2014 CFHTLenS results, \ch{DES-SV \citep{abbott/etal:2016} and DLS \citep{jee/etal:2016} analyses, 
+    this was the approximation of choice.}
+    Note that we do not discuss the second-order Limber approximation \ch{with $p(\ell)=1$}.
   %
   \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the \emph{extended} Limber
-    approximation \LabelTxt{ExtL1Fl,ExtL2Fl} with $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
+    approximation \LabelTxt{ExtL1Fl, ExtL2Fl} with $\nu(\ell) = \ell + 1/2$; however the following case is typically employed:
   %
   \item $p(\ell) = 1$, but keeping as argument of the power spectrum $\nu(\ell) = \ell + 1/2$. This is
     a \emph{hybrid} between
-    standard and extended Limber approximation \Label{ExtL1FlHyb,ExtL2FlHyb}, and the first-order case 
+    standard and extended Limber approximation~\LabelTxt{ExtL1FlHyb, ExtL2FlHyb}, and the first-order case 
     was used in \cite{KiDS-450,joudaki/etal:2016,joudaki/etal:2017}. As is shown
-    below, this is a better approximation to the full projection than case (ii). In (\ref{eq:P_ell_limber2})
+    below, this is a better approximation to the full projection than case (ii). In equation~(\ref{eq:P_ell_limber2})
     the second-order suppression factor is also left to be $\nu^{-2}(\ell) = (\ell + 1/2)^{-2}$, providing
     a slightly more accurate approximation compared to $\nu^{-2}(\ell) = \ell^{-2}$.
 \end{enumerate}
@@ -900,7 +900,7 @@ agree with the full spherical solution to better than one percent, with the
 majority of the approximations tested accurate to better than 0.1 per cent.   
 
 Considering first the flat-sky cases, the standard first-order Limber
-approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, we
+approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, \ch{DES-SV and DLS analyses}, we
 find \mk{it} to be accurate to better than 10\% for $\ell>3$, converging slowly to the
 true projection with percent level precison at $\ell>100$. For the extended
 Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
@@ -1014,13 +1014,13 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
   Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & Comment \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
-    & $1$ & $\ell$ & Used for pre-2014 CFHTLenS \\ \hline
+    & $1$ & $\ell$ & \ch{Pre-2014 CFHTLenS, DES-SV and DLS} \\ \hline
   %
   $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
     & $\frac{\ell^4}{(\ell+1/2)^4}$ & $\ell + \frac 1 2$ & Converges only with ${\cal O}(\ell^{-1})$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
-    & $1$ & $\ell + \frac 1 2$ & Used for post-2014 CFHTLenS, KiDS \\ \hline
+    & $1$ & $\ell + \frac 1 2$ & \ch{Post-2014 CFHTLenS, KiDS} \\ \hline
   %
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
     & $\frac{\ellbar^2(\ell, 2)}{(\ell+1/2)^4}$ & $\ell+ \frac 1 2$ & \\ \hline
@@ -1080,7 +1080,7 @@ when adopting a second-order extended Limber approximation.
 
 On a sphere, correlation functions formally cannot be related to the power
 spectrum by the Hankel transform in equation~(\ref{eqn:xiGG}), and should
-be replaced by a Legendre transform,
+be replaced by a Legendre transform \ch{@MK - ADD A REF HERE},
 %
 \mk{
 \begin{equation}
@@ -1100,25 +1100,23 @@ of the full spherical projection for $\ell > 3$.
 The spherical pre-factor $\ellbar(\ell, 2)$ (equation~\ref{eq:ellbar}) can be
 generalised to non-integer arguments and is positive for $\ell \ge 2$. We can
 thus use the spherical power spectrum \sout{in the Limber approximations} with
-the Hankel transformation (\ref{eqn:xiGG}) to compute the two-point correlation
-functions. This has the advantage of very fast numerical implementations of
-the Hankel tranforms using FFTs \citep{fftlog}, which can be used in
-Monte-Carlo sampling.
+the Hankel transformation in equation~(\ref{eqn:xiGG}) to compute the two-point correlation
+functions. This has the advantage being able to use very fast numerical implementations of
+the Hankel tranforms using FFTs \citep{fftlog}, when Monte-Carlo sampling.
 
 \mk{We compare predictions for the two-point shear correlation function using
 the Hankel transformation and the full spherical Legendre transformation in
 Fig.~\ref{fig:xi_p_legendre}. We show the full projection and the best
 approximation, ExtL2Sph. Note that for the `FullSph' case we replace the full
-projection with ExtL2Sph for $\ell > 200$ to save computation time.
+projection with ExtL2Sph for $\ell > 200$ to reduce computation time.}
 %
-The Hankel transform (\ref{eqn:xiGG}) is accurate at the $1$ percent level.
+\ch{We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than $2$ percent level.
 %
 The difference between second-order Limber and full projection using the
 spherical Legendre transform (\ref{eq:xi_Legendre}) is well below one percent
-for all but the very large scales.}
-
+for $\vartheta < 200$ arcminutes.}
 \mk{The red circles in Fig.~\ref{fig:xi_p_legendre} present the limit of
-precision we can achieve with the current fast Hankel transform implementation
+precision that we can achieve with the current fast Hankel transform implementation
 for the correlation function. The green line shows the limit of the
 second-order Limber approximation on the correlation function.}
 
@@ -1126,8 +1124,8 @@ Figure~\ref{fig:xi_pm} shows the two-point correlation functions $\xi_+$ (left)
 and $\xi_-$ (right) using the different cases for the shear power spectrum
 listed in Table~\ref{tab:cases}. \mk{The component $\xi_+$ is calculated with
 the appropriate transformation, i.e.~Hankel for the flat cases, and Legendre
-for the spherical ones.} \mk{For $\xi_-$ which is much less dominated by large
-scales and thus Limber and flat-sky approximations than $\xi_+$, we use the
+for the spherical cases.} \mk{For $\xi_-$ which is less dominated by large
+scales and thus Limber and flat-sky approximations, in comparison to $\xi_+$, we use the
 Hankel transform in all cases. In addition, for $\xi_-$ the approximation
 `ExtL2Sph' is our reference case.} The adopted CFHTLenS redshift distribution
 and fiducial cosmological model are the same as in Figure~\ref{fig:Cl_cases}.
@@ -1178,8 +1176,8 @@ and Hankel transform (red circles).}
 
   \caption{The two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right}).
   \mk{In the spherical cases (ExtL1Sph, ExtL2Sph, FullSph), $\xi_+$ has been computed using the Legendre
-  transform (\ref{eq:xi_Legendre}). For the flat cases, and all instances of $\xi_-$, the Hankel transform
-  (\ref{eqn:xiGG}) was used.}
+  transform (equation~\ref{eq:xi_Legendre}). For the flat cases, and all instances of $\xi_-$, the Hankel transform
+  in equation~(\ref{eqn:xiGG}) was used.}
   The upper panels
   show the total shear correlation functions for the range of cases listed in Table~\ref{tab:cases}.
     The lower panels shows the relative differences to the spherical sky second-order extended Limber approximation, (ExtL2Sph).
