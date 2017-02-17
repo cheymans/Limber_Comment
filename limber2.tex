@@ -74,7 +74,7 @@ second-order Limber equations for the projection. We find that the impact of
 adopting these approximations are negligible when constraining cosmological
 parameters from current weak lensing surveys.
 %
-This is demonstrated using data from the Canada-France-Hawaii Lensing Survey
+This is demonstrated using data from the Canada-France-Hawaii Telescope Lensing Survey
 (CFHTLenS). We find that the reported tension with Planck Cosmic Microwave
 Background (CMB) temperature anisotropy results cannot be alleviated, in
 contrast to the recent claim made by Kitching et al. (2016, version 1)
@@ -1085,8 +1085,8 @@ be replaced by the \mk{spherical} transform \citep{1973ApJ...185..413P}
 \end{equation}
 %
 where ${\rm P}_\ell(x)$ are the Legendre polynomials in $x$ of order $\ell$. \mk{This equation is easily derived
-using the harmonics expansion of the shear (\ref{eq:gamma_harm_exp}) and the orthogonality relation of
-the spherical harmonics (\ref{eq:Yellm_ortho}).}
+using the harmonics expansion of the shear (equation~\ref{eq:gamma_harm_exp}) and the orthogonality relation of
+the spherical harmonics (equation~\ref{eq:Yellm_ortho}).}
 
 The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
@@ -1097,10 +1097,10 @@ extended Limber approximation provides a percent-level precision representation
 of the full spherical projection for $\ell > 3$.
 The spherical pre-factor $\ellbar(\ell, 2)$ (equation~\ref{eq:ellbar}) can be
 generalised to non-integer arguments and is positive for $\ell \ge 2$. We can
-thus use the spherical power spectrum \sout{in the Limber approximations} with
+thus use the spherical power spectrum with
 the Hankel transformation in equation~(\ref{eqn:xiGG}) to compute the two-point correlation
-functions. This has the advantage being able to use very fast numerical implementations of
-the Hankel tranforms using FFTs \citep{fftlog}, when Monte-Carlo sampling.
+functions. This has the advantage being able to employ fast FFT numerical implementations of
+the Hankel tranforms \citep{fftlog}, when Monte-Carlo sampling.
 
 We compare predictions for the two-point shear correlation function using
 the Hankel transformation and the full spherical transformation in
@@ -1110,8 +1110,8 @@ projection with ExtL2Sph for $\ell > 200$ to reduce computation time.
 %
 \ch{We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than $2$ percent level.
 %
-The difference between second-order Limber and full projection using the
-spherical transform (\ref{eq:xi_Legendre}) is well below one percent
+The difference between the second-order Limber and full projection solution using the
+spherical transform (equation~\ref{eq:xi_Legendre}) is well below one percent
 for $\vartheta < 200$ arcminutes.}
 The red circles in Fig.~\ref{fig:xi_p_legendre} present the limit of
 precision that we can achieve with the current fast Hankel transform implementation
