@@ -5,18 +5,16 @@
 \usepackage{amsmath,amssymb,graphicx}
 \usepackage{bm,color}% bold math
 \usepackage[normalem]{ulem}
-%\usepackage{ulem}
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{footnote}
-%\makesavenoteenv{tabular}
 \makesavenoteenv{table}
 
 \bibpunct{(}{)}{;}{a}{}{,}
 
 \onecolumn
 
-\pagestyle{empty}
+%\pagestyle{empty}
 \usepackage{psfrag, epsfig}
 
 
@@ -33,7 +31,6 @@
 \newcommand{\MA}[1]{\textcolor{red}{#1}}
 
 \definecolor{purple}{RGB}{76, 0,153}
-%\definecolor{purple}{RGB}{76, 0,153}
 \newcommand{\ch}[1]{\textcolor{purple}{\textbf{#1}}}
 
 
@@ -114,7 +111,6 @@ DES: \href={http://www.darkenergysurvey.org}, HSC:
 WFIRST\footnote{Euclid: \href={http://sci.esa.int/euclid}, LSST:
 \href={http://www.lsst.org}, WFIRST: \href={http://wfirst.gsfc.nasa.gov}})
 surveys.
-%(Kilo-Degree Survey, KiDS \citet{kuijken/etal:2015}, Dark Energy Survey, DES, \citet{abbott/etal:2016}, Hyper-Suprime Camera Survey, HSC\footnote{HSC; \href={http://hsc.mtk.nao.ac.jp/ssp/}}) and future (Euclid, \citet{2011arXiv1110.3193L}, LSST, \citet{chang/etal:2013}, WFIRST\footnote{WFIRST; \href={http://wfirst.gsfc.nasa.gov}}) large-scale surveys.
 Interest in the results from these surveys is high as statistically significant
 deviations have been found between the cosmological parameter constraints from
 the CMB Planck experiment \citep{2015arXiv150201589P} in comparison to weak
@@ -208,10 +204,6 @@ being the comoving distance to the horizon $\chi_{\rm h}$\footnote{In
 (\ref{eq:psi}) we have replaced this limit without loss of generality with
 $\infty$, since $q(\chi > \chi_{\rm h}) = 0$.}. Here, ${\rm c}$ is the speed of
 light, and the projection is carried out over comoving distances $\chi$.
-%, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
-% diameter distance, where the function $S_K$ equals $\sin$, ${\rm id}$, or
-% $\sinh$ if the spatial curvature of the Universe $K$ is positive, zero, or
-% negative, respectively.
 The last argument of the potential $\Phi$ is not to
 be understood as coordinate, but rather as a substitute of cosmic time,
 $t(\chi)$, to express the time at which the potential is evaluated. This is
@@ -651,7 +643,6 @@ Following \cite{2008PhRvD..78l3506L} we expand to third order
 %
 \begin{equation}
   \lim_{\varepsilon \rightarrow 0} \int_0^\infty {\rm d} x \, {\rm e}^{-\epsilon (x - \nu)} g(x) {\rm J}_\nu(x)
-  %\approx g(\nu) - \frac 1 2 g^{\prime\prime}(\nu) - \frac \nu 6 g^{\prime\prime\prime}(\nu) 
   \approx g(\nu) - \frac 1 2 \left.\frac{{\rm d}^2 g}{{\rm d} x^2}\right|_{x=\nu}
                  - \frac \nu 6 \left.\frac{{\rm d}^3 g}{{\rm d} x^3}\right|_{x=\nu},
 \end{equation}
@@ -816,13 +807,6 @@ are down-weighed by the kernel function $f_{\rm s}$ itself. At $\chi = 500 \,
 \mbox{Mpc}/h$ the filter function is less than $10^{-4}$ of its value 
 at $1$\,Mpc$/h$.
 
-%The error between filter and power-law fit
-%becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
-%scales where the second-order Limber approximation significantly contributes to the shear
-%power spectrum, $\ell \le 100$, this corresponds to $k < 0.03 h/$Mpc, linear
-%scales where the 3D power spectrum is small and does not strongly contribute to the lensing
-%power spectrum.
-
 \subsection{Flat-sky}
 \label{sec:Limber_flat_sky}
 
@@ -867,11 +851,6 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
     the second-order suppression factor is also left to be $\nu^{-2}(\ell) = (\ell + 1/2)^{-2}$, providing
     a slightly more accurate approximation compared to $\nu^{-2}(\ell) = \ell^{-2}$.
 \end{enumerate}
-%
-
-% (i)  Standard Flat
-% (ii) Extended Flat
-% (iii) Extended Flat Hybrid
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -953,13 +932,6 @@ ExtL2Sph is an order of magnitude below the cosmic variance of a Euclid-like
 survey (sky area $15,000$ square degrees) for all $\ell$.
 
 
-
-% Compuation times:
-% l>=20, 20 modes
-% full 37s
-% L2   2.14s
-% L1   0.8s
-
 \begin{figure}
 
   \begin{center}
@@ -984,17 +956,6 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
         square degrees, respectively.
         }
 \end{figure}
-
-
-% nicaea            Kil+17      'Comment paper' Plot color    Kit+16                Plot color    my comment
-% limber            L1Fl        Kst             black         Limber+Tl=1+Flat-sky  blue
-% limber_la08       ExtL1Fl     ELF             blue
-% limber_la08_hyb   ExtL1FlHyb  ESt             magenta                                           pre-factor~1 despite nu=ell+1/2
-% limber_la08_sph   ExtL1Sph    ELS             cyan
-% limber2_la08      ExtL2Fl
-% limber2_la08_hyb  ExtL2FlHyb
-% limber2_la08_sph  ExtL2Sph
-% full              Full
 
 \renewcommand{\baselinestretch}{1.5}
 \begin{table}
@@ -1437,24 +1398,6 @@ the Bessel functions. Then, we can draw out of the integral the factor $\ell^4
 equation~(\ref{eq:P_ell_gamma_full_der}).
 In fact, using the approximation $k \chi = \ell$ seems to go too far, this is
 already halfway the Limber approximation.
-
-%\begin{align}
-  %W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
-              %=  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
-                %n(\chi)
-              %\nonumber \\
-              %& \equiv \frac 1 {H(z)} \chi q(\chi),
-%\end{align}
-%%
-%using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
-%To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
-%comoving distance, we make the variable transformation
-%%
-%\begin{equation}
-  %{\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
-%\end{equation}
-%%
-%We
 
 \subsection{Giannantonio et al. (2012)}
 \label{sec:giannantonio12}

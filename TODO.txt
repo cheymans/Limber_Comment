@@ -12,3 +12,40 @@ TODO for revised version
 
 - s8 (Om/0.3)^0.5
 
+
+Cut text:
+
+%The error between filter and power-law fit
+%becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
+%scales where the second-order Limber approximation significantly contributes to the shear
+%power spectrum, $\ell \le 100$, this corresponds to $k < 0.03 h/$Mpc, linear
+%scales where the 3D power spectrum is small and does not strongly contribute to the lensing
+%power spectrum.
+
+%(Kilo-Degree Survey, KiDS \citet{kuijken/etal:2015}, Dark Energy Survey, DES, \citet{abbott/etal:2016}, Hyper-Suprime Camera Survey, HSC\footnote{HSC; \href={http://hsc.mtk.nao.ac.jp/ssp/}}) and future (Euclid, \citet{2011arXiv1110.3193L}, LSST, \citet{chang/etal:2013}, WFIRST\footnote{WFIRST; \href={http://wfirst.gsfc.nasa.gov}}) large-scale surveys.
+
+%, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
+% diameter distance, where the function $S_K$ equals $\sin$, ${\rm id}$, or
+% $\sinh$ if the spatial curvature of the Universe $K$ is positive, zero, or
+% negative, respectively.
+
+%\begin{align}
+  %W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
+              %=  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
+                %n(\chi)
+              %\nonumber \\
+              %& \equiv \frac 1 {H(z)} \chi q(\chi),
+%\end{align}
+%%
+%using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
+%To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
+%comoving distance, we make the variable transformation
+%%
+%\begin{equation}
+  %{\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
+%\end{equation}
+%%
+%We
+
+
+
