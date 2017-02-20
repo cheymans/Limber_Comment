@@ -836,7 +836,7 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
 \begin{enumerate}
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
     \emph{standard} Limber approximation \LabelTxt{L1Fl} Until recently,
-  i.e.~for all pre-2014 CFHTLenS results, DES-SV \citep{abbott/etal:2016} and DLS
+  i.e.~for all pre-2014 CFHTLenS results and DLS
   \citep{jee/etal:2016} analyses, this was the approximation of choice. Note that
   we do not discuss the second-order Limber approximation with $p(\ell)=1$.
   %
@@ -847,7 +847,7 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
   \item $p(\ell) = 1$, but keeping as argument of the power spectrum $\nu(\ell) = \ell + 1/2$. This is
     a \emph{hybrid} between
     standard and extended Limber approximation~\LabelTxt{ExtL1FlHyb, ExtL2FlHyb}, and the first-order case 
-    was used in \cite{KiDS-450,joudaki/etal:2016,joudaki/etal:2017}. As is shown
+    was used in \cite{KiDS-450,joudaki/etal:2016,joudaki/etal:2017,abbott/etal:2016}. As is shown
     below, this is a better approximation to the full projection than case (ii). In equation~(\ref{eq:P_ell_limber2})
     the second-order suppression factor is also left to be $\nu^{-2}(\ell) = (\ell + 1/2)^{-2}$, providing
     a slightly more accurate approximation compared to $\nu^{-2}(\ell) = \ell^{-2}$.
@@ -875,7 +875,7 @@ agree with the full spherical solution to better than one percent, with the
 majority of the approximations tested accurate to better than 0.1 per cent.   
 
 Considering first the flat-sky cases, the standard first-order Limber
-approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses, DES-SV and DLS analyses, we
+approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses and DLS analyses, we
 find it to be accurate to better than 10\% for $\ell>3$, converging slowly to the
 true projection with percent level precison at $\ell>100$. For the extended
 Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
@@ -883,10 +883,11 @@ decreased accuracy for $\ell < 8$ in comparison to the standard first-order
 Limber case, the errors with respect to the true power spectrum decrease much
 faster, as $\ell^{-2}$, such that percent-level precision is reached at
 $\ell>15$.  The first-order extended Limber approximation `hybrid' cases
-(ExtL1FlHyb) was adopted by \citet{joudaki/etal:2016}, \citet{joudaki/etal:2017}, and
+(ExtL1FlHyb) was adopted by \citet{joudaki/etal:2016}, \citet{joudaki/etal:2017}, DES-SV \citep{abbott/etal:2016} and
 \cite{KiDS-450}\footnote{We confirm that there is a typographical error in
-equation 4 of \cite{KiDS-450} which should include the extra term of `+0.5' in
-$\nu(\ell)$ that was incorporated in the cosmological analysis.}. 
+equation 4 of \cite{KiDS-450} and in equation 2 of \citet{abbott/etal:2016} (private communication with Joe Zuntz) 
+which should include the extra term of `+0.5' in
+$\nu(\ell)$ that was incorporated in both cosmological analyses.}. 
 
 The outlier in the flat-sky cases is the extended Limber approximation
 (ExtL1Fl) which performs relatively poorly, and reaches 10\% precision only at
@@ -971,13 +972,13 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
   Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & Comment \\ \hline
   % 
   $1^{\rm st}$-order standard Limber, flat sky & L1Fl & (\ref{eq:P_ell_limber1}) + (i)
-    & $1$ & $\ell$ & Pre-2014 CFHTLenS, DES-SV and DLS \\ \hline
+    & $1$ & $\ell$ & Pre-2014 CFHTLenS and DLS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, flat sky & ExtL1Fl & (\ref{eq:P_ell_limber1}) + (ii)
     & $\frac{\ell^4}{(\ell+1/2)^4}$ & $\ell + \frac 1 2$ & Converges only with ${\cal O}(\ell^{-1})$ \\ \hline
   %
   $1^{\rm st}$-order extended Limber, hybrid, flat sky & ExtL1FlHyb & (\ref{eq:P_ell_limber1}) + (iii)
-    & $1$ & $\ell + \frac 1 2$ & Post-2014 CFHTLenS, KiDS \\ \hline
+    & $1$ & $\ell + \frac 1 2$ & Post-2014 CFHTLenS, DES-SV and KiDS \\ \hline
   %
   $1^{\rm st}$-order extended Limber, spherical & ExtL1Sph & (\ref{eq:C_ell_limber1})
     & $\frac{\ellbar^2(\ell, 2)}{(\ell+1/2)^4}$ & $\ell+ \frac 1 2$ & \\ \hline
@@ -1167,7 +1168,7 @@ line), and Hankel transform (red circles).}
 \section*{Acknowledgments}
 
 The authors thank Tommaso Giannantonio, Sarah Bridle, Ami Choi, Donnacha Kirk,
-Lance Miller, Benjamin Joachimi, Chris Blake and Adam Amara for very helpful
+Lance Miller, Benjamin Joachimi, Chris Blake, Joe Zuntz, Joanne Cohn, Alex Hall and Adam Amara for very helpful
 discussions. This work was financially supported by the DFG (Emmy Noether grant
 Hi 1495/2-1; SI 1769/1-1; TR33 `The Dark Universe'), the Alexander von Humboldt
 Foundation, the ERC (grants 279396, 647112), the Seventh Framework Programme of
