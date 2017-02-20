@@ -1,6 +1,4 @@
-TODO for revised version
-
-- Fig. 2: Add cosmic variance for CFHLenS/KiDS and Euclid.
+TODO for revised version (?)
 
 - Fig. 2: Go to larger scales
 
@@ -48,4 +46,32 @@ Cut text:
 %We
 
 
+Comments:
+
+Björn (18/02)
+
+Mir ist aufgefallen, dass ihr kappa aus den edth Auf- und Absteigeoperatoren
+definiert habt… die kommutieren aber nicht auf der Kugel, oder? Ich dachte,
+dass der sphaerische Laplace-Operator sich aus der Symmetrisierung edth edth^*
++ edth^* edth ergibt, und damit kappa aus dem Linsenpotenzial psi.
+
+Thomas Tran (20/02)
+
+I just read your very nice paper on computing the weak lensing shear power
+spectrum. You mention non-flat space in the conclusions, and how to generalise
+your results to that case. I just wanted to let you know that we derived a
+non-flat Limber approximation in appendix D of 1312.2697 if you are interested
+in studying non-flat cosmologies in the future.
+
+
+Alex Hall (20/02)
+
+I was interested to see your paper recently posted to arXiv (1702.05301) on
+cosmic shear power spectra. It looks very thorough, and I'll give it a read. I
+thought I'd better alert you to an error in Equation 48 though. On the full sky
+the relationship between the shear correlation functions and the power spectra
+does not have a Legendre polynomial in the sum, rather it is a Wigner small-d
+function. Specifically, for xi_+ you should replace P_l with d^l_{2,2} and for
+xi_- it's d^l_{2,-2}. The form you have presented is only valid for spin-0
+functions on the sphere.
 
