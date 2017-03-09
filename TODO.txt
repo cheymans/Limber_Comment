@@ -1,0 +1,101 @@
+TODO for revised version (?)
+
+- Fig. 2: Go to larger scales
+
+- Check the a^2 factor for Van de Rijt.
+
+- Start from Jacobian for propagation, not lensing potential
+
+- Check series expansion of g
+
+- s8 (Om/0.3)^0.5
+
+- Check again a^2 in Van de Rijt, explanation with transition with D/a instead
+  of D seems not correct.
+
+
+Cut text:
+
+%The error between filter and power-law fit
+%becomes larger than $50\%$ only for scales larger than $1,500 \mbox{Mpc}/h$. On the angular
+%scales where the second-order Limber approximation significantly contributes to the shear
+%power spectrum, $\ell \le 100$, this corresponds to $k < 0.03 h/$Mpc, linear
+%scales where the 3D power spectrum is small and does not strongly contribute to the lensing
+%power spectrum.
+
+%(Kilo-Degree Survey, KiDS \citet{kuijken/etal:2015}, Dark Energy Survey, DES, \citet{abbott/etal:2016}, Hyper-Suprime Camera Survey, HSC\footnote{HSC; \href={http://hsc.mtk.nao.ac.jp/ssp/}}) and future (Euclid, \citet{2011arXiv1110.3193L}, LSST, \citet{chang/etal:2013}, WFIRST\footnote{WFIRST; \href={http://wfirst.gsfc.nasa.gov}}) large-scale surveys.
+
+%, and $f_K(\chi) = |K|^{-1/2} S_K(|K|^{1/2} \chi)$ is the comoving angular
+% diameter distance, where the function $S_K$ equals $\sin$, ${\rm id}$, or
+% $\sinh$ if the spatial curvature of the Universe $K$ is positive, zero, or
+% negative, respectively.
+
+%\begin{align}
+  %W_\kappa(z) = & \frac 1 {H(z)} \int_z^\infty {\rm d} z_{\rm s} W_{\rm L}(z_{\rm s}, z) W_{\rm g}(z)
+              %=  \frac 1 {H(z)} \chi \int_\chi^\infty {\rm d} \chi^\prime \frac{\chi^\prime - \chi}{\chi^\prime}
+                %n(\chi)
+              %\nonumber \\
+              %& \equiv \frac 1 {H(z)} \chi q(\chi),
+%\end{align}
+%%
+%using ${\rm d} z W_{\rm g}(z) = {\rm d} \chi n(\chi)$.
+%To write the redshift integrals (9) in \cite{2008PhRvD..78d3002S} over 
+%comoving distance, we make the variable transformation
+%%
+%\begin{equation}
+  %{\rm d} \chi = \frac{c {\rm d} z}{H(z)} .
+%\end{equation}
+%%
+%We
+
+
+Comments:
+
+Björn (18/02)
+
+Mir ist aufgefallen, dass ihr kappa aus den edth Auf- und Absteigeoperatoren
+definiert habt… die kommutieren aber nicht auf der Kugel, oder? Ich dachte,
+dass der sphaerische Laplace-Operator sich aus der Symmetrisierung edth edth^*
++ edth^* edth ergibt, und damit kappa aus dem Linsenpotenzial psi.
+
+Thomas Tran (20/02)
+
+I just read your very nice paper on computing the weak lensing shear power
+spectrum. You mention non-flat space in the conclusions, and how to generalise
+your results to that case. I just wanted to let you know that we derived a
+non-flat Limber approximation in appendix D of 1312.2697 if you are interested
+in studying non-flat cosmologies in the future.
+
+
+Alex Hall (20/02)
+
+I was interested to see your paper recently posted to arXiv (1702.05301) on
+cosmic shear power spectra. It looks very thorough, and I'll give it a read. I
+thought I'd better alert you to an error in Equation 48 though. On the full sky
+the relationship between the shear correlation functions and the power spectra
+does not have a Legendre polynomial in the sum, rather it is a Wigner small-d
+function. Specifically, for xi_+ you should replace P_l with d^l_{2,2} and for
+xi_- it's d^l_{2,-2}. The form you have presented is only valid for spin-0
+functions on the sphere.
+
+I believe the standard references are Kamionkowski, Kosowsky & Stebbins 1997
+(arxiv:9611125) and Ng & Liu 1999 (9710012), although neither explicitly
+identifies their combinations of functions with the Wigner-d function. That
+happens sometime between then and Chon et al. 2003 (0303414).
+
+It's fairly straightforward to derive though - you take the the E/B-mode
+expansion for the shear (Eq. 15 in your paper) and multiply it against its
+complex conjugate. Taking the expectation value gives you the E-mode power
+spectrum and kills the second (lm) sum, leaving you with sum_{l} C_l sum_{m}
+2Y_{lm}(e1) 2Y_{lm}^*(e2) for a correlation between two points e1 and e2. Now
+you can use the addition theorem for spin-weighted spherical harmonics (see
+Wikipedia or the Varshalovich et al. textbook "Quantum Theory of Angular
+Momentum") to replace the sum over $m$ with (2l+1)/4pi * D^l_{22}(g1,beta,g2),
+where (g1,beta,g2) are the Euler angles rotating the polarization/shear basis
+at e1 onto that at e2. Finally, defining the correlation function xi_+ as that
+obtained by first rotating the local shear bases to be aligned with the
+geodesic connecting the two points introduces two phase factors exp(2i*g1) and
+exp(2i*g2). Then from the definition of the Wigner-reduced functions (Wikipedia
+or Varshalovich or many others) we have D^l_{22}*exp(2i(g1+g2)) =
+d^l_{22}(beta), where beta is the angle connecting e1 and e2. And similarly for
+xi_-.
