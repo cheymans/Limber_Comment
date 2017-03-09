@@ -1317,11 +1317,17 @@ filter function, which we exploited earlier to fit this function.
 Inserting equation~(\ref{eqn:B1}) into the second-order Limber power spectrum
 in equation~(\ref{eq:C_ell_limber2_dr_s}) and using the inverse Poisson
 equation to replace the matter with the potential power spectrum we obtain the
-same expression as \cite{vande2012} (their Equation~7.19), except for an
-additional factor $a^2(\chi)$. This difference is accounted for by the factor
-$a^{-1}$ in the propagation of primordial potential perturbations to late
-times, see Equation~(6.22) in \cite{vande2012}, where the transition is
-calculated using $g(a)$ instead of $D(a)$.
+same expression as \cite{vande2012} (their Equation~7.19).
+
+\EDIT{Note: The factor of $a^2$ has been resolved, it is correctly reproduced
+when propagating the primordial potential power spectrum to late times $a$
+with $[D+(a)/a]^2$ instead of $D^2+(a)$.}
+
+%, except for an
+%%additional factor $a^2(\chi)$. This difference is accounted for by the factor
+%$a^{-1}$ in the propagation of primordial potential perturbations to late
+%times, see Equation~(6.22) in \cite{vande2012}, where the transition is
+%calculated using $g(a)$ instead of $D(a)$.
 
 In Fig.~\ref{fig:L1L2E_Rijt} we reproduce Fig.~7.3 from \cite{vande2012} using
 a similar set up, a flat $\Lambda$ Universe with $\Omega_{\rm m} = 0.3, h=0.65,
@@ -1413,7 +1419,7 @@ ${\rm d} z \, ({\rm d} N(z)/{\rm d} z) = {\rm d} \chi n(\chi)$; however due to
 a typo there is a factor $r_K[r(z)]$ missing in the window function, which
 translates into a missing $r_K[r] r_K[r^\prime]$ in the full projection
 integral\footnote{Typo confirmed by T.~G., priv.~comm.}. This also leads to an
-errorous $r_K^{-2}(r)$ in their Limber equation (27). With these factors
+errornous $r_K^{-2}(r)$ in their Limber equation (27). With these factors
 accounted for, and making the additional approximation $k \chi \approx k
 \chi^\prime \approx \ell$ (see their Appendix~\ref{sec:schmidt08}) we reproduce
 the expressions of \cite{2012MNRAS.422.2854G}.

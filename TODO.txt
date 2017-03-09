@@ -10,6 +10,9 @@ TODO for revised version (?)
 
 - s8 (Om/0.3)^0.5
 
+- Check again a^2 in Van de Rijt, explanation with transition with D/a instead
+  of D seems not correct.
+
 
 Cut text:
 
@@ -75,3 +78,24 @@ function. Specifically, for xi_+ you should replace P_l with d^l_{2,2} and for
 xi_- it's d^l_{2,-2}. The form you have presented is only valid for spin-0
 functions on the sphere.
 
+I believe the standard references are Kamionkowski, Kosowsky & Stebbins 1997
+(arxiv:9611125) and Ng & Liu 1999 (9710012), although neither explicitly
+identifies their combinations of functions with the Wigner-d function. That
+happens sometime between then and Chon et al. 2003 (0303414).
+
+It's fairly straightforward to derive though - you take the the E/B-mode
+expansion for the shear (Eq. 15 in your paper) and multiply it against its
+complex conjugate. Taking the expectation value gives you the E-mode power
+spectrum and kills the second (lm) sum, leaving you with sum_{l} C_l sum_{m}
+2Y_{lm}(e1) 2Y_{lm}^*(e2) for a correlation between two points e1 and e2. Now
+you can use the addition theorem for spin-weighted spherical harmonics (see
+Wikipedia or the Varshalovich et al. textbook "Quantum Theory of Angular
+Momentum") to replace the sum over $m$ with (2l+1)/4pi * D^l_{22}(g1,beta,g2),
+where (g1,beta,g2) are the Euler angles rotating the polarization/shear basis
+at e1 onto that at e2. Finally, defining the correlation function xi_+ as that
+obtained by first rotating the local shear bases to be aligned with the
+geodesic connecting the two points introduces two phase factors exp(2i*g1) and
+exp(2i*g2). Then from the definition of the Wigner-reduced functions (Wikipedia
+or Varshalovich or many others) we have D^l_{22}*exp(2i(g1+g2)) =
+d^l_{22}(beta), where beta is the angle connecting e1 and e2. And similarly for
+xi_-.
