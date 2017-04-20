@@ -1,0 +1,88 @@
+Copied below are the reviewer's comments on your manuscript entitled "Precision calculations of the cosmic shear power spectrum projection", ref. MN-17-0532-MJ, which you submitted to Monthly Notices of the Royal Astronomical Society.
+
+Moderate revision of your manuscript is requested before it is reconsidered for publication.
+
+You should submit your revised version, together with your response to the reviewer's comments via the Monthly Notices ScholarOne Manuscripts site https://mc.manuscriptcentral.com/mnras.
+Enter your Author Centre, where you will find your manuscript title listed under "Manuscripts with Decisions." Under "Actions," click on "Create a Revision." Your manuscript reference will be appended to denote a revision.
+
+IMPORTANT: do not submit your revised manuscript as a new paper!
+
+You will not be able to make your revisions to the originally submitted files of the manuscript held on ScholarOne Manuscripts. Instead, you must delete the original files and abstract and replace them with your revised files. Check that any requests for colour publication or online-only publication are correct. Proof read the resulting PDF and HTML files that are generated carefully. If you have used a .bib file to generate your bibliography in Latex, please include this in your .tar archive along with the .bbl and .tex files; this will aid the editing and typesetting process.
+
+When submitting your revised manuscript, you will be able to respond to the comments made by the reviewer in the space provided. You should also use this space to document any changes you make to the original manuscript. In order to expedite the processing of the revised manuscript, please be as specific as possible in your response to the reviewer. Changes to the manuscript should be highlighted (e.g. in bold or colour), to assist the referee and editor. Along with the highlighted manuscript you should also upload clean files (remove any bold font/track changes) for our publishers, as accepted manuscripts are now immediately published online ahead of the proof-corrected version.
+
+Because we are trying to facilitate timely publication of manuscripts submitted to MNRAS, your revised manuscript should be uploaded promptly. If you do not submit your revision within six months, we may consider it withdrawn and request it be resubmitted as a new submission.
+
+Please note that, due to the tight schedule, any post-acceptance changes notified after the paper has gone into production (i.e. the day after the acceptance email is sent) cannot be incorporated into the paper before it is typeset. Such changes will therefore need to be made as part of the proof corrections. To avoid excessive proof corrections and the delay that these can cause, you are strongly encouraged to ensure that each version of your paper submitted to MNRAS is completely ready for publication!
+
+I look forward to receiving your revised manuscript.
+
+Regards,
+
+Nush
+
+Nush Cole (Ms)
+Assistant Editor MNRAS
+Royal Astronomical Society
+Burlington House
+Piccadilly,
+London W1J 0BQ
+
+Email: nc@ras.org.uk
+Tel: (+44) 0207 734 3307 #117
+Fax: (+44) 0207 494 0166
+
+cc: all listed co-authors.
+
+
+Assistant Editor's Comments:
+
+Please note the abstract should be presented as a single paragraph.
+
+
+Reviewer's Comments:
+
+I apologise for the delay in sending back this report.
+
+I have read with real interest the new paper by Martin Kilbinger and collaborators, who intend to settle the recent debate stirred in the weak lensing community by a recent controversial claim by other authors.
+
+I think this paper largely succeeds in its intent, demonstrating that the approximations normally employed by the community are sufficiently accurate given the level of uncertainty of current and future observational data.
+
+I therefore think that the paper should be published once the authors have addressed the following points.
+
+* Major point:
+
+- As also pointed out by Lemos et al, arXiv:1704.0105, and by the version 2 of the Kitching et al paper, the exact form of the real-space correlation functions of equations (47-48) is defined in terms of Wigner small-d matrices d_{22}, d_{2,-2}. Their replacement by the Legendre polynomials is an approximation, whose accuracy is theta-dependent, and should be tested explicitely, given the main point of this paper is precisely to test all such approximations. Therefore, the authors should quantify the effect of performing the exact calculation with the Wigner d matrices.
+
+* Minor points:
+
+- p. 6: The separation of the chi dependence into the linear growth function in Equation (40) is made less clear by the remaining chi dependence that is seen in \tilde P_m. Maybe it would be better to highlight that this residual time dependence is very weak, and not normally considered, or to clarify this somewhat better.
+
+- p. 7: Why is the accuracy of the ExtL2FlHyb model worse than the ExtL1FlHyb case? Also, why is ExtL1FlHyb worse than L1Fl at very low ell? I find this unclear, please clarify.
+
+- Fig. 1: I am not sure how, but I think there could be a way of making these (and some of the following) plots clearer. Maybe thinking of some even more explicit labels for the various cases, or maybe improving legends or fonts. Consider these and other possible improvements.
+
+- Table 1: It could be good to add an extra column stating some accuracy statistics for each approximation, e.g. after what ell they are better than 1%, or some other threshold.
+
+- Fig. 3: You write here that the 'The lower panels shows the relative diﬀerences to the spherical sky second-order extended Limber approximation, (ExtL2Sph)' - but this is true for xi_- only, while for xi_+ you compare with FullSph. Why? If possible, you should compare with FullSph in all cases.
+
+- Table 2: It may be a good idea to add a 1d plot showing the best fits and 1d error bars on all parameters, such as Fig. 7 in the version 1 of the Kitching et al paper.
+
+- Conclusions: I would normally use the past tense in the conclusions, although I admit it is probably a matter of personal preference.
+
+- Fig. 4: Is this figure inserted as a bitmap for some reason? If so, replace with vector graphics.
+
+* Typos:
+
+- In abstract: We ﬁnd that the impact of adopting these approximations are negligible -> We ﬁnd that the impact of adopting these approximations is negligible
+- large-scale surveys with unprecedented precision: the adjective 'unprecendented' sounds odd here
+- p. 2: compute the full projection: of what?
+- p. 2: seminal work from Hu (2000): seminal work by Hu (2000)
+- p. 5: the shear correlation functions from observed galaxy ellipticities is -> ...are
+- p. 5: the word 'differentiable' is misspelled after Equation (31)
+- p. 12: depreciated -> deprecated (?)
+- p. 12: a full stop is missing after 'listed in Table 1'
+- p. 12: 'there is a decrease of ...': for which theoretical method (Limber, FullSph, ...) does this change arise?
+
+Sincerely,
+The referee
