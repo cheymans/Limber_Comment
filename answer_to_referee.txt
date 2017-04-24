@@ -3,46 +3,55 @@ We would like to thank the referee for their positive report and useful comments
 Please fine below our replies to the referee's points. All modifications to the draft are highlighted
 in red.
 
-- Shear correlation function, eq. (47-48).
+- Major point, shear correlation function, eq. (47-48).
   We had indeed used a transformation (with the Legendre polynomial) that is incorrect for spin-2 correlations.
   We have replaced this with the correct transformations using the reduced Wigner D-matrices. We state their
   form in a new Appendix C. Figures 2 and 3, involving the shear correlation functions, have been updated
   accordingly, as well as some of the explanatory text.
+
+Minor points:
 
 - p. 6, chi-dependence of \tilde P_m.
   We added to the equation an approximate expression of P_m(k), without the chi-dependence. We hope that the
   subsequent text as it stands should make the conditions under which this approximation holds sufficiently clear.
 
 - p. 7, accuracy of the ExtL2FlHyb.
-  * Not sure about the reason. *
+  We have not tried to look for the reason why ExtL2Hyb is slightly worse than ExtL1Hyb, whereas the opposite is
+  true (as expected) for ExtL2Sph and ExtL1Sph.
 
 - Making Fig. 1 and following clearer.
-  * Not sure that adding labels or anything else would make those clearer. *
+  We could not think of straight-forward ways to improve the readibility of the plots. We hope that the combination
+  of colors and line styles is sufficient to tell apart the different cases.
 
 - Table 1, extra column.
-  We added columns indicating the ell_x such that for ell>ell_x the power spectrum projection has better
+  We added two columns indicating ell_x such that for ell>ell_x the power spectrum projection has better
   accuracy than x, with x=10% and 1%.
 
 - Fig. 3, comparison for xi_-.
   This plot has been updated, both xi_+ and xi_- are now compared to the full spherical case.
 
 - Table 2, adding plot.
-  * Really necessary? *
+  We believe that a plot version of Table 2 does not enhance the value of the paper, since the values of sigma_8 (Omega_m/0.27)^0.6
+  are so close together, well within the 68% credible interval.
 
 - Conclusions
-  * I think present tense is fine *
+  We believe that the present tense mode is appropriate for the conclusion of the paper.
 
 - Fig. 4.
-  * On my screen I don't have a problem with this figure. *
+  This plot seems fine on our screens and printouts, we do not detect a problem of poor resolution.
 
-Other modifications.
+Other small modifications.
 
 - End of introduction: Lemos et al. reference added.
 
 - Eq. 47: The definitions as <gamma gamma^*> and <gamma gamma> for xi_+ and xi_- have been added here,
   moved from eq. 48.
 
+- Table 2: In the caption, we replaced the expression "confidence interval" with "credible interval". For the ExtL2Sph case,
+  we added "Hankel" to clarify that we use this approximation for the correlation function.
+
 - Typos:
   All typos have been fixed.
+
 
 
