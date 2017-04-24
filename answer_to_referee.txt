@@ -7,7 +7,7 @@ in red.
   We had indeed used a transformation (with the Legendre polynomial) that is incorrect for spin-2 correlations.
   We have replaced this with the correct transformations using the reduced Wigner D-matrices. We state their
   form in a new Appendix C. Figures 2 and 3, involving the shear correlation functions, have been updated
-  accordingly.
+  accordingly, as well as some of the explanatory text.
 
 - p. 6, chi-dependence of \tilde P_m.
   We added to the equation an approximate expression of P_m(k), without the chi-dependence. We hope that the

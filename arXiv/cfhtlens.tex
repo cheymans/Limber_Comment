@@ -1,0 +1,156 @@
+%\subsubsection{CFHTLenS updates and advances since 2014}
+
+The Canada-France-Hawaii Telescope Lensing Survey (CFHTLenS) represented a
+major step forward for the field of weak gravitational lensing, in terms of
+improved accuracy in data reduction \citep{CFHTLenS-data}, the implementation
+of PSF-Gaussianised matched multi-band photometry
+\citep{CFHTLenS-photoz}, cross-correlation clustering analysis between
+photometric redshift slices to verify tomographic redshift distributions
+\citep{CFHTLenS-2pt-tomo}, accurate calibrated shape measurements
+\citep{CFHTLenS-shapes} and a full suite of informative systematic tests to
+select a clean data set \citep{CFHTLenS-sys}. Since the public release
+of this survey in 2013, the community has continued to scrutinise and advance
+our understanding of CFHTLenS by identifying a number of areas where analyses
+could improve:
+%
+\begin{itemize}
+%
+ \item{\citet{2016MNRAS.463.3737C} identified significant biases in the tomographic
+photometric redshift distributions using a more effective clustering analysis,
+in comparison to \citet{CFHTLenS-2pt-tomo}, by incorporating newly overlapping
+spectroscopic data from the Sloan Digital Sky Survey.  The conclusion of this
+work was that any re-analysis of CFHTLenS should include systematic error terms
+to account for bias and scatter, with a prediction that accounting for these
+biases would {\it reduce} the recovered amplitude of $\sigma_8$ by $\sim
+4$\%. Additional new techniques to calibrate the redshift distribution of tomographic
+bins was introduced recently in \cite{KiDS-450}.}
+%
+\item{The CFHTLenS tomographic cosmological analysis was then revisited by
+\citet{joudaki/etal:2016} in order to include a full redshift error analysis
+based on the results from \citet{2016MNRAS.463.3737C}.  The impact of
+correcting for these biases, including their associated errors, served to
+reduce the overall constraining power of the survey and hence also the tension
+between CFHTLenS and CMB constraints.}
+%
+ \item{\cite{asgari/etal:2017} used the stringent COSEBI statistic
+\citep{COSEBIs} to identify significant non-lensing B-mode distortions when the
+CFHTLenS data was split into tomographic slices.}
+%
+\item{\citet{2015MNRAS.454.3500K} showed that the CFHTLenS shear calibration
+corrections derived in \citet{CFHTLenS-shapes} were underestimated as a result
+of an imperfect match between the galaxy populations in the data and image
+simulations.}
+%
+\item{\citet{2016arXiv160605337F} demonstrated that the CFHTLenS data would
+have been subject to a weight bias that favours galaxies that are more
+intrinsically oriented with the point-spread function.  They also showed that
+the impact of calibration selection biases, that were not considered in
+\citet{CFHTLenS-shapes}, would have lead to the over-correction of
+multiplicative shear bias in the CFHTLenS analyses, by a few percent.}
+%
+\item{\citet{joudaki/etal:2016} updated the CFHTLenS covariance matrices using
+larger-box numerical simulations that were less subject to the lack of power on
+large scales. A complementary accurate estimate of the covariance matrix using
+analytical methods will be published soon (Joachimi et al.~in prep.)}
+%
+\item{\cite{2012ApJ...761..152T} provided a more accurate non-linear power
+spectrum correction than that used in the original CFHTLenS analyses, and the
+halo model from \cite{2015MNRAS.454.1958M} allowed for simultaneous modelling
+of baryonic modifications to the non-linear power spectrum.} 
+%
+\end{itemize}
+%
+All these advances in our understanding were incorporated and accounted for in
+the recent KiDS cosmic shear analysis \citep{KiDS-450} which reports a $2.3
+\sigma$ tension with Planck.  Efforts are now underway to fully re-analyse
+CFHTLenS using the advanced KiDS analysis pipeline with revised shape
+measurements and calibrations for the shear and photometric redshifts. Until
+this analysis is complete we note that these known shortcomings with the
+original CFHTLenS results impact in different ways the cosmological conclusions
+that one can draw. As CFHTLenS has similar statistical power
+to current weak lensing surveys, however, it nevertheless provides a very
+useful testbed with which to demonstrate the impact of adopting different
+approximations when constraining cosmological parameters.
+
+%\subsubsection{Cosmological analysis setup}
+
+In this work, we focus on the weak-lensing power spectrum projection, and
+assess the impact of various approximations on cosmological constraints from
+CFHTLenS. For consistency with the original analysis
+\citep{CFHTLenS-2pt-notomo}, we adopt the same priors and non-linear power
+spectrum corrections from \cite{2003MNRAS.341.1311S}.
+
+We re-analyse the 2D CFHTLenS measurement of the two-point shear correlation
+function $\xi_\pm(\theta)$ from \cite{CFHTLenS-2pt-notomo}, defined in
+equation~(\ref{eqn:xiGG}). As in \cite{CFHTLenS-2pt-notomo} we fit both
+components $\xi_+$ and $\xi_-$ between angular scales $\theta = 0.8$ and $350$
+arc minutes, and use a $N$-body simulation estimate of the non-Gaussian
+covariance including the cross-covariance between both components. Bayesian
+Population Monte-Carlo parameter sampling is performed using the publicly
+available software
+\textsc{CosmoPMC}\footnote{\texttt{http://www.cosmostat.org/software/cosmopmc}}
+\citep{WK09,KWR10}. The cosmological modelling part includes the various
+lensing projections, calculated using the software library
+\textsc{nicaea}\footnote{\texttt{http://www.cosmostat.org/software/nicaea}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Cosmological parameter results}
+%\label{ref:cosmo_results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+For a first-order standard Limber flat-sky approximation (L1Fl) we find
+$\sigma_8 (\Omega_{\rm m}/0.27)^{0.6} =0.787^{+0.031}_{-0.033}$, the same
+result that was published in \cite{CFHTLenS-2pt-notomo}. Using the second-order
+extended Limber flat-sky hybrid approximation (ExtL2FlHyb) results in $\sigma_8
+(\Omega_{\rm m}/0.27)^{0.6} = 0.788 \pm 0.032$, a negligible change of the
+amplitude that is well within the Monte-Carlo sampling noise. The largest
+difference is measured with the depreciated case ExtL1Fl, for which the
+recovered amplitude is larger by $16\%$ of the statistical error. These
+negligible changes to the error bars were to be expected owing to the high
+level of statistical noise and cosmic variance in comparison to the low-level
+impact of the various approximations shown in Fig.~\ref{fig:Cl_cases}.
+
+Table \ref{tab:CFHTLenS_Sigma8} lists the mean and 68\% credible interval for
+$\sigma_8 \Omega_{\rm m}^{0.6}$ for the various approximations to the
+lensing power spectrum projections listed in Table~\ref{tab:cases} Note again
+that these values do not represent the state-of-the-art cosmological results,
+since many of the above listed analysis advancements made since 2013 have not
+been taken into account. As an example of a significant effect, when using the
+revised non-linear power spectrum of \cite{2012ApJ...761..152T} in place of
+\cite{2003MNRAS.341.1311S}, there is a decrease of $0.6 \sigma$ with $\sigma_8
+(\Omega_{\rm m}/0.27)^{0.6} =0.768^{+0.029}_{-0.031}$.
+
+Considering the cosmological constraints from tomographic Kilo-Degree Survey
+(KiDS), we conclude that these are robust to flat-sky and Limber
+approximations. The case ExtL1FlHyb that was used for the analysis of KiDS data
+in \citet{KiDS-450} and \cite{joudaki/etal:2017} introduces errors that are
+more than an order of magnitude lower than the cosmic variance for that survey,
+and thus this approximation has a negligible impact on the cosmological
+parameters.
+
+
+
+\renewcommand{\baselinestretch}{1.5}
+\begin{table}
+\begin{centering}
+  
+  \caption{\label{tab:CFHTLenS_Sigma8}Mean and 68\% confidence interval for 
+  $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ and $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$
+  for various approximations to the lensing
+  power spectrum projections listed in Table~\ref{tab:cases}.}
+
+  \begin{tabular}{lcc} \hline
+  ID         & $\sigma_8 (\Omega_{\rm m}/0.27)^{0.6}$ & $\sigma_8 (\Omega_{\rm m}/0.3)^{0.6}$ \\ \hline
+  L1Fl       & $0.787^{+0.031}_{-0.033}$ & $0.739^{+0.029}_{-0.031}$ \\
+  ExtL1Fl    & $0.792 \pm 0.032$ & $0.744 \pm 0.030$ \\
+  ExtL1FlHyb & $0.788^{+0.031}_{-0.033}$ & $0.740^{+0.029}_{-0.031}$ \\
+  ExtL2FlHyb & $0.788^{+0.031}_{-0.033}$ & $0.740^{+0.029}_{-0.031}$ \\
+  ExtL2Sph   & $0.789^{+0.031}_{-0.032}$ & $0.740^{+0.029}_{-0.030}$ \\ \hline
+  \end{tabular}
+
+\end{centering}
+\end{table}
+\renewcommand{\baselinestretch}{1}
+
+

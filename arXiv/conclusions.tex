@@ -1,0 +1,38 @@
+In this paper we evaluate precision theoretical calculations for cosmic shear
+observables, bringing together different sources from the literature to provide
+a pedagogical review of the impact of adopting flat-sky and Limber
+approximations.  We demonstrate that for current surveys, such as CFHTLenS
+and KiDS, these approximations have a negligible impact on cosmological
+parameter constraints.
+
+For future surveys, the decrease in statistical errors places higher
+requirements on the accuracy of the theoretical modelling.    There is also,
+however, the need to be able to rapidly sample the multi-dimensional
+cosmological parameter likelihoods.  This requirement for computational speed
+is incompatible with a theoretical analysis that calculates a full spherical
+solution for the shear power spectrum, without adopting any approximation.  We
+therefore present alternative solutions, revisiting the work of
+\citet{2012PhRvD..86b3001B} who showed that adopting the second-order extended
+Limber approximation of \citet{2008PhRvD..78l3506L} provides a representation
+of the full spherical solution for the shear power spectrum that is accurate at
+the sub-percent level for $\ell > 3$.    We have verified this result and
+provide to the community our fast numerical implementation of all the
+approximations studied in this analysis, and the slow calculation of the full
+projection within the publicly available package \textsc{nicaea} at
+\texttt{http://www.cosmostat.org/software/nicaea}.
+
+Finally we propose that future surveys seek to optimise the statistical
+analyses of their cosmic shear data.  For example moving from the standard
+two-point shear correlation function statistic to the more stringent `COSEBI'
+statistic \citep{COSEBIs} renders the cosmic shear measurement insensitive to
+the low-$\ell$ scales where the Limber and flat-sky approximations have an
+impact on the precision of the theoretical modelling.  
+
+We have considered a flat Universe throughout this paper. To generalise
+the calculations to non-flat models, one needs to modify the comoving angular
+diameter distance to account for the spatial curvature $K \ne 0$. In addition,
+the spherical Bessel functions are replaced with hyperspherical Bessel
+functions \citep{1986ApJ...308..546A}. In a universe with positive curvature
+$K>0$ the 3D wave modes become discrete integer variables. For non-flat models,
+we do however not expect qualitative differences from our results.
+
