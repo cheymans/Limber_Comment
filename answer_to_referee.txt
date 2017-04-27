@@ -17,7 +17,8 @@ Minor points:
 
 - p. 7, accuracy of the ExtL2FlHyb.
   We have not tried to look for the reason why ExtL2Hyb is slightly worse than ExtL1Hyb, whereas the opposite is
-  true (as expected) for ExtL2Sph and ExtL1Sph.
+  true (as expected) for ExtL2Sph and ExtL1Sph. For ExtL1FlHyb versus L1Fl, we see the better convergence of the former
+  for ell>8, as expected, and did not try to explain why L1F1 is slightly better at very low ell.
 
 - Making Fig. 1 and following clearer.
   We could not think of straight-forward ways to improve the readibility of the plots. We hope that the combination
