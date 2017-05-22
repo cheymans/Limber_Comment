@@ -16,8 +16,10 @@ Minor points:
   subsequent text as it stands should make the conditions under which this approximation holds sufficiently clear.
 
 - p. 7, accuracy of the ExtL2FlHyb.
-  We have not tried to look for the reason why ExtL2Hyb is slightly worse than ExtL1Hyb, whereas the opposite is
-  true (as expected) for ExtL2Sph and ExtL1Sph. For ExtL1FlHyb versus L1Fl, we see the better convergence of the former
+  In all cases, the second-order expansion adds power to the first-order term, as can be seen in Fig. 1. ExtL1FlHyb over-estimates the full spherical projection,
+  and thus ExtL2FlHyb increases this over-estimation even more. This expansion would converge to a full flat case (eq. 29), which we do not plot, and there is no
+  reason to believe that the difference to FullSph decreases with the expansion order.
+  For ExtL1FlHyb versus L1Fl, we see the better convergence of the former
   for ell>8, as expected, and did not try to explain why L1F1 is slightly better at very low ell.
 
 - Making Fig. 1 and following clearer.
