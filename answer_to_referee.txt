@@ -5,8 +5,8 @@ in red.
 
 - Major point, shear correlation function, eq. (47-48).
   We had indeed used a transformation (with the Legendre polynomial) that is incorrect for spin-2 correlations.
-  We have replaced this with the correct transformations using the reduced Wigner D-matrices. We state their
-  form in a new Appendix C. Figures 2 and 3, involving the shear correlation functions, have been updated
+  We have replaced this with the correct transformations using the reduced Wigner D-matrices. We added a short
+  Appendix C for details on their computation. Figures 2 and 3, involving the shear correlation functions, have been updated
   accordingly, as well as some of the explanatory text.
 
 Minor points:

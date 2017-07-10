@@ -840,7 +840,7 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
     \emph{standard} Limber approximation \LabelTxt{L1Fl} Until recently,
   i.e.~for all pre-2014 CFHTLenS results and DLS
-  \citep{jee/etal:2016} analyses, this was the approximation of choice. Note that
+  \citep{2012arXiv1210.2732J} analyses, this was the approximation of choice. Note that
   we do not discuss the second-order Limber approximation with $p(\ell)=1$.
   %
   \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the
@@ -1061,7 +1061,8 @@ replaced by the spherical transform
 \end{equation}
 }
 %
-\forref{where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details.}
+\forref{where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details
+on their numerical calculation.}
 
 The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
@@ -1430,9 +1431,30 @@ accounted for, and making the additional approximation $k \chi \approx k
 the expressions of \cite{2012MNRAS.422.2854G}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The shear correlation function on the sphere}
+\section{Fast evaluation of the shear correlation function on the sphere}
 \label{app:C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\forref{
+The calculation of the shear correlation function on the sphere requires the
+estimation of the reduced Wigner ${\rm D}$-matrices ${\rm d}^\ell_{22}$ and
+${\rm d}^\ell_{2-2}$. The general calculation of ${\rm d}^\ell_{m\,n}$ is
+cumbersome, but there are quick and numerically stable recurrence relations if
+we are interested in only a subset of these matrices. In particular, following
+\citet{BLANCO199719} we can show that
+%
+\begin{equation}
+%
+{\rm d}^\ell_{m\,n}={\ell(2\ell-1)\over \sqrt{[\ell^2-m^2][\ell^2-n^2]}}
+%
+\left[ \left( {\rm d}^1_{00}-{mn\over \ell(\ell-1)} \right) {\rm d}^{\ell-1}_{mn}
+%
+-{\sqrt{[(\ell-1)^2-m^2][(\ell-1)^2-n^2]}\over (\ell-1)(2\ell-1)} {\rm d}^{\ell-2}_{mn}\right] ,
+%
+\end{equation}
+%
+which allows to calculate all required reduced Wigner ${\rm D}$-matrices from the first two elements.
+}
 
 \label{lastpage}
 
