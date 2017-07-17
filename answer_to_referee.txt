@@ -1,6 +1,6 @@
 
 We would like to thank the referee for their positive report and useful comments and suggestions.
-Please fine below our replies to the referee's points. All modifications to the draft are highlighted
+Please find below our replies to the referee's points. All modifications to the draft are highlighted
 in red.
 
 - Major point, shear correlation function, eq. (47-48).
@@ -10,6 +10,9 @@ in red.
   accordingly, as well as some of the explanatory text.
 
 Minor points:
+
+- abstract: Removed comment on Kitching et al. (2016, version 1), since their version 2 did not retain
+  the incorrect calculations and claims from v1.
 
 - p. 6, chi-dependence of \tilde P_m.
   We added to the equation an approximate expression of P_m(k), without the chi-dependence. We hope that the
