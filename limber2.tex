@@ -75,8 +75,9 @@ parameters from current weak lensing surveys.
 %
 This is demonstrated using data from the Canada-France-Hawaii Telescope Lensing Survey
 (CFHTLenS). We find that the reported tension with Planck Cosmic Microwave
-Background (CMB) temperature anisotropy results cannot be alleviated, in
-contrast to the recent claim made by Kitching et al. (2016, version 1)
+Background (CMB) temperature anisotropy results cannot be alleviated.
+%, in
+%contrast to the recent claim made by Kitching et al. (2016, version 1)
 
 %\citet{2016arXiv161104954K}. 
 
@@ -840,7 +841,7 @@ Further approximations can be made for the pre-factor $p(\ell) = \ell^4/\nu^4(\e
   \item $p(\ell) = 1$, this corresponds to $\nu(\ell) = \ell$, which is the
     \emph{standard} Limber approximation \LabelTxt{L1Fl} Until recently,
   i.e.~for all pre-2014 CFHTLenS results and DLS
-  \citep{jee/etal:2016} analyses, this was the approximation of choice. Note that
+  \citep{2012arXiv1210.2732J} analyses, this was the approximation of choice. Note that
   we do not discuss the second-order Limber approximation with $p(\ell)=1$.
   %
   \item $p(\ell) = \ell^4/(\ell + 1/2)^4$. This corresponds to the
@@ -878,19 +879,21 @@ agree with the full spherical solution to better than one percent, with the
 majority of the approximations tested accurate to better than 0.1 per cent.   
 
 Considering first the flat-sky cases, the standard first-order Limber
-approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses and DLS analyses, we
-find it to be accurate to better than 10\% for $\ell>3$, converging slowly to the
-true projection with percent level precison at $\ell>100$. For the extended
-Limber approximations `hybrid' cases (ExtL1FlHyb and ExtL2FlHyb), despite
-decreased accuracy for $\ell < 8$ in comparison to the standard first-order
-Limber case, the errors with respect to the true power spectrum decrease much
-faster, as $\ell^{-2}$, such that percent-level precision is reached at
-$\ell>15$.  The first-order extended Limber approximation `hybrid' cases
-(ExtL1FlHyb) was adopted by \citet{joudaki/etal:2016}, \citet{joudaki/etal:2017}, DES-SV \citep{abbott/etal:2016} and
-\cite{KiDS-450}\footnote{We confirm that there is a typographical error in
-equation 4 of \cite{KiDS-450} and in equation 2 of \citet{abbott/etal:2016} (private communication with Joe Zuntz) 
-which should include the extra term of `+0.5' in
-$\nu(\ell)$ that was incorporated in both cosmological analyses.}. 
+approximation, (L1Fl), that was adopted for all pre-2014 CFHTLenS analyses and
+DLS analyses, we find it to be accurate to better than 10\% for $\ell>3$,
+converging slowly to the true projection with percent level precison at
+$\ell>100$. For the extended Limber approximations `hybrid' cases (ExtL1FlHyb
+and ExtL2FlHyb), despite decreased accuracy for $\ell < 8$ in comparison to the
+standard first-order Limber case, the errors with respect to the true power
+spectrum decrease much faster, as $\ell^{-2}$, such that percent-level
+precision is reached at $\ell>15$.  The first-order extended Limber
+approximation `hybrid' cases (ExtL1FlHyb) was adopted by
+\citet{joudaki/etal:2016}, \citet{joudaki/etal:2017}, DES-SV
+\citep{abbott/etal:2016} and \cite{KiDS-450}\footnote{We confirm that there is
+a typographical error in equation 4 of \cite{KiDS-450} and in equation 2 of
+\citet{abbott/etal:2016} (private communication with Joe Zuntz) which should
+include the extra term of `+0.5' in $\nu(\ell)$ that was incorporated in both
+cosmological analyses.}. 
 
 The outlier in the flat-sky cases is the extended Limber approximation
 (ExtL1Fl) which performs relatively poorly, and reaches 10\% precision only at
@@ -898,7 +901,7 @@ $\ell > 100$. The same slow convergence can be observed for the corresponding
 second-order flat case, ExtL2Fl. To our knowledge this form of the flat-sky
 approximation has not been used in any cosmic shear studies to date, and should
 not be used in any future studies given these results.  The poor behaviour of
-this case, in comparison with the `hybrid' case, (e.g ExtL1FlHyb) can be
+this case, in comparison with the `hybrid' case, (e.g.~ExtL1FlHyb) can be
 understood by considering Taylor expansions of the different pre-factors.  The
 spherical pre-factor,
 %
@@ -927,6 +930,11 @@ note that the sub-$0.1\%$-fluctuations seen in the right panel of
 Fig.~\ref{fig:Cl_cases} is due to numerical noise arising from numerical
 integration errors in the calculation of the full spherical solution when $\ell
 > 20$.
+
+\forref{We note that in all cases the second-order Limber expansion adds power
+to the first-order term. In the flat hybrid case, which over-estimates the full
+spherical solution, this results in the second-order expansion being less
+precise compared to first-order.}
 
 Compared to the statistical power of current and future surveys, all
 approximations discussed here are subdominant to the cosmic variance, $\Delta
@@ -1056,7 +1064,8 @@ replaced by the spherical transform
 \end{equation}
 }
 %
-\forref{where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details.}
+\forref{where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details
+on their numerical calculation.}
 
 The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
@@ -1425,9 +1434,30 @@ accounted for, and making the additional approximation $k \chi \approx k
 the expressions of \cite{2012MNRAS.422.2854G}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The shear correlation function on the sphere}
+\section{Fast evaluation of the shear correlation function on the sphere}
 \label{app:C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\forref{
+The calculation of the shear correlation function on the sphere requires the
+estimation of the reduced Wigner ${\rm D}$-matrices ${\rm d}^\ell_{2\,2}$ and
+${\rm d}^\ell_{2\,-2}$. The general calculation of ${\rm d}^\ell_{m\,n}$ is
+cumbersome, but there are quick and numerically stable recurrence relations if
+we are interested in only a subset of these matrices. In particular, following
+\citet{BLANCO199719} we can show that
+%
+\begin{equation}
+%
+{\rm d}^\ell_{m\,n}={\ell(2\ell-1)\over \sqrt{[\ell^2-m^2][\ell^2-n^2]}}
+%
+\left[ \left( {\rm d}^1_{0\,0}-{m\,n\over \ell(\ell-1)} \right) {\rm d}^{\ell-1}_{m\,n}
+%
+-{\sqrt{[(\ell-1)^2-m^2][(\ell-1)^2-n^2]}\over (\ell-1)(2\ell-1)} {\rm d}^{\ell-2}_{m\,n}\right] ,
+%
+\end{equation}
+%
+which allows to calculate all required reduced Wigner ${\rm D}$-matrices from the first two elements.
+}
 
 \label{lastpage}
 
