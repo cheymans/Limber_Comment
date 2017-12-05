@@ -15,3 +15,5 @@ limber2.pdf
 *.ptc1
 *.toc
 .DS_Store
+mnras.cls
+mnras
