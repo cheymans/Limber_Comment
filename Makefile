@@ -32,7 +32,7 @@ bibtex:
 	bibtex $(source)
 
 
-PHONY: clean backup
+PHONY: clean backup mn_submission
 
 clean:
 	rm -f *~ $(source).b?? *.bbl *.blg *.aux *.log $(source).dvi $(source).ps $(source).pdf $(source).toc
@@ -42,3 +42,7 @@ backup:
 #	h: dereference links
 	cp $(DD) $(HOME)/sicher
 	echo "Backup email of project $(source), on date `date`, file is $(DD)." | mutt -s "backup $(source)" -a $(DD) $(MAILID)
+
+mn_submission:
+	tar cvvzf limber2.tgz limber2.tex abbr-journals.tex authors.tex cfhtlens.tex conclusions.tex discussion.tex figures/IntegAll.pdf figures/P_kappa_limber_comp.pdf figures/P_kappa_limber_delta.pdf figures/P_kappa_limber_delta_Rijt.pdf figures/xi_m_comp.pdf figures/xi_m_delta.pdf figures/xi_p_comp.pdf figures/xi_p_delta.pdf figures/xi_p_wigner_delta.pdf figures/xi_m_wigner_delta.pdf
+

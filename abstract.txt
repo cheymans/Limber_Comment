@@ -1,0 +1,19 @@
+We compute the spherical-sky weak-lensing power spectrum of the shear and
+convergence. We discuss various approximations, such as flat-sky, and first-
+and second- order Limber equations for the projection. We find that the impact
+of adopting these approximations is negligible when constraining cosmological
+parameters from current weak lensing surveys. This is demonstrated using data
+from the Canada-France-Hawaii Telescope Lensing Survey (CFHTLenS). We find that
+the reported tension with Planck Cosmic Microwave Background (CMB) temperature
+anisotropy results cannot be al- leviated. For future large-scale surveys with
+unprecedented precision, we show that the spherical second-order Limber
+approximation will provide sufficient accuracy. In this case, the cosmic-shear
+power spectrum is shown to be in agreement with the full projection at the
+sub-percent level for l > 3, with the corresponding errors an order of
+magnitude below cosmic variance for all l. When computing the two-point shear
+correlation function, we show that the flat-sky fast Hankel transformation
+results in errors below two percent compared to the full spherical
+transformation. In the spirit of reproducible research, our numerical
+implementation of all approximations and the full projection are publicly
+available within the package nicaea at
+http://www.cosmostat.org/software/nicaea.

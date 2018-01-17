@@ -50,7 +50,7 @@
 % greater similar >~
 \newcommand{\gsim}{\ontop{>}{\sim}}
 
-\title[Precision calculations of the cosmic shear projection]{Precision calculations of the cosmic shear power spectrum projection}
+\title[Precision cosmic-shear projection]{Precision calculations of the cosmic shear power spectrum projection}
 
 \input{authors.tex}
 
@@ -70,17 +70,13 @@
 We compute the spherical-sky weak-lensing power spectrum of the shear and
 convergence. We discuss various approximations, such as flat-sky, and first- and
 second-order Limber equations for the projection. We find that the impact of
-adopting these approximations \forref{is} negligible when constraining cosmological
+adopting these approximations is negligible when constraining cosmological
 parameters from current weak lensing surveys.
 %
 This is demonstrated using data from the Canada-France-Hawaii Telescope Lensing Survey
 (CFHTLenS). We find that the reported tension with Planck Cosmic Microwave
 Background (CMB) temperature anisotropy results cannot be alleviated.
-%, in
-%contrast to the recent claim made by Kitching et al. (2016, version 1)
-
-%\citet{2016arXiv161104954K}. 
-
+%
 For future large-scale surveys with unprecedented precision, we show that the
 spherical second-order Limber approximation will provide sufficient accuracy.
 In this case, the cosmic-shear power spectrum is shown to be in agreement with
@@ -133,7 +129,7 @@ theoretical predictions of the observables to ensure that the accuracy of the
 models meet the accuracy of the observations. In this paper, we examine the
 widely used Limber approximation for the projected weak-lensing power spectrum.
 We consider spherical coordinates and the flat-sky approximation, and compute
-the full projection \forref{of the lensing power spectrum}. The first-order
+the full projection of the lensing power spectrum. The first-order
 extended Limber approximation provides sub-percent accuracy for $\ell > 10$ and
 is sufficient for present surveys. The associated errors are sub-dominant even
 for future large surveys.
@@ -151,7 +147,7 @@ fast Hankel transformation.
 This paper is organised as follows.  In section~\ref{sec:wl} we provide a
 pedagogical introduction to weak gravitational lensing theory, projections and
 power spectra for the flat-sky and spherical cases, following the seminal work
-\forref{by} \citet{2000PhRvD..62d3007H} \cite[see also][]{2005PhRvD..72b3516C}. In
+by \citet{2000PhRvD..62d3007H} \cite[see also][]{2005PhRvD..72b3516C}. In
 section~\ref{sec:L2} we derive weak-lensing observables using a second-order
 Limber approximation first introduced by \citet{2008PhRvD..78l3506L}. We
 compare the shear power spectrum and the commonly-used two-point shear
@@ -161,8 +157,8 @@ for each case using CFHTLenS data from \citet{CFHTLenS-2pt-notomo}. This paper
 draws from several sources of literature which have previously discussed the
 full projection, or reviewed the accuracy of the Limber approximation for weak
 lensing studies, namely \citet{2008PhRvD..78d3002S,2012PhRvD..86b3001B,
-2012MNRAS.422.2854G, 2016arXiv161104954K}\forref{, see also
-\cite{2017arXiv170401054L} for a more recent work.} We present a discussion and
+2012MNRAS.422.2854G, 2016arXiv161104954K}, see also
+\cite{2017arXiv170401054L} for a more recent work. We present a discussion and
 comparison of our results to these papers in Appendix~\ref{app:B}.
 
 
@@ -198,7 +194,6 @@ where the lensing efficiency $q$ is given by
 %
 \begin{equation}
   q(\chi) = \int\limits_\chi^{\chi_{\rm h}} {\rm d} \chi^\prime \, n(\chi^\prime)
-    %\frac{f_K(\chi^\prime - \chi)}{f_K(\chi^\prime)},
     \frac{\chi^\prime - \chi}{\chi^\prime},
   %
   \label{eq:lens_efficiency}
@@ -318,9 +313,6 @@ The first line expresses $C_{ij}^\psi$ in terms of the 3D potential power spectr
 \begin{align}
   \left\langle \hat \Phi(\vec k; \chi) \hat \Phi^\ast(\vec k^\prime; \chi^\prime) \right\rangle
     = & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) P_\Phi(k; \chi, \chi^\prime).
-    %\nonumber \\
-    %= & (2\pi)^3 \delta_{\rm D}(\vec k - \vec k^\prime) \pref^2 k^{-4} a^{-1}(\chi) a^{-1}(\chi^\prime)
-      %P_{\rm m}(k; \chi, \chi^\prime).
   \label{eq:p_phi}
 \end{align}
 %
@@ -502,7 +494,7 @@ The majority of cosmic shear analyses have used the predicted lensing power
 spectrum approximated on a flat sky, neglecting the sky curvature. This is a
 valid approach for past and current survey areas with an extent less than 10
 degrees. To account for the sky curvature of the observed data, the shear
-correlation functions from observed galaxy ellipticities \forref{are} now routinely
+correlation functions from observed galaxy ellipticities are now routinely
 computed using spherical coordinates, since projecting to a Cartesian plane has
 been shown to cause significant biases of the two-point funtion on large scales
 \citep{FSHK08}, and lead to spurious B-modes \citep{asgari/etal:2017}. Here
@@ -599,7 +591,7 @@ the form
   \label{eq:int_dchi}
 \end{equation}
 %
-by performing a Taylor expansion of an arbitrary \forref{differentiable} function
+by performing a Taylor expansion of an arbitrary differentiable function
 $f$ around $x = k \chi = \nu = \ell + 1/2$, where the Bessel function has its
 approximate maximum.
 
@@ -757,7 +749,7 @@ To further develop equation~(\ref{eq:P_geom_mean}), we divide out the growth fac
 the power spectrum,
 %
 \begin{equation}
- P_{\rm m}(k, \chi) =: D^2_+(\chi) \tilde P_{\rm m}(k, \chi) \forref{\approx D^2_+(\chi) \tilde P_{\rm m}(k)}.
+ P_{\rm m}(k, \chi) =: D^2_+(\chi) \tilde P_{\rm m}(k, \chi) \approx D^2_+(\chi) \tilde P_{\rm m}(k).
   \label{eq:P_k_chi_sep_s}
 \end{equation}
 %
@@ -931,10 +923,10 @@ Fig.~\ref{fig:Cl_cases} is due to numerical noise arising from numerical
 integration errors in the calculation of the full spherical solution when $\ell
 > 20$.
 
-\forref{We note that in all cases the second-order Limber expansion adds power
+We note that in all cases the second-order Limber expansion adds power
 to the first-order term. In the flat hybrid case, which over-estimates the full
 spherical solution, this results in the second-order expansion being less
-precise compared to first-order.}
+precise compared to first-order.
 
 Compared to the statistical power of current and future surveys, all
 approximations discussed here are subdominant to the cosmic variance, $\Delta
@@ -976,13 +968,13 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
   %
   \caption{\label{tab:cases}The shear power spectrum approximations studied in this paper. `ID' is the label
     used in the text and figures.
-    \forref{The sixth (seventh) column indicates the mode $\ell_x$ such that for $\ell \leq \ell_x$, the approximated
-    power spectrum is more accurate than $x$, with $x=0.1$ ($0.01$).}
+    The sixth (seventh) column indicates the mode $\ell_x$ such that for $\ell \leq \ell_x$, the approximated
+    power spectrum is more accurate than $x$, with $x=0.1$ ($0.01$).
     } 
     %
     \begin{tabular}{|p{0.22\textwidth}|l|c|c|c|c|c|p{0.21\textwidth}}
   \hline
-  Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & \forref{$\ell_{0.1}$} & \forref{$\ell_{0.01}$} & Comment \\ \hline
+  Case & ID & equation & $p(\ell)$ & $\nu(\ell)$ & $\ell_{0.1}$ & $\ell_{0.01}$ & Comment \\ \hline
   %  black
   $1^{\rm st}$-order standard Limber, flat & L1Fl & (\ref{eq:P_ell_limber1})+(i)
     & $1$ & $\ell$ & $4$ & $60$ & Pre-2014 CFHTLenS and DLS \\ \hline
@@ -1024,12 +1016,12 @@ survey (sky area $15,000$ square degrees) for all $\ell$.
 The majority of cosmic shear analyses to date have adopted real-space
 correlation statistics, since these can be measured directly from an observed
 galaxy shape catalogue. The baseline quantity is the two-point correlation
-function \citep{1991ApJ...370....1M, 1992ApJ...388..272K, BS01}, given \forref{in the flat-sky approximation} by
+function \citep{1991ApJ...370....1M, 1992ApJ...388..272K, BS01}, given in the flat-sky approximation by
 %
 \begin{align}
   \xi_+(\theta) 
   % &
-  = \forref{\left\langle \gamma \gamma^\ast \right\rangle(\theta) =} \frac 1 {2\pi} \int {\rm d} \ell \, \ell \, {\rm J}_0(\ell
+  = \left\langle \gamma \gamma^\ast \right\rangle(\theta) = \frac 1 {2\pi} \int {\rm d} \ell \, \ell \, {\rm J}_0(\ell
    \theta)
   P^\gamma(\ell);
   \quad
@@ -1037,7 +1029,7 @@ function \citep{1991ApJ...370....1M, 1992ApJ...388..272K, BS01}, given \forref{i
    %
    \xi_-(\theta)
   %&
-  = \forref{\left\langle \gamma \gamma \right\rangle(\theta) =} \frac 1 {2\pi} \int
+  = \left\langle \gamma \gamma \right\rangle(\theta) = \frac 1 {2\pi} \int
    {\rm d} \ell \, \ell \, {\rm J}_4(\ell \theta)
   P^\gamma(\ell).
   %
@@ -1052,20 +1044,18 @@ when adopting a second-order extended Limber approximation.
 On a sphere, correlation functions formally cannot be related to the power
 spectrum by the Hankel transform in equation~(\ref{eqn:xiGG}), and should be
 replaced by the spherical transform
-\forref{\citep{1999IJMPD...8...61N,2004MNRAS.350..914C}}
+\citep{1999IJMPD...8...61N,2004MNRAS.350..914C}
 %
-\forref{
 \begin{equation}
  \xi_+(\theta) 
   =  \frac 1{4\pi} \sum\limits_{\ell=2}^\infty (2 \ell + 1) C^\gamma(\ell) {\rm d}^\ell_{2\,2}(\theta); \quad 
- \xi_0(\theta) 
+ \xi_-(\theta) 
   =  \frac 1{4\pi} \sum\limits_{\ell=2}^\infty (2 \ell + 1) C^\gamma(\ell) {\rm d}^\ell_{2\,-2}(\theta)
   \label{eq:xi_wigner}
 \end{equation}
-}
 %
-\forref{where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details
-on their numerical calculation.}
+where ${\rm d}^\ell_{m\,n}$ are the reduced Wigner ${\rm D}$-matrices, see App.~\ref{app:C} for details
+on their numerical calculation.
 
 The spherical power spectrum is formally not defined for non-integer $\ell$
 \citep[see][for alternative spherical-sky formulae for the two-point
@@ -1087,15 +1077,15 @@ Fig.~\ref{fig:xi_p_wigner}. We show the full projection and the best
 approximation, ExtL2Sph. Note that for the `FullSph' case we replace the full
 projection with ExtL2Sph for $\ell > 200$ to reduce computation time.
 %
-We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than \forref{$5$ ($0.2$) percent
-for $\xi_+$ ($\xi_-$)}.
+We find that the Hankel transform (equation~\ref{eqn:xiGG}) is accurate to better than $5$ ($0.2$) percent
+for $\xi_+$ ($\xi_-$).
 %
 The difference between the second-order Limber and full projection solution using the
-spherical transform (equation~\ref{eq:xi_wigner}) is well below one \forref{($0.03$) percent
-on scales of $\vartheta < 300$ arcminutes for $\xi_+$ ($\xi_-$)}.
+spherical transform (equation~\ref{eq:xi_wigner}) is well below one ($0.03$) percent
+on scales of $\vartheta < 300$ arcminutes for $\xi_+$ ($\xi_-$).
 The red lines in Fig.~\ref{fig:xi_p_wigner} present the limit of
 precision that we can achieve with the current fast Hankel transform implementation
-for the correlation function. The green \forref{lines show} the limit of the
+for the correlation function. The green lines show the limit of the
 second-order Limber approximation on the correlation function.
 
 Figure~\ref{fig:xi_pm} shows the two-point correlation functions $\xi_+$ (left)
@@ -1123,10 +1113,10 @@ projection methods.
   \end{center}
 
   \caption{%
-    \forref{The difference of the two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right})
+    The difference of the two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right})
     of the ExtL2Sph projection relative to the full spherical case (FullSph). Two cases of the shear correlation function transformation for
     ExtL2Spha are shown,
-    the full spherical case (eq.~\ref{eq:xi_wigner}, green solid lines), and the flat-sky Hankel transform (eq.~\ref{eqn:xiGG}, red dashed curves).}
+    the full spherical case (eq.~\ref{eq:xi_wigner}, green solid lines), and the flat-sky Hankel transform (eq.~\ref{eqn:xiGG}, red dashed curves).
   }
 
   \label{fig:xi_p_wigner}
@@ -1152,9 +1142,9 @@ projection methods.
   \end{center}
 
   \caption{The two-point shear correlation functions $\xi_+$ (\emph{left}) and $\xi_-$ (\emph{right}).
-  In the spherical cases (ExtL1Sph, ExtL2Sph, FullSph), \forref{$\xi_+$ and $\xi_-$ have} been computed using the spherical
-  transform (equation~\ref{eq:xi_wigner}). \forref{For the flat cases the Hankel transform
-  in equation~(\ref{eqn:xiGG}) was used.}
+  In the spherical cases (ExtL1Sph, ExtL2Sph, FullSph), $\xi_+$ and $\xi_-$ have been computed using the spherical
+  transform (equation~\ref{eq:xi_wigner}). For the flat cases the Hankel transform
+  in equation~(\ref{eqn:xiGG}) was used.
   The upper panels
   show the total shear correlation functions for the range of cases listed in Table~\ref{tab:cases}.
     The lower panels shows the relative differences to the spherical sky second-order extended Limber approximation, (ExtL2Sph).
@@ -1438,7 +1428,6 @@ the expressions of \cite{2012MNRAS.422.2854G}.
 \label{app:C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\forref{
 The calculation of the shear correlation function on the sphere requires the
 estimation of the reduced Wigner ${\rm D}$-matrices ${\rm d}^\ell_{2\,2}$ and
 ${\rm d}^\ell_{2\,-2}$. The general calculation of ${\rm d}^\ell_{m\,n}$ is
@@ -1457,7 +1446,6 @@ we are interested in only a subset of these matrices. In particular, following
 \end{equation}
 %
 which allows to calculate all required reduced Wigner ${\rm D}$-matrices from the first two elements.
-}
 
 \label{lastpage}
 
